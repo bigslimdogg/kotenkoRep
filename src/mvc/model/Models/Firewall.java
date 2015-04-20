@@ -36,7 +36,10 @@ public class Firewall extends ActiveElement{
     public void setAddress2(int address2) {
         this.address2 = address2;
     }
-
+    
+    public boolean isAddressCorrect(int address){
+        return true;
+    }
     
     @Override
     public void setPrice(double newPrice) {
