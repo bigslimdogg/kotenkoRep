@@ -27,7 +27,7 @@ public class Network {
     
     public HashMap<PathElement,PathElement> getPathElements(){
         HashMap<PathElement,PathElement> elemWithConnection = null;
-        for(PathElement elem : ActiveElement.elements){
+        for(PathElement elem : ActiveElement.getElements()){
             if(elem.getConnections() != null){
                 for(PathElement elemToConnected : elem.getConnections()){
                     elemWithConnection.put(elem, elemToConnected);
