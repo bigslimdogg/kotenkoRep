@@ -6,6 +6,7 @@
 package mvc.model.models;
 
 import mvc.model.elModel.PassiveElement;
+import mvc.model.network.Network;
 
 /**
  *
@@ -19,11 +20,12 @@ public class Hub extends PassiveElement{
     private String info;
     private int unitAmount;
 
-    public Hub(int id, double price, String info, int unitAmount) {
+    public Hub(int id, double price, String info, int unitAmount,Network net) {
         this.id = id;
         this.price = price;
         this.info = info;
         this.unitAmount = unitAmount;
+        net.addElements(this);
     }
 
    

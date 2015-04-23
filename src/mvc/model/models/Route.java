@@ -31,13 +31,13 @@ public class Route extends ActiveElement{
     private boolean turnedOn;
     private LinkedList<PathElement> connections;
 
-    public Route(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    public Route(double delay, int id, String ip, String info, double price,Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-        ActiveElement.elements.add(this);
+        net.addElements(this);
     }
 
    

@@ -21,12 +21,7 @@ public abstract class ActiveElement implements PathElement{
     protected InetAddress ip;
     protected String info;
     protected double price;
-    protected static List<PathElement> elements;
-
-    public static List<PathElement> getElements() {
-        return elements;
-    }
-    
+  
     
     
 

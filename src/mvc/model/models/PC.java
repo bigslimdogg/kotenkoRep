@@ -17,6 +17,7 @@ import mvc.model.myExceptions.AlreadyExcistException;
 import mvc.model.network.*;
 
 
+
 public class PC extends ActiveElement {
     
     private double delay;
@@ -28,13 +29,13 @@ public class PC extends ActiveElement {
     
     
 
-    public PC(double delay, int id, String info, double price, String ip) throws UnknownHostException {
+    public PC(double delay, int id, String info, double price, String ip,Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-        ActiveElement.elements.add(this);
+        net.addElements(this);
     }
 
 

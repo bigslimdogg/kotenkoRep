@@ -31,14 +31,14 @@ public class Switch extends ActiveElement{
     private int unitAmount;
     private LinkedList<PathElement> connections;
 
-    public Switch(double delay, int id, String ip, String info, double price, int unitAmount) throws UnknownHostException {
+    public Switch(double delay, int id, String ip, String info, double price, int unitAmount,Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
         this.unitAmount = unitAmount;
-        ActiveElement.elements.add(this);
+        net.addElements(this);
     }
 
   

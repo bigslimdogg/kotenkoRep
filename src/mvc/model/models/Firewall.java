@@ -30,13 +30,13 @@ public class Firewall extends ActiveElement{
     private double price;
     private LinkedList<PathElement> connections;
 
-    public Firewall(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    public Firewall(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-        ActiveElement.elements.add(this);
+        net.addElements(this);
     }
 
   
