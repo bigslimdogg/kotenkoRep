@@ -30,15 +30,7 @@ public abstract class RouteProviderWithLessPrice implements RouteProvider{
     
     public ArrayList<PathElement> getRouteID(int id1, int id2, double price, Network net) throws AlreadyExcistException {
         
-        ArrayList<PathElement> elemWithLessPrice =  null;
-
-        for(PathElement elem : net.getPathElements()){
-            if(elem.getID() <= id1 && elem.getID() >= id2){
-                if(elem.getPrice() <= price)
-                    elemWithLessPrice.add(elem);
-            }
-        }
-        return elemWithLessPrice;
+       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

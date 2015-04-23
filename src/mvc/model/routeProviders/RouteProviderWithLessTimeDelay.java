@@ -17,15 +17,7 @@ public abstract class RouteProviderWithLessTimeDelay implements RouteProvider{
 
     public ArrayList<PathElement> getRouteID(int id1, int id2, double TimeDelay, Network net) throws AlreadyExcistException {
         
-        ArrayList<PathElement> elemWithLessTimeDelay =  null;
-
-        for(PathElement elem : net.getPathElements()){
-            if(elem.getID() <= id1 && elem.getID() >= id2){
-                if(elem.getDelay() <= TimeDelay)
-                    elemWithLessTimeDelay.add(elem);
-            }
-        }
-        return elemWithLessTimeDelay;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

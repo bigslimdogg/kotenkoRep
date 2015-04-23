@@ -5,6 +5,7 @@
  */
 package mvc.model.network;
 
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -24,22 +25,16 @@ public class Network {
 
 
     
-    public Set<PathElement> getPathElements() throws AlreadyExcistException{
-        
-        Set<PathElement> allActiveElements = null;
-       
-        for(Connection con : ActiveElement.allConnections){
-            
-            if(allActiveElements.contains(con.el1) || allActiveElements.contains(con.el2))
-                continue;
-            else{
-                allActiveElements.add(con.el1);
-                allActiveElements.add(con.el2);
+    public HashMap<PathElement,PathElement> getPathElements(){
+        HashMap<PathElement,PathElement> elemWithConnection = null;
+        for(PathElement elem : ActiveElement.elements){
+            if(elem.getConnections() != null){
+                for(PathElement elemToConnected : elem.getConnections()){
+                    elemWithConnection.put(elem, elemToConnected);
+                }
             }
-
-            
         }
-        return allActiveElements;
+        return elemWithConnection;
     }
     
 }
