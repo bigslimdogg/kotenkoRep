@@ -8,10 +8,10 @@ import mvc.model.myExceptions.ElementNotFoundException;
 import mvc.model.peModel.PathElement;
 
 
-public abstract class RouteProviderWithLessTimeDelay implements RouteProvider{
+public class RouteProviderWithLessTimeDelay implements RouteProvider{
 
 
-    public static ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
+    public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         
         int k = 0;
         

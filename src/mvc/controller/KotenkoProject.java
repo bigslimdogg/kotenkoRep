@@ -9,7 +9,8 @@ import mvc.model.models.Route;
 import mvc.model.myExceptions.AccessException;
 import mvc.model.network.Network;
 import mvc.model.peModel.PathElement;
-import static mvc.model.routeProviders.RouteProviderWithLessPrice.getRouteID;
+import mvc.model.routeProviders.RouteProviderWithLessPrice;
+
 
 
 public class KotenkoProject {
@@ -38,7 +39,9 @@ public class KotenkoProject {
         p2.connect(p4, net);
         p3.connect(p4, net);
         
-        System.out.println(getRouteID(1, 4, net));
+        
+        RouteProviderWithLessPrice rp = new RouteProviderWithLessPrice();
+        System.out.println(rp.getRouteID(1, 4, net));
         
       
     }

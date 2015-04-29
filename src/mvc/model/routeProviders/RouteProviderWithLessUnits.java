@@ -15,11 +15,11 @@ import mvc.model.peModel.PathElement;
  *
  * @author Nick
  */
-public abstract class RouteProviderWithLessUnits implements RouteProvider{
+public class RouteProviderWithLessUnits implements RouteProvider{
 
 
 
-    public static ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
+    public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

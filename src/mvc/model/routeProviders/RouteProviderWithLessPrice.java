@@ -24,7 +24,7 @@ import java.util.*;
  *
  * @author Nick
  */
-public abstract class RouteProviderWithLessPrice implements RouteProvider{
+public class RouteProviderWithLessPrice implements RouteProvider{
 
  
     public String getDescription() {
@@ -36,7 +36,7 @@ public abstract class RouteProviderWithLessPrice implements RouteProvider{
     
 
  
-    public static ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
+    public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
         HashMap<PathElement,ArrayList<PathElement>> allPathes = new HashMap<PathElement,ArrayList<PathElement>>();//таблицу узлов и их кратчайших маршрутов
         
