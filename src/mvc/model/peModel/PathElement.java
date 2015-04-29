@@ -24,11 +24,11 @@ public interface PathElement {
     
     void setInfo(String newInfo);
     
-    void setIP(InetAddress newIP);
+    void setIP(String ip);
     
     void setPrice(double newPrice);
     
-    LinkedList<PathElement> getConnections();
+    ArrayList<PathElement> getConnections();
     
     
     

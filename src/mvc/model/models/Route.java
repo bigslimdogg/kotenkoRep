@@ -7,6 +7,7 @@ package mvc.model.models;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -29,27 +30,32 @@ public class Route extends ActiveElement{
     private String info;
     private double price;
     private boolean turnedOn;
-    private LinkedList<PathElement> connections;
+    private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
 
-    public Route(double delay, int id, String ip, String info, double price,Network net) throws UnknownHostException {
+    public Route(double delay, int id, String ip, String info, double price) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-        net.addElements(this);
+
     }
 
-   
+
 
     public boolean isTurnedOn() {
         return turnedOn;
     }
     
         @Override
-    public void connect(PathElement elToConnect)throws Exception{
+    public void connect(PathElement elToConnect, Network net)throws Exception{
         
 
+        for(PathElement elem : connections)
+            if(elem == elToConnect)
+            {
+                throw new AlreadyExcistException();
+            }
         if(this.isTurnedOn() == false)
             throw new AccessException();
 
@@ -70,6 +76,9 @@ public class Route extends ActiveElement{
         }
         
         connections.add(elToConnect);
+        elToConnect.getConnections().add(this);
+        net.addElements(elToConnect);
+        net.addElements(this);
     }
     
     
@@ -86,7 +95,7 @@ public class Route extends ActiveElement{
     }
 
     @Override
-    public void setIP(InetAddress newIP) {
+    public void setIP(String newIP)  {
         super.setIP(newIP); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -107,30 +116,30 @@ public class Route extends ActiveElement{
 
     @Override
     public double getPrice() {
-        return super.getPrice(); //To change body of generated methods, choose Tools | Templates.
+        return price; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public InetAddress getIP() {
-        return super.getIP(); //To change body of generated methods, choose Tools | Templates.
+        return ip; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String getInfo() {
-        return super.getInfo(); //To change body of generated methods, choose Tools | Templates.
+        return info; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int getID() {
-        return super.getID(); //To change body of generated methods, choose Tools | Templates.
+        return id; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public double getDelay() {
-        return super.getDelay(); //To change body of generated methods, choose Tools | Templates.
+        return delay; //To change body of generated methods, choose Tools | Templates.
     }
-        @Override
-    public LinkedList<PathElement> getConnections(){
+    @Override
+    public ArrayList<PathElement> getConnections(){
         return connections;
     }
     

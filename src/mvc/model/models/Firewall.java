@@ -7,6 +7,7 @@ package mvc.model.models;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -28,21 +29,30 @@ public class Firewall extends ActiveElement{
     private InetAddress ip;
     private String info;
     private double price;
-    private LinkedList<PathElement> connections;
+    private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
 
-    public Firewall(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
+    public Firewall(double delay, int id, String ip, String info, double price) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-        net.addElements(this);
+           
     }
 
   
     
-        public void connect(PathElement elToConnect)throws Exception{
+        public void connect(PathElement elToConnect, Network net)throws Exception{
         
+        if(elToConnect == null){
+            throw new NullPointerException();
+        }
+        
+        for(PathElement elem : connections)
+            if(elem == elToConnect)
+            {
+                throw new AlreadyExcistException();
+            }
 
         if(elToConnect instanceof Route){
             Route el = (Route) elToConnect;
@@ -63,8 +73,10 @@ public class Firewall extends ActiveElement{
             if(el.getUnitAmount() < 1)
                 throw new AccessException();
         }
-        
-        connections.add(elToConnect);  
+        connections.add(elToConnect);
+        elToConnect.getConnections().add(this);
+        net.addElements(elToConnect);
+        net.addElements(this); 
     }
 
 
@@ -78,9 +90,11 @@ public class Firewall extends ActiveElement{
     }
 
     @Override
-    public void setIP(InetAddress newIP) {
-        super.setIP(newIP); //To change body of generated methods, choose Tools | Templates.
+    public void setIP(String ip) {
+        super.setIP(ip); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
     @Override
     public void setInfo(String newInfo) {
@@ -114,16 +128,16 @@ public class Firewall extends ActiveElement{
 
     @Override
     public int getID() {
-        return super.getID(); //To change body of generated methods, choose Tools | Templates.
+        return id; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public double getDelay() {
-        return super.getDelay(); //To change body of generated methods, choose Tools | Templates.
+        return delay; //To change body of generated methods, choose Tools | Templates.
     }
     
-        @Override
-    public LinkedList<PathElement> getConnections(){
+    @Override
+    public ArrayList<PathElement> getConnections(){
         return connections;
     }
     

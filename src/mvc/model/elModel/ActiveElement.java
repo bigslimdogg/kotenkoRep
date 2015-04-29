@@ -6,9 +6,13 @@
 package mvc.model.elModel;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import mvc.model.peModel.PathElement;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mvc.model.connection.Connection;
+import mvc.model.network.Network;
 
 /**
  *
@@ -21,6 +25,9 @@ public abstract class ActiveElement implements PathElement{
     protected InetAddress ip;
     protected String info;
     protected double price;
+
+    public ActiveElement() {
+    }
   
     
     
@@ -40,7 +47,7 @@ public abstract class ActiveElement implements PathElement{
 
     @Override
     public int getID() {
-        return id;
+        return this.id;
     }
 
     @Override
@@ -50,17 +57,21 @@ public abstract class ActiveElement implements PathElement{
 
     @Override
     public InetAddress getIP() {
-        return ip;
+        return this.ip;
     }
 
     @Override
-    public void setIP(InetAddress ip) {
-        this.ip = ip;
+    public void setIP(String ip) {
+        try {
+            this.ip = InetAddress.getByName(ip);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public String getInfo() {
-        return info;
+        return this.info;
     }
 
     @Override
@@ -70,7 +81,7 @@ public abstract class ActiveElement implements PathElement{
 
     @Override
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
     @Override
@@ -82,7 +93,7 @@ public abstract class ActiveElement implements PathElement{
     
     
     
-    public void connect(PathElement elToConnect)throws Exception{
+    public void connect(PathElement elToConnect, Network net)throws Exception{
         
     }
 

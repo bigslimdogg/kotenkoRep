@@ -5,17 +5,22 @@
  */
 package mvc.model.network;
 
+import java.net.InetAddress;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.stream.Collectors;
 import mvc.model.connection.Connection;
 import mvc.model.elModel.ActiveElement;
 import mvc.model.myExceptions.AlreadyExcistException;
 import mvc.model.peModel.PathElement;
+import mvc.model.routeProviders.RouteProvider;
+import mvc.model.routeProviders.RouteProviderWithLessPrice;
 
 /**
  *
@@ -23,34 +28,29 @@ import mvc.model.peModel.PathElement;
  */
 public class Network {
     
-    private List<PathElement> elements;
 
+    private ArrayList<PathElement> elements = new ArrayList<PathElement>();
+
+    
     public Network() {
     }
 
     public void addElements(PathElement elToAdd) {
-        this.elements.add(elToAdd);
+
+            elements.add(elToAdd);
     }
 
-    public List<PathElement> getElements() {
+ 
+    
+    
+
+
+    
+    public ArrayList<PathElement>  getPathElements(){
+        
         return elements;
     }
     
-    
-    
 
-
-    
-    public HashMap<PathElement,PathElement> getPathElements(){
-        HashMap<PathElement,PathElement> elemWithConnection = null;
-        for(PathElement elem : this.getElements()){
-            if(elem.getConnections() != null){
-                for(PathElement elemToConnected : elem.getConnections()){
-                    elemWithConnection.put(elem, elemToConnected);
-                }
-            }
-        }
-        return elemWithConnection;
-    }
     
 }

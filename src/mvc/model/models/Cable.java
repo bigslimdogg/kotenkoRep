@@ -5,10 +5,13 @@
  */
 package mvc.model.models;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Set;
 import mvc.model.connection.Connection;
 import mvc.model.elModel.PassiveElement;
 import mvc.model.network.Network;
+import mvc.model.peModel.PathElement;
 
 /**
  *
@@ -21,7 +24,8 @@ public class Cable extends PassiveElement{
     private double price;
     private String info;
     private TypeOfCable type;
-
+    private ArrayList<PathElement> connections = new ArrayList<PathElement>();
+    
     public TypeOfCable getType() {
         return type;
     }
@@ -30,12 +34,12 @@ public class Cable extends PassiveElement{
         this.type = type;
     }
 
-    public Cable(int id, double price, String info, TypeOfCable type,Network net) {
+    public Cable(int id, double price, String info, TypeOfCable type) {
         this.id = id;
         this.price = price;
         this.info = info;
         this.type = type;
-        net.addElements(this);
+
     }    
 
     @Override
@@ -55,25 +59,28 @@ public class Cable extends PassiveElement{
 
     @Override
     public double getPrice() {
-        return super.getPrice(); //To change body of generated methods, choose Tools | Templates.
+        return price; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String getInfo() {
-        return super.getInfo(); //To change body of generated methods, choose Tools | Templates.
+        return info; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int getID() {
-        return super.getID(); //To change body of generated methods, choose Tools | Templates.
+        return id; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public double getDelay() {
-        return super.getDelay(); //To change body of generated methods, choose Tools | Templates.
+        return delay; //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    @Override
+    public ArrayList<PathElement> getConnections(){
+        return connections;
+    }
     
     
 }

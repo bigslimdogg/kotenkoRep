@@ -47,7 +47,7 @@ public abstract class PassiveElement implements PathElement{
     
 
     @Override
-    public LinkedList<PathElement> getConnections() {
+    public ArrayList<PathElement> getConnections() {
         return null;
     }
 
@@ -67,7 +67,7 @@ public abstract class PassiveElement implements PathElement{
     }
 
     @Override
-    public void setIP(InetAddress newIP) {
+    public void setIP(String ip) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

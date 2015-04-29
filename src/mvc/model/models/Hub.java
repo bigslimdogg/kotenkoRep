@@ -5,8 +5,11 @@
  */
 package mvc.model.models;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import mvc.model.elModel.PassiveElement;
 import mvc.model.network.Network;
+import mvc.model.peModel.PathElement;
 
 /**
  *
@@ -19,17 +22,16 @@ public class Hub extends PassiveElement{
     private double price;
     private String info;
     private int unitAmount;
-
-    public Hub(int id, double price, String info, int unitAmount,Network net) {
+    private ArrayList<PathElement> connections = new ArrayList<PathElement>();
+    
+    public Hub(int id, double price, String info, int unitAmount) {
         this.id = id;
         this.price = price;
         this.info = info;
         this.unitAmount = unitAmount;
-        net.addElements(this);
+
     }
 
-   
-    
 
     public int getUnitAmount() {
         return unitAmount;
@@ -74,7 +76,10 @@ public class Hub extends PassiveElement{
     public double getDelay() {
         return super.getDelay(); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     @Override
+    public ArrayList<PathElement> getConnections(){
+        return connections;
+    }   
     
     
 }
