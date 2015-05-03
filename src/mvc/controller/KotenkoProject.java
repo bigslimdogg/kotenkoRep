@@ -44,16 +44,12 @@ public class KotenkoProject {
         
         
         
-        RouteProviderWithLessUnits rp = new RouteProviderWithLessUnits();
-        System.out.println(rp.getRouteID(1, 5, net));
-        
-        //тест на проверку ip
-        Route r1 = new Route(1, 13, "85.174.76.160", "fds", 21);
-        Firewall f = new Firewall(1, 52, "1.100.12.193", "sd", 14.5);
-        r1.connect(f, net);
-        System.out.println(r1.getConnections());
-        
-        
+     
+        RouteProviderWithLessPrice rp2 = new RouteProviderWithLessPrice();
+     
+      
+        System.out.println(net.getPathElements());
+      
         
     }
     

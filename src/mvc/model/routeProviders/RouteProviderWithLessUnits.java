@@ -88,19 +88,29 @@ public class RouteProviderWithLessUnits implements RouteProvider{
             next = q.peekFirst();
             q.pollFirst();
             for(PathElement elem : next.getConnections()){
-                if(roots.get(elem).isUsed == false){
-                    roots.get(elem).destination = roots.get(next).destination + 1;
-                    q.add(elem);
-                    roots.get(elem).isUsed = true;
+                if(elem.checkCon(next) == false)
+                    continue;
+                else {
+                    if (roots.get(elem).isUsed == false) {
+                        roots.get(elem).destination = roots.get(next).destination + 1;
+                        q.add(elem);
+                        roots.get(elem).isUsed = true;
+                    }
                 }
             }
         }
        
         for(PathElement child : roots.keySet()){//выясняем родителей каждого узла
-            PathElement parent = child.getConnections().get(0);
+            PathElement parent = null;
+            for(PathElement elem : child.getConnections()){
+                if(elem.checkCon(child) != false){
+                    parent = elem;
+                    break;
+                }
+            }
             int minDest = roots.get(parent).destination;
-            for(PathElement connectedWithChild : child.getConnections()){
-                if(roots.get(connectedWithChild).destination < minDest){
+            for (PathElement connectedWithChild : child.getConnections()) {
+                if (roots.get(connectedWithChild).destination < minDest) {
                     parent = connectedWithChild;
                     minDest = roots.get(parent).destination;
                 }

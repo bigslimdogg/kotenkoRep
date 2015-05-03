@@ -40,7 +40,13 @@ public class Route extends ActiveElement{
 
     }
 
-
+    @Override
+    public boolean checkCon(PathElement parent) {
+        if(this.isTurnedOn() == false)
+            return false;
+        else
+            return true;
+    }
 
     public boolean isTurnedOn() {
         return turnedOn;
@@ -55,19 +61,14 @@ public class Route extends ActiveElement{
             {
                 throw new AlreadyExcistException();
             }
-        if(this.isTurnedOn() == false)
-            throw new AccessException();
+
 
         if(elToConnect instanceof Switch){
             Switch el = (Switch) elToConnect;
             if(el.getUnitAmount() < 1)
                 throw new AccessException();
         }
-        if(elToConnect instanceof Firewall){
-            Firewall el = (Firewall) elToConnect;
-            if(el.isAddressCorrect(this.getIP().toString()) == false)
-                throw new AccessException();
-        } 
+
         if(elToConnect instanceof Hub){
             Hub el = (Hub) elToConnect;
             if(el.getUnitAmount() < 1)

@@ -1,9 +1,11 @@
 
 package mvc.model.peModel;
 
+import mvc.model.elModel.PassiveElement;
+
 import java.net.InetAddress;
 import java.util.*;
-import java.util.Set;
+
 
 public interface PathElement {
     
@@ -28,7 +30,7 @@ public interface PathElement {
     void setPrice(double newPrice);
     
     ArrayList<PathElement> getConnections();
-    
-    
-    
+
+    boolean checkCon(PathElement parent);
+
 }

@@ -101,14 +101,14 @@ public class RouteProviderWithLessPrice implements RouteProvider{
             if(roots.get(start).isUsed == true){
                 //когда соседи стартового узла просмотрены
                 next = start.getConnections().get(0);
-                start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой             
+                start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой
             }
             for(PathElement elem : start.getConnections()){
-                next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
+                    next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
                 if(roots.get(next).price > roots.get(start).price + next.getPrice()){
-                    roots.get(next).price = roots.get(start).price + next.getPrice();
+                        roots.get(next).price = roots.get(start).price + next.getPrice();
+                    }
                 }
-            }
             treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
             roots.get(start).isUsed = true;//помечаем его как посещенную
         }

@@ -85,8 +85,8 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
             for(PathElement elem : start.getConnections()){
                 next = getElemWithMinDelay(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
                 if(roots.get(next).price > roots.get(start).price + next.getDelay()){
-                    roots.get(next).price = roots.get(start).price + next.getDelay();
-                }
+                        roots.get(next).price = roots.get(start).price + next.getDelay();
+                    }
             }
             treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
             roots.get(start).isUsed = true;//помечаем его как посещенную

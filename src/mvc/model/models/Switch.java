@@ -41,8 +41,11 @@ public class Switch extends ActiveElement{
 
     }
 
-    
-    
+    @Override
+    public boolean checkCon(PathElement parent) {
+        return true;
+    }
+
     @Override
     public void connect(PathElement elToConnect, Network net)throws Exception{
         
@@ -54,21 +57,16 @@ public class Switch extends ActiveElement{
             {
                 throw new AlreadyExcistException();
             }        
-      
-        if(elToConnect instanceof Route){
-            Route el = (Route) elToConnect;
-            if(el.isTurnedOn() == false)
-                throw new AccessException();
-        }
+
 
         if(this.getUnitAmount() < 1)
             throw new AccessException();
- 
-        if(elToConnect instanceof Firewall){
-            Firewall el = (Firewall) elToConnect;
-            if(el.isAddressCorrect(this.getIP().toString()) == false)
+
+        if(elToConnect instanceof Switch){
+            Switch el = (Switch) elToConnect;
+            if(el.getUnitAmount() < 1)
                 throw new AccessException();
-        } 
+        }
         if(elToConnect instanceof Hub){
             Hub el = (Hub) elToConnect;
             if(el.getUnitAmount() < 1)

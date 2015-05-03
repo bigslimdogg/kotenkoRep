@@ -44,8 +44,14 @@ public class Firewall extends ActiveElement{
     public void setNotAllowedIP(String notAllowedIP) {
         this.notAllowedIP.add(notAllowedIP);
     }
-    
-    
+
+    @Override
+    public boolean checkCon(PathElement parent) {
+        if(isAddressCorrect(parent.getIP().toString()) == false)
+            return false;
+        else
+            return true;
+    }
     
     public Firewall(double delay, int id, String ip, String info, double price) throws UnknownHostException {
     
@@ -71,19 +77,14 @@ public class Firewall extends ActiveElement{
                 throw new AlreadyExcistException();
             }
 
-        if(elToConnect instanceof Route){
-            Route el = (Route) elToConnect;
-            if(el.isTurnedOn() == false)
-                throw new AccessException();
-        }
+
         if(elToConnect instanceof Switch){
             Switch el = (Switch) elToConnect;
             if(el.getUnitAmount() < 1)
                 throw new AccessException();
         }
 
-        if(this.isAddressCorrect(elToConnect.getIP().toString()) == false)
-                throw new AccessException();
+
         
         if(elToConnect instanceof Hub){
             Hub el = (Hub) elToConnect;

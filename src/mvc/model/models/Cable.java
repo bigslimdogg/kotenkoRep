@@ -40,7 +40,13 @@ public class Cable extends PassiveElement{
         this.info = info;
         this.type = type;
 
-    }    
+    }
+
+
+    @Override
+    public boolean checkCon(PathElement parent) {
+        return true;
+    }
 
     @Override
     public void setPrice(double newPrice) {

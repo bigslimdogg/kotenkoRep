@@ -25,7 +25,6 @@ public abstract class ActiveElement implements PathElement{
     protected InetAddress ip;
     protected String info;
     protected double price;
-    protected ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
     
     public ActiveElement() {
     }
@@ -91,7 +90,7 @@ public abstract class ActiveElement implements PathElement{
     }
 
   
-    
+
     
     
     public void connect(PathElement elToConnect, Network net)throws Exception{

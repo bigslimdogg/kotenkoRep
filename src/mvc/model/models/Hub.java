@@ -32,6 +32,10 @@ public class Hub extends PassiveElement{
 
     }
 
+    @Override
+    public boolean checkCon(PathElement parent) {
+       return true;
+    }
 
     public int getUnitAmount() {
         return unitAmount;
