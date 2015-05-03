@@ -35,10 +35,12 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         double min = child.getDelay();
         PathElement minChild = child;
         for(PathElement elem :parent.getConnections()){
-            if(elem.getDelay() < min){
-                minChild = elem;
+            if(elem.checkCon(parent) == true){  
+                if(elem.getDelay() < min){
+                    minChild = elem;
+                }
             }
-        }
+        }  
         return minChild;
     }
     
@@ -79,14 +81,21 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
                 //когда соседи стартового узла просмотрены
-                next = start.getConnections().get(0);
+               for(PathElement elem :start.getConnections()){
+                   if(elem.checkCon(start) == true){
+                       next = elem;
+                       break;
+                   }
+               }
                 start = getElemWithMinDelay(start, next);//берем следующего как соседа start с минимальной ценой             
             }
             for(PathElement elem : start.getConnections()){
-                next = getElemWithMinDelay(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
-                if(roots.get(next).price > roots.get(start).price + next.getDelay()){
+                if(elem.checkCon(start) == true){
+                    next = getElemWithMinDelay(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
+                    if(roots.get(next).price > roots.get(start).price + next.getDelay()){
                         roots.get(next).price = roots.get(start).price + next.getDelay();
                     }
+                }
             }
             treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
             roots.get(start).isUsed = true;//помечаем его как посещенную
@@ -94,9 +103,11 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
-                if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
-                    roots.get(elem).parentPE = connectedWithElem;
-                }
+                if(connectedWithElem.checkCon(elem) == true){
+                    if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
+                        roots.get(elem).parentPE = connectedWithElem;
+                    }
+                }    
             }   
         }
         
