@@ -48,7 +48,7 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         }
         
     }
-    
+
     public PathElement getElemWithMinPrice(PathElement parent, PathElement child){
         
         
@@ -66,9 +66,9 @@ public class RouteProviderWithLessPrice implements RouteProvider{
  
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-        
-        
-        
+
+
+
                 
         HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
         ArrayList<PathElement> treatedRoots = new ArrayList<>();
@@ -95,15 +95,15 @@ public class RouteProviderWithLessPrice implements RouteProvider{
             throw new ElementNotFoundException();
         }
   
-        
+
         
         while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
                 //когда соседи стартового узла просмотрены
-                next = start.getCheckedConnections().get(0);
+                next = start.getConnections().get(0);
                 start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой             
             }
-            for(PathElement elem : start.getCheckedConnections()){
+            for(PathElement elem : start.getConnections()){
                 next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
                 if(roots.get(next).price > roots.get(start).price + next.getPrice()){
                     roots.get(next).price = roots.get(start).price + next.getPrice();
@@ -114,11 +114,11 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         }
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
-            for(PathElement connectedWithElem : elem.getCheckedConnections()){
+            for(PathElement connectedWithElem : elem.getConnections()){
                 if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
                     roots.get(elem).parentPE = connectedWithElem;
                 }
-            }   
+            }
         }
         
         

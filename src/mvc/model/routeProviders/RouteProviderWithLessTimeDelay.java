@@ -79,10 +79,10 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
                 //когда соседи стартового узла просмотрены
-                next = start.getCheckedConnections().get(0);
+                next = start.getConnections().get(0);
                 start = getElemWithMinDelay(start, next);//берем следующего как соседа start с минимальной ценой             
             }
-            for(PathElement elem : start.getCheckedConnections()){
+            for(PathElement elem : start.getConnections()){
                 next = getElemWithMinDelay(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
                 if(roots.get(next).price > roots.get(start).price + next.getDelay()){
                     roots.get(next).price = roots.get(start).price + next.getDelay();
@@ -93,7 +93,7 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         }
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
-            for(PathElement connectedWithElem : elem.getCheckedConnections()){
+            for(PathElement connectedWithElem : elem.getConnections()){
                 if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
                     roots.get(elem).parentPE = connectedWithElem;
                 }

@@ -8,6 +8,7 @@ package mvc.model.models;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
+
 import mvc.model.elModel.PassiveElement;
 import mvc.model.network.Network;
 import mvc.model.peModel.PathElement;
@@ -24,7 +25,7 @@ public class Cable extends PassiveElement{
     private String info;
     private TypeOfCable type;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
-    private ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
+    
     public TypeOfCable getType() {
         return type;
     }
@@ -79,11 +80,6 @@ public class Cable extends PassiveElement{
     @Override
     public ArrayList<PathElement> getConnections(){
         return connections;
-    }
-    
-    @Override
-    public ArrayList<PathElement> getCheckedConnections(){
-        return checkedConnections;
     }
     
     

@@ -52,7 +52,6 @@ public class KotenkoProject {
         Firewall f = new Firewall(1, 52, "1.100.12.193", "sd", 14.5);
         r1.connect(f, net);
         System.out.println(r1.getConnections());
-        System.out.println(r1.getCheckedConnections());
         
         
         

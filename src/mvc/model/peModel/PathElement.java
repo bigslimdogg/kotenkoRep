@@ -28,7 +28,6 @@ public interface PathElement {
     void setPrice(double newPrice);
     
     ArrayList<PathElement> getConnections();
-    ArrayList<PathElement> getCheckedConnections();
     
     
     

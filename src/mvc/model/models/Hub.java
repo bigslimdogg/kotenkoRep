@@ -23,7 +23,7 @@ public class Hub extends PassiveElement{
     private String info;
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
-    private ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
+    
     public Hub(int id, double price, String info, int unitAmount) {
         this.id = id;
         this.price = price;
@@ -80,9 +80,5 @@ public class Hub extends PassiveElement{
     public ArrayList<PathElement> getConnections(){
         return connections;
     }   
-    @Override
-    public ArrayList<PathElement> getCheckedConnections(){
-        return checkedConnections;
-    }
     
 }

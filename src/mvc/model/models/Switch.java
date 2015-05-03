@@ -30,7 +30,7 @@ public class Switch extends ActiveElement{
     private double price;
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
-    private ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
+
     public Switch(double delay, int id, String ip, String info, double price, int unitAmount) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
@@ -55,7 +55,25 @@ public class Switch extends ActiveElement{
                 throw new AlreadyExcistException();
             }        
       
+        if(elToConnect instanceof Route){
+            Route el = (Route) elToConnect;
+            if(el.isTurnedOn() == false)
+                throw new AccessException();
+        }
 
+        if(this.getUnitAmount() < 1)
+            throw new AccessException();
+ 
+        if(elToConnect instanceof Firewall){
+            Firewall el = (Firewall) elToConnect;
+            if(el.isAddressCorrect(this.getIP().toString()) == false)
+                throw new AccessException();
+        } 
+        if(elToConnect instanceof Hub){
+            Hub el = (Hub) elToConnect;
+            if(el.getUnitAmount() < 1)
+                throw new AccessException();
+        }
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
         net.addElements(elToConnect);
@@ -120,38 +138,8 @@ public class Switch extends ActiveElement{
     }
     
     @Override
-    public ArrayList<PathElement> getCheckedConnections(){
-        for(PathElement elToConnect : connections){
-        if(elToConnect instanceof Route){
-            Route el = (Route) elToConnect;
-            if(el.isTurnedOn() == false)
-                continue;
-        }
-
-        if(this.getUnitAmount() < 1)
-            continue;
- 
-        if(elToConnect instanceof Firewall){
-            Firewall el = (Firewall) elToConnect;
-            if(el.isAddressCorrect(this.getIP().toString()) == false)
-                continue;
-        } 
-        if(elToConnect instanceof Hub){
-            Hub el = (Hub) elToConnect;
-            if(el.getUnitAmount() < 1)
-                continue;
-        }
-        else
-            checkedConnections.add(elToConnect);
-            elToConnect.getCheckedConnections().add(this);            
-        }
-        return checkedConnections;
-    }
-    
-    
-    @Override
     public ArrayList<PathElement> getConnections(){
-        
     return connections;
     }    
+    
 }
