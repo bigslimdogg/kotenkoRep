@@ -55,8 +55,10 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         double min = child.getPrice();
         PathElement minChild = child;
         for(PathElement elem :parent.getConnections()){
-            if(elem.getPrice() < min){
-                minChild = elem;
+            if(elem.checkCon(parent) == true){
+                if(elem.getPrice() < min){
+                 minChild = elem;
+                }
             }
         }
         return minChild;
@@ -100,23 +102,33 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
                 //когда соседи стартового узла просмотрены
-                next = start.getConnections().get(0);
+               for(PathElement elem :start.getConnections()){
+                   if(elem.checkCon(start) == true){
+                       next = elem;
+                       break;
+                   }
+               }
                 start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой
             }
             for(PathElement elem : start.getConnections()){
+                if(elem.checkCon(start) == true){
                     next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
-                if(roots.get(next).price > roots.get(start).price + next.getPrice()){
+                    if(roots.get(next).price > roots.get(start).price + next.getPrice()){
                         roots.get(next).price = roots.get(start).price + next.getPrice();
                     }
                 }
+            }
+           
             treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
             roots.get(start).isUsed = true;//помечаем его как посещенную
         }
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
-                if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
-                    roots.get(elem).parentPE = connectedWithElem;
+                if(connectedWithElem.checkCon(elem) == true){
+                    if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
+                        roots.get(elem).parentPE = connectedWithElem;
+                    }
                 }
             }
         }
