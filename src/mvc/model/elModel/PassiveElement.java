@@ -4,7 +4,7 @@ package mvc.model.elModel;
 import java.net.InetAddress;
 import mvc.model.peModel.PathElement;
 import java.util.*;
-import mvc.model.connection.Connection;
+
 
 
 public abstract class PassiveElement implements PathElement{

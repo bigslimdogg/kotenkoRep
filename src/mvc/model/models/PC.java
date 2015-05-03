@@ -8,7 +8,6 @@ package mvc.model.models;
 import java.net.*;
 import java.net.UnknownHostException;
 import java.util.*;
-import mvc.model.connection.Connection;
 import mvc.model.elModel.ActiveElement;
 import mvc.model.peModel.PathElement;
 import mvc.model.*;
@@ -26,7 +25,7 @@ public class PC extends ActiveElement {
     private String info;
     private double price;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
-
+    private ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
     public PC(double delay, int id, String ip, String info, double price) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
@@ -37,7 +36,7 @@ public class PC extends ActiveElement {
     }
       
     
-
+    
    
     
     
@@ -54,26 +53,7 @@ public class PC extends ActiveElement {
                 throw new AlreadyExcistException();
             }
         
-        if(elToConnect instanceof Route){
-            Route el = (Route) elToConnect;
-            if(el.isTurnedOn() == false)
-                throw new AccessException();
-        }
-        if(elToConnect instanceof Switch){
-            Switch el = (Switch) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
-        if(elToConnect instanceof Firewall){
-            Firewall el = (Firewall) elToConnect;
-            if(el.isAddressCorrect(this.getIP()) == false)
-                throw new AccessException();
-        } 
-        if(elToConnect instanceof Hub){
-            Hub el = (Hub) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
+
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
         net.addElements(elToConnect);
@@ -139,6 +119,39 @@ public class PC extends ActiveElement {
         
     return connections;
     }
+    
+    @Override
+    public ArrayList<PathElement> getCheckedConnections(){
+        
+        for(PathElement elToConnect : connections){
+	if(elToConnect instanceof Route){
+            Route el = (Route) elToConnect;
+            if(el.isTurnedOn() == false)
+                continue;
+        }
+        if(elToConnect instanceof Switch){
+            Switch el = (Switch) elToConnect;
+            if(el.getUnitAmount() < 1)
+                continue;
+        }
+        if(elToConnect instanceof Firewall){
+            Firewall el = (Firewall) elToConnect;
+            if(el.isAddressCorrect(this.getIP().toString()) == false)
+                continue;
+        } 
+        if(elToConnect instanceof Hub){
+            Hub el = (Hub) elToConnect;
+            if(el.getUnitAmount() < 1)
+                continue;
+        }        
+        else
+            checkedConnections.add(elToConnect);
+            elToConnect.getCheckedConnections().add(this);
+            
+    }
+        return checkedConnections;
+    }
+    
 
     
     

@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.stream.Collectors;
-import mvc.model.connection.Connection;
 import mvc.model.elModel.ActiveElement;
 import mvc.model.myExceptions.AlreadyExcistException;
 import mvc.model.peModel.PathElement;
@@ -29,7 +28,7 @@ import mvc.model.routeProviders.RouteProviderWithLessPrice;
 public class Network {
     
 
-    private ArrayList<PathElement> elements = new ArrayList<PathElement>();
+    private HashMap<PathElement,ArrayList<PathElement>> elements = new HashMap<PathElement,ArrayList<PathElement>>();
 
     
     public Network() {
@@ -37,7 +36,7 @@ public class Network {
 
     public void addElements(PathElement elToAdd) {
 
-            elements.add(elToAdd);
+            elements.put(elToAdd, elToAdd.getConnections());
     }
 
  
@@ -46,7 +45,7 @@ public class Network {
 
 
     
-    public ArrayList<PathElement>  getPathElements(){
+    public HashMap<PathElement,ArrayList<PathElement>>  getPathElements(){
         
         return elements;
     }

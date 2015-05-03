@@ -11,7 +11,7 @@ import mvc.model.peModel.PathElement;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mvc.model.connection.Connection;
+
 import mvc.model.network.Network;
 
 /**
@@ -25,7 +25,8 @@ public abstract class ActiveElement implements PathElement{
     protected InetAddress ip;
     protected String info;
     protected double price;
-
+    protected ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
+    
     public ActiveElement() {
     }
   

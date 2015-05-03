@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
-import mvc.model.connection.Connection;
 import mvc.model.elModel.ActiveElement;
 import mvc.model.myExceptions.AccessException;
 import mvc.model.myExceptions.AlreadyExcistException;
@@ -30,8 +29,26 @@ public class Firewall extends ActiveElement{
     private String info;
     private double price;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
+    private ArrayList<PathElement> checkedConnections= new ArrayList<PathElement>();
+    private ArrayList<String> notAllowedIP = new ArrayList<String>(){{
+                                            add("85.174.76.160");
+                                            add("5.139.12.193");
+                                            add("176.212.68.19");
+                                            add("176.212.64.6");
+                                            }};
 
+    public ArrayList<String> getNotAllowedIP() {
+        return notAllowedIP;
+    }
+
+    public void setNotAllowedIP(String notAllowedIP) {
+        this.notAllowedIP.add(notAllowedIP);
+    }
+    
+    
+    
     public Firewall(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
@@ -54,25 +71,7 @@ public class Firewall extends ActiveElement{
                 throw new AlreadyExcistException();
             }
 
-        if(elToConnect instanceof Route){
-            Route el = (Route) elToConnect;
-            if(el.isTurnedOn() == false)
-                throw new AccessException();
-        }
-        if(elToConnect instanceof Switch){
-            Switch el = (Switch) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
 
-        if(this.isAddressCorrect(elToConnect.getIP()) == false)
-                throw new AccessException();
-        
-        if(elToConnect instanceof Hub){
-            Hub el = (Hub) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
         net.addElements(elToConnect);
@@ -80,7 +79,15 @@ public class Firewall extends ActiveElement{
     }
 
 
-    public boolean isAddressCorrect(InetAddress address){
+    public boolean isAddressCorrect(String address){
+        if(address == null)
+            return false;
+        for(String ip : this.notAllowedIP){
+            if(ip == null)
+                continue;
+            if(ip.equals(address))
+                return false;   
+        }
         return true;
     }
     
@@ -141,7 +148,35 @@ public class Firewall extends ActiveElement{
         return connections;
     }
     
-    
+    @Override
+    public ArrayList<PathElement> getCheckedConnections(){
+        for(PathElement elToConnect : connections){
+        if(elToConnect instanceof Route){
+            Route el = (Route) elToConnect;
+            if(el.isTurnedOn() == false)
+                continue;
+        }
+        if(elToConnect instanceof Switch){
+            Switch el = (Switch) elToConnect;
+            if(el.getUnitAmount() < 1)
+                continue;
+        }
+
+        if(this.isAddressCorrect(elToConnect.getIP().toString()) == false)
+                continue;
+        
+        if(elToConnect instanceof Hub){
+            Hub el = (Hub) elToConnect;
+            if(el.getUnitAmount() < 1)
+                continue;
+        }            
+        else
+            checkedConnections.add(elToConnect);
+            elToConnect.getCheckedConnections().add(this);            
+        }
+        
+        return checkedConnections;
+    }
     
 
     

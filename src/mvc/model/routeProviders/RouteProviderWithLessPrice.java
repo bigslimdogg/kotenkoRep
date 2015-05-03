@@ -27,87 +27,110 @@ import java.util.*;
 public class RouteProviderWithLessPrice implements RouteProvider{
 
  
-    public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public String getDescription(PathElement el) {
+        String s = el.getInfo() + el.getID() + el.getIP().toString() + el.getPrice() + el.getDelay();
+        
+        return s;
     }
 
 
+    public class Root{
+        double price = Double.POSITIVE_INFINITY;
+        PathElement parentPE = null;
+        boolean isUsed = false;
 
+        public Root(double price) {
+            this.price = price;
+        }
+        public Root(){
+            
+        }
+        
+    }
+    
+    public PathElement getElemWithMinPrice(PathElement parent, PathElement child){
+        
+        
+        double min = child.getPrice();
+        PathElement minChild = child;
+        for(PathElement elem :parent.getConnections()){
+            if(elem.getPrice() < min){
+                minChild = elem;
+            }
+        }
+        return minChild;
+    }
     
 
  
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-        HashMap<PathElement,ArrayList<PathElement>> allPathes = new HashMap<PathElement,ArrayList<PathElement>>();//таблицу узлов и их кратчайших маршрутов
         
         
-        int i = 0;
+        
                 
-        HashMap<PathElement,Double> roots = new HashMap<PathElement,Double>();
-        ArrayList<PathElement> visitedRoots = new ArrayList<>();
-        ArrayList<PathElement> notVisitedRoots = new ArrayList<>();
-        ArrayList<PathElement> deleted = new ArrayList<>();//узлы которые в алгоритме полностью изучены
-
-
-        for(PathElement elem : net.getPathElements()){
+        HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
+        ArrayList<PathElement> treatedRoots = new ArrayList<>();
+        PathElement start = null;
+        PathElement next = null;
+        PathElement end = null;
+        
+        for(PathElement elem : net.getPathElements().keySet()){//заносим элементы из сети в roots и помечаем стартовый и конечный узел
             if(elem.getID() == id1){
-                roots.put(elem, 0.0);
-                i = net.getPathElements().indexOf(elem);
+                roots.put(elem, new Root(0.0));
+                start = elem;
             }
             else{
-                roots.put(elem, Double.POSITIVE_INFINITY/2);
+                if(elem.getID() == id2){
+                    end = elem;
+                    roots.put(elem, new Root());
+                }
+                else
+                    roots.put(elem, new Root());
+                
             }
         }
-        
+        if(start == null || end == null || start == end){//если их нет то бросаем исключение или они равны
+            throw new ElementNotFoundException();
+        }
   
-        PathElement start = net.getPathElements().get(i);
-        allPathes.put(start, new ArrayList<PathElement>());
-        PathElement elemNext = start.getConnections().get(0);//берем следующий узел как самый первый в связях 
         
-        while(roots.keySet().size() !=  deleted.size()){
-            
-            
-            for(PathElement elem : start.getConnections()){//выбираем непосещенных соседей
-                if(!visitedRoots.contains(elem) && !deleted.contains(elem)){
-                    notVisitedRoots.add(elem);
+        
+        while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
+            if(roots.get(start).isUsed == true){
+                //когда соседи стартового узла просмотрены
+                next = start.getCheckedConnections().get(0);
+                start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой             
+            }
+            for(PathElement elem : start.getCheckedConnections()){
+                next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
+                if(roots.get(next).price > roots.get(start).price + next.getPrice()){
+                    roots.get(next).price = roots.get(start).price + next.getPrice();
                 }
             }
-            if(notVisitedRoots.isEmpty()){
-                deleted.add(start);
-                visitedRoots.clear();
-                start = elemNext;
-                allPathes.put(start, new ArrayList<PathElement>());//добавляем стартовый узел в таблицу узлов и их кратчайших маршрутов
-                for(PathElement elem : start.getConnections()){
-                    if(!visitedRoots.contains(elem) && !deleted.contains(elem)){
-                        notVisitedRoots.add(elem);
-                }
-                }
-            }
-            
-            double min = elemNext.getPrice();//минимальная цена - цена следующего
-            for(PathElement elem : notVisitedRoots){//проверить является ли следующий с минимальной ценой из всех связей
-                if(elem.getPrice() < min && !deleted.contains(elem)){//если есть в связях элемент с меньшей ценой 
-                    elem=elemNext;//берем его
-                    min = elem.getPrice();//и его цена теперь минимум
-                }
-            }
-            visitedRoots.add(elemNext);//работаем со следующим еще не посещенным узлом с наим. стоимостью, предварительно занеся его в посещенные
-            if(roots.get(start)+elemNext.getPrice() < roots.get(elemNext)){
-                roots.put(elemNext, roots.get(start)+elemNext.getPrice());
-                allPathes.get(start).add(elemNext);//NPE!!!! добавляем узел в кратчайший маршрут для стартового узла
-
-                }        
-            notVisitedRoots.clear();    
+            treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
+            roots.get(start).isUsed = true;//помечаем его как посещенную
         }
         
-        for(PathElement elem : allPathes.keySet()){
-            if(elem.getID() == id2)
-                path.addAll(allPathes.get(elem));//заносим в искомый путь путь соответсвующий нужному узлу из таблицы кратчайших путей для всех узлов
+        for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
+            for(PathElement connectedWithElem : elem.getCheckedConnections()){
+                if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
+                    roots.get(elem).parentPE = connectedWithElem;
+                }
+            }   
+        }
+        
+        
+        next = end;
+        path.add(end);
+        
+        while(next.getID() != id1){
+            path.add(roots.get(next).parentPE);
+            next = roots.get(next).parentPE;
         }
         
         
         return path; 
         }
-    
-
 }

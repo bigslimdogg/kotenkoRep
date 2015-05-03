@@ -4,7 +4,6 @@ package mvc.model.peModel;
 import java.net.InetAddress;
 import java.util.*;
 import java.util.Set;
-import mvc.model.connection.Connection;
 
 public interface PathElement {
     
@@ -29,6 +28,7 @@ public interface PathElement {
     void setPrice(double newPrice);
     
     ArrayList<PathElement> getConnections();
+    ArrayList<PathElement> getCheckedConnections();
     
     
     

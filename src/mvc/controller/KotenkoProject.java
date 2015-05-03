@@ -10,6 +10,8 @@ import mvc.model.myExceptions.AccessException;
 import mvc.model.network.Network;
 import mvc.model.peModel.PathElement;
 import mvc.model.routeProviders.RouteProviderWithLessPrice;
+import mvc.model.routeProviders.RouteProviderWithLessTimeDelay;
+import mvc.model.routeProviders.RouteProviderWithLessUnits;
 
 
 
@@ -27,23 +29,33 @@ public class KotenkoProject {
         System.out.println(i);*/
         
         
-        PC p1 =new PC(12, 1, "176.212.68.19", "my PC1", 175);
-        PC p2 =new PC(12, 2, "5.139.12.193", "my PC2", 100);
-        PC p3 =new PC(12, 3, "85.174.76.160", "my PC3", 30);
-        PC p4 =new PC(12, 4, "176.212.64.6", "my PC4", 20);
-        
+        PC p1 =new PC(12, 1, "176.212.68.19", "my PC1", 175);   System.out.println(p1);
+        PC p2 =new PC(12, 2, "5.139.12.193", "my PC2", 100);    System.out.println(p2);
+        PC p3 =new PC(24, 3, "85.174.76.160", "my PC3", 30);    System.out.println(p3);
+        PC p4 =new PC(12, 4, "176.212.64.6", "my PC4", 20);     System.out.println(p4);
+        PC p5 =new PC(8, 5, "16.000.64.6", "my PC5", 300);     System.out.println(p5);
         Network net = new Network();
         
         p1.connect(p2, net);
         p1.connect(p3, net);
         p2.connect(p4, net);
-        p3.connect(p4, net);
+        p4.connect(p5, net);
+        p3.connect(p5, net);
         
         
-        RouteProviderWithLessPrice rp = new RouteProviderWithLessPrice();
-        System.out.println(rp.getRouteID(1, 4, net));
         
-      
+        RouteProviderWithLessUnits rp = new RouteProviderWithLessUnits();
+        System.out.println(rp.getRouteID(1, 5, net));
+        
+        //тест на проверку ip
+        Route r1 = new Route(1, 13, "85.174.76.160", "fds", 21);
+        Firewall f = new Firewall(1, 52, "1.100.12.193", "sd", 14.5);
+        r1.connect(f, net);
+        System.out.println(r1.getConnections());
+        System.out.println(r1.getCheckedConnections());
+        
+        
+        
     }
     
 }
