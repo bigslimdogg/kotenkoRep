@@ -40,14 +40,12 @@ public class KotenkoProject {
         p1.connect(p3, net);
         p2.connect(p4, net);
         p4.connect(p5, net);
-        p3.connect(p5, net);
+       p3.connect(p5, net);
         
         
         
      
-        RouteProviderWithLessPrice rp2 = new RouteProviderWithLessPrice();
-     
-        System.out.println(rp2.getRouteID(1, 5, net));
+
       
         
     }
