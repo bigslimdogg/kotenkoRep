@@ -36,13 +36,8 @@ public class KotenkoProject {
         PC p5 =new PC(8, 5, "16.000.64.6", "my PC5", 300);     System.out.println(p5);
         
         
-        p1.connect(p2, net);
-        p1.connect(p3, net);
-        p2.connect(p4, net);
-        p4.connect(p5, net);
-       p3.connect(p5, net);
-        
-        
+
+
         
      
 

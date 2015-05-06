@@ -3,7 +3,7 @@
 .gitattributes
 build.xml
 manifest.mf
-
+/.idea/
 
 /dist/
 /out/
