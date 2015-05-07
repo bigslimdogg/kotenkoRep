@@ -52,20 +52,23 @@ public class Firewall extends ActiveElement{
         else
             return true;
     }
+
+    public Firewall() {
+    }
     
-    public Firewall(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    public Firewall(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
     
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-           
+        net.addElements(this);   
     }
 
   
     
-        public void connect(PathElement elToConnect, Network net)throws Exception{
+        public void connect(PathElement elToConnect)throws Exception{
         
         if(elToConnect == null){
             throw new NullPointerException();
@@ -93,8 +96,6 @@ public class Firewall extends ActiveElement{
         }
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
-        net.addElements(elToConnect);
-        net.addElements(this); 
     }
 
 

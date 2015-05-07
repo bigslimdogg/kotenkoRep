@@ -34,12 +34,15 @@ public class Cable extends PassiveElement{
         this.type = type;
     }
 
-    public Cable(int id, double price, String info, TypeOfCable type) {
+    public Cable() {
+    }
+    
+    public Cable(int id, double price, String info, TypeOfCable type,Network net) {
         this.id = id;
         this.price = price;
         this.info = info;
         this.type = type;
-
+        net.addElements(this);
     }
 
 

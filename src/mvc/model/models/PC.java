@@ -27,22 +27,25 @@ public class PC extends ActiveElement {
     private double price;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
 
-    public PC(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    public PC(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip = InetAddress.getByName(ip);
         this.info = info;
         this.price = price;
-
+        net.addElements(this);
     }
 
+    public PC() {
+    }
+    
     @Override
     public boolean checkCon(PathElement parent) {
         return true;
     }
 
     @Override
-    public void connect(PathElement elToConnect, Network net)throws Exception{
+    public void connect(PathElement elToConnect)throws Exception{
         
         if(elToConnect == null){
             throw new NullPointerException();
@@ -68,8 +71,6 @@ public class PC extends ActiveElement {
         }
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
-        net.addElements(elToConnect);
-        net.addElements(this);
         
     }
 

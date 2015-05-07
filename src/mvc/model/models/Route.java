@@ -31,15 +31,18 @@ public class Route extends ActiveElement{
     private boolean turnedOn;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
 
-    public Route(double delay, int id, String ip, String info, double price) throws UnknownHostException {
+    public Route(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
-
+        net.addElements(this);
     }
 
+    public Route() {
+    }
+    
     @Override
     public boolean checkCon(PathElement parent) {
         if(this.isTurnedOn() == false)
@@ -53,7 +56,7 @@ public class Route extends ActiveElement{
     }
     
         @Override
-    public void connect(PathElement elToConnect, Network net)throws Exception{
+    public void connect(PathElement elToConnect)throws Exception{
         
 
         for(PathElement elem : connections)
@@ -77,8 +80,6 @@ public class Route extends ActiveElement{
         
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
-        net.addElements(elToConnect);
-        net.addElements(this);
     }
     
     
@@ -86,6 +87,11 @@ public class Route extends ActiveElement{
     public void turnON(){
         
         this.turnedOn = true;
+        
+    }
+    public void turnOFF(){
+        
+        this.turnedOn = false;
         
     }
 

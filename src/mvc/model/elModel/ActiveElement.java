@@ -93,7 +93,7 @@ public abstract class ActiveElement implements PathElement{
 
     
     
-    public void connect(PathElement elToConnect, Network net)throws Exception{
+    public void connect(PathElement elToConnect)throws Exception{
         
     }
 

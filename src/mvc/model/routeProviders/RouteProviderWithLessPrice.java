@@ -19,6 +19,11 @@ import mvc.model.myExceptions.ElementNotFoundException;
 import mvc.model.peModel.PathElement;
 import mvc.model.peModel.PathElement;
 import java.util.*;
+import mvc.model.models.Cable;
+import mvc.model.models.Firewall;
+import mvc.model.models.Hub;
+import mvc.model.models.Route;
+import mvc.model.models.Switch;
 
 /**
  *
@@ -28,10 +33,33 @@ public class RouteProviderWithLessPrice implements RouteProvider{
 
  
     @Override
-    public String getDescription(PathElement el) {
-        String s = el.getInfo() + el.getID() + el.getIP().toString() + el.getPrice() + el.getDelay();
+    public void getDescription(PathElement el) {
+        System.out.println( "name:" + el.getInfo() + " " +
+                            "id:" + el.getID() + " " + 
+                            "ip:" + el.getIP() + " " +
+                            "price:" + el.getPrice() + " " +
+                            "delay:" + el.getDelay() + " " );
         
-        return s;
+        if(el instanceof Cable){
+            Cable e = (Cable)el;
+            System.out.println("Type of cable :" + e.getType());
+        }
+        if(el instanceof Firewall){
+            Firewall e = (Firewall)el;
+            System.out.println("Not allowed IP's :" + e.getNotAllowedIP());
+        }
+        if(el instanceof Route){
+            Route e = (Route)el;
+            System.out.println("Is turned on :" + e.isTurnedOn());
+        } 
+        if(el instanceof Hub){
+            Hub e = (Hub)el;
+            System.out.println("Units amount :" + e.getUnitAmount());
+        }     
+        if(el instanceof Switch){
+            Switch e = (Switch)el;
+            System.out.println("Units amount :" + e.getUnitAmount());
+        }  
     }
 
 
@@ -66,6 +94,7 @@ public class RouteProviderWithLessPrice implements RouteProvider{
     
 
  
+    @Override
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
 

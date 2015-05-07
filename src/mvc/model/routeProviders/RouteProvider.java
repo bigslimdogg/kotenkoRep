@@ -11,9 +11,8 @@ import mvc.model.peModel.PathElement;
 
 public interface RouteProvider {
 
-    public String getDescription(PathElement el);
+    public void getDescription(PathElement el);
 
-    public static ArrayList<PathElement> getRouteID(int id1, int id2, Network net)throws Exception{return null;
-};
+    public ArrayList<PathElement> getRouteID(int id1, int id2, Network net)throws Exception;
 
 }

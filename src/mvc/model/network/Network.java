@@ -38,7 +38,10 @@ public class Network {
 
             elements.put(elToAdd, elToAdd.getConnections());
     }
+    public void deleteElements(PathElement elToDel) {
 
+            elements.remove(elToDel);
+    }
  
     
     

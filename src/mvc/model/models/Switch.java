@@ -31,23 +31,26 @@ public class Switch extends ActiveElement{
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
 
-    public Switch(double delay, int id, String ip, String info, double price, int unitAmount) throws UnknownHostException {
+    public Switch(double delay, int id, String ip, String info, double price, int unitAmount, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);
         this.info = info;
         this.price = price;
         this.unitAmount = unitAmount;
-
+        net.addElements(this);
     }
 
+    public Switch() {
+    }
+    
     @Override
     public boolean checkCon(PathElement parent) {
         return true;
     }
 
     @Override
-    public void connect(PathElement elToConnect, Network net)throws Exception{
+    public void connect(PathElement elToConnect)throws Exception{
         
         if(elToConnect == null){
             throw new NullPointerException();
@@ -74,8 +77,6 @@ public class Switch extends ActiveElement{
         }
         connections.add(elToConnect);
         elToConnect.getConnections().add(this);
-        net.addElements(elToConnect);
-        net.addElements(this);
     }
     public int getUnitAmount() {
         return unitAmount;

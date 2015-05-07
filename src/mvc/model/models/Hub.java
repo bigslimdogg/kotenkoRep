@@ -24,14 +24,17 @@ public class Hub extends PassiveElement{
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
     
-    public Hub(int id, double price, String info, int unitAmount) {
+    public Hub(int id, double price, String info, int unitAmount, Network net) {
         this.id = id;
         this.price = price;
         this.info = info;
         this.unitAmount = unitAmount;
-
+        net.addElements(this);
     }
 
+    public Hub() {
+    }
+    
     @Override
     public boolean checkCon(PathElement parent) {
        return true;
