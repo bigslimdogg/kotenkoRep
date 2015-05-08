@@ -34,6 +34,7 @@ public class KotenkoProject {
         
         
       for(;;){
+        try{
         Scanner sc = new Scanner( System.in );
         System.out.println("Выберете каталог команд:"+
                 "\n1.Создание элементов сети"+
@@ -51,42 +52,50 @@ public class KotenkoProject {
             int isEnd = 0;
             CreatePathElementController createCon = new CreatePathElementController();
             do{
-            System.out.println("введите команду");
-            String command1 = sc.next();
-            net.addElements(createCon.create(command1));
+                try{
+                System.out.println("введите команду");
+                String command1 = sc.next();
+                net.addElements(createCon.create(command1));
             
             
-            System.out.println("Вернуться в главное меню(1/0)?");
-            isEnd = sc.nextInt();
+                System.out.println("Вернуться в главное меню(1/0)?");
+                isEnd = sc.nextInt();
+                }catch(Exception e){System.out.println(e + "\n"); break;}
             }while(isEnd != 1);
         }
         
-        if(catalogNumber == 2){
-            
+        if(catalogNumber == 2){//здесь когда передаешь элементу параметр он не хочет преобразовывать из string в числовой или какой либо другой!!!!!
+            int isEnd = 0;
             PEController peCon = new PEController();
-            
-            PathElement elemToWork = null;
-            System.out.println("выберете элемент из сети для работы с ним");
-            ArrayList<PathElement> arr = new ArrayList();
-            int i = 0;
-            for(PathElement elem : net.getPathElements().keySet()){
+            do{
+                try{
+                PathElement elemToWork = null;
+                System.out.println("выберете элемент из сети для работы с ним");
+                ArrayList<PathElement> arr = new ArrayList();
+                int i = 0;
+                for(PathElement elem : net.getPathElements().keySet()){
                 i++;
                 System.out.println(i+ ") " + elem);
                 arr.add(elem);
-            }
-            int elementNumber = sc.nextInt();
-            if(elementNumber >= 0)
-                elemToWork = arr.get(elementNumber-1);
-            int isEnd = 0;
-            do{
-            System.out.println("введите команду для работы с выбранным элементом");
-            String command2 = sc.next();
-            System.out.println("введите атрибут");
-            String attribute = sc.nextLine();
-            peCon.execute(command2, elemToWork, attribute);
+                }
+                int elementNumber = sc.nextInt();
+                if(elementNumber >= 0 && !arr.isEmpty())
+                    elemToWork = arr.get(elementNumber-1);
+                else{
+                    System.out.println("Такого элемента не существует\n");
+                    break;
+                }
+                    
+                
+                System.out.println("введите команду для работы с выбранным элементом");
+                String command2 = sc.next();
+                System.out.println("введите атрибут");
+                String attribute = sc.nextLine();
+                peCon.execute(command2, elemToWork, attribute);
             
-            System.out.println("Вернуться в главное меню(1/0)?");
-            isEnd = sc.nextInt();
+                System.out.println("Вернуться в главное меню(1/0)?");
+                isEnd = sc.nextInt();
+                }catch(Exception e){System.out.println(e+ "\n"); break;}
             }while(isEnd != 1);
         }
         
@@ -97,29 +106,31 @@ public class KotenkoProject {
             int isEnd = 0;
             ConnectionController conectCon = new ConnectionController();
             do{
-            PathElement elemToWork1 = null;
-            PathElement elemToWork2 = null;
-            System.out.println("выберете элементы из сети для установки соединения");
-            ArrayList<PathElement> arr = new ArrayList<PathElement>();
-            int i = 0;
-            for(PathElement elem : net.getPathElements().keySet()){
-                i++;
-                System.out.println(i+ ") " + elem);
-                arr.add(elem);
-            }
-            int elementNumber1 = sc.nextInt();
-            int elementNumber2 = sc.nextInt();
-            if(elementNumber1 >= 0 && elementNumber2 >= 0){
-                elemToWork1 = arr.get(elementNumber1-1);
-                elemToWork2 = arr.get(elementNumber2-1);
-            }
-            
-            conectCon.connectElements((ActiveElement)elemToWork1, elemToWork2);
-            
-            
-            
-            System.out.println("Вернуться в главное меню(1/0)?");
-            isEnd = sc.nextInt();
+                try{
+                PathElement elemToWork1 = null;
+                PathElement elemToWork2 = null;
+                System.out.println("выберете элементы из сети для установки соединения");
+                ArrayList<PathElement> arr = new ArrayList<PathElement>();
+                int i = 0;
+                for(PathElement elem : net.getPathElements().keySet()){
+                    i++;
+                    System.out.println(i+ ") " + elem);
+                    arr.add(elem);
+                }
+                int elementNumber1 = sc.nextInt();
+                int elementNumber2 = sc.nextInt();
+                if(elementNumber1 >= 0 && elementNumber2 >= 0 && !arr.isEmpty()){
+                    elemToWork1 = arr.get(elementNumber1-1);
+                    elemToWork2 = arr.get(elementNumber2-1);
+                }
+                else{
+                    System.out.println("Такого элемента не существует\n");
+                    break;
+                }
+                conectCon.connectElements((ActiveElement)elemToWork1, elemToWork2);
+                System.out.println("Вернуться в главное меню(1/0)?");
+                isEnd = sc.nextInt();
+                }catch(Exception e){System.out.println(e+ "\n"); break;}
             }while(isEnd != 1);           
             
         }
@@ -129,6 +140,7 @@ public class KotenkoProject {
             int isEnd = 0;
             InfoController iCon = new InfoController();
             do{
+                try{
                 for(PathElement elem : net.getPathElements().keySet()){
                     System.out.println(elem + "connected with:" + elem.getConnections());
                 }
@@ -143,13 +155,17 @@ public class KotenkoProject {
                     arr.add(elem);
                 }
                 int elementNumber = sc.nextInt();
-                if(elementNumber >= 0)
-                elemToWork = arr.get(elementNumber-1);
-                
+                if(elementNumber >= 0 && !arr.isEmpty())
+                    elemToWork = arr.get(elementNumber-1);
+                else{
+                    System.out.println("Такого элемента не существует\n");
+                    break;
+                }
                 iCon.execute(elemToWork);
                 
                 System.out.println("Вернуться в главное меню(1/0)?");
                 isEnd = sc.nextInt();
+                }catch(Exception e){System.out.println(e+ "\n"); break;}
             }while(isEnd != 1);  
         }
         
@@ -157,6 +173,7 @@ public class KotenkoProject {
             int isEnd = 0;
             RouteController routeCon = new RouteController();
             do{
+                try{
                 PathElement elemToWork1 = null;
                 PathElement elemToWork2 = null;
                 System.out.println("выберете элементы из сети для поиска маршрута между ними");
@@ -169,23 +186,23 @@ public class KotenkoProject {
                 }
                 int elementNumber1 = sc.nextInt();
                 int elementNumber2 = sc.nextInt();
-                if(elementNumber1 >= 0 && elementNumber2 >= 0){
+                if(elementNumber1 >= 0 && elementNumber2 >= 0 && !arr.isEmpty()){
                     elemToWork1 = arr.get(elementNumber1-1);
                     elemToWork2 = arr.get(elementNumber2-1);
                 }
-            
+                else{
+                    System.out.println("Такого элемента не существует\n");
+                    break;
+                }
                 System.out.println("Выберете тип поиска маршрута:" +
                         "\n1.С наименьшим числом промежуточных узлов" +
                         "\n2.С наименьшей ценой маршрута" +
                         "\n3.С наименьшей задержкой по времени" );
                 int typeOfSearch = sc.nextInt();
-            
-            routeCon.execute(elemToWork1, elemToWork2, net, typeOfSearch);
-            
-            
-            
-            System.out.println("Вернуться в главное меню(1/0)?");
-            isEnd = sc.nextInt();
+                routeCon.execute(elemToWork1, elemToWork2, net, typeOfSearch);
+                System.out.println("Вернуться в главное меню(1/0)?");
+                isEnd = sc.nextInt();
+                }catch(Exception e){System.out.println(e+ "\n"); break;}
             }while(isEnd != 1);             
             
             
@@ -218,8 +235,8 @@ public class KotenkoProject {
         
         
         
-      }
-        
+      }catch(Exception e){System.out.println(e+ "\n");}
+      }  
         
 
 
