@@ -31,6 +31,6 @@ public interface PathElement {
     
     ArrayList<PathElement> getConnections();
 
-     checkCon(PathElement parent)throws Exception ;
+    boolean checkCon(PathElement parent);
 
 }
