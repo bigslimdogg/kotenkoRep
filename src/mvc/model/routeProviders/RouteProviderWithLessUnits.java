@@ -17,6 +17,7 @@ import mvc.model.models.Firewall;
 import mvc.model.models.Hub;
 import mvc.model.models.Route;
 import mvc.model.models.Switch;
+import mvc.model.myExceptions.AccessException;
 import mvc.model.myExceptions.AlreadyExcistException;
 import mvc.model.myExceptions.ElementNotFoundException;
 import mvc.model.peModel.PathElement;
@@ -79,7 +80,13 @@ public class RouteProviderWithLessUnits implements RouteProvider{
     @Override
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-        
+         for(PathElement par : net.getPathElements().keySet()){
+            for(PathElement elem : par.getConnections()){
+                if(elem.checkCon(par) == false){
+                    throw new AccessException();
+                }
+            }
+        }       
         
         
                 

@@ -9,6 +9,7 @@ import mvc.model.models.Firewall;
 import mvc.model.models.Hub;
 import mvc.model.models.Route;
 import mvc.model.models.Switch;
+import mvc.model.myExceptions.AccessException;
 import mvc.model.myExceptions.AlreadyExcistException;
 import mvc.model.myExceptions.ElementNotFoundException;
 import mvc.model.peModel.PathElement;
@@ -65,11 +66,11 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
             double min = arr.get(0).getDelay();
             PathElement minChild = arr.get(0);
             for(PathElement elem : arr){
-                if(elem.checkCon(parent) == true){
+                
                     if(elem.getDelay() < min){
                     minChild = elem;
                     }
-                }
+                
             }
             return minChild;
         }
@@ -82,7 +83,13 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
 
-
+        for(PathElement par : net.getPathElements().keySet()){
+            for(PathElement elem : par.getConnections()){
+                if(elem.checkCon(par) == false){
+                    throw new AccessException();
+                }
+            }
+        }
 
                 
         HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
@@ -137,12 +144,12 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
                    
             }
             for(PathElement elem : start.getConnections()){
-                if(elem.checkCon(start) == true){
+                
                         next = elem;
                         if(roots.get(next).price > roots.get(start).price + next.getDelay()){
                             roots.get(next).price = roots.get(start).price + next.getDelay();
                         }
-                }
+                
             }
            
             
@@ -157,11 +164,11 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
-                if(connectedWithElem.checkCon(elem) == true){
+                
                     if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
                         roots.get(elem).parentPE = connectedWithElem;
                     }
-                }
+                
             }
         }
         
