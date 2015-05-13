@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c9dd2ea-72b1-4e4a-8547-91852753dcd4" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documents\NetBeansProjects\kotenkoRep\out\production\KotenkoProject\mvc\controller\KotenkoProject.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/elModel/ActiveElement.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/elModel/ActiveElement.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Cable.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Cable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall$1.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Hub.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Hub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/network/Network.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/network/Network.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/PC.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/PC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Route.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Route.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProvider.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProvider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessPrice$Root.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessPrice$Root.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessPrice.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessPrice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessTimeDelay$Root.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessTimeDelay$Root.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessTimeDelay.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessTimeDelay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessUnits$Root.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessUnits$Root.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessUnits.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/routeProviders/RouteProviderWithLessUnits.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Switch.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Switch.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KotenkoProject.iws" />
@@ -116,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="758" column="14" selection-start-line="758" selection-start-column="14" selection-end-line="758" selection-end-column="14" />
+              <caret line="763" column="14" selection-start-line="763" selection-start-column="14" selection-end-line="763" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -705,7 +688,7 @@
       <workItem from="1431484106133" duration="78000" />
       <workItem from="1431484356900" duration="67000" />
       <workItem from="1431484446128" duration="157000" />
-      <workItem from="1431484715325" duration="120000" />
+      <workItem from="1431484715325" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1430872491171</created>
@@ -725,11 +708,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430872999024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2">
+      <created>1431484844094</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1431484844094</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7401000" />
+    <option name="totallyTimeSpent" value="7472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -774,7 +763,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1093,7 +1083,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="758" column="14" selection-start-line="758" selection-start-column="14" selection-end-line="758" selection-end-column="14" />
+          <caret line="763" column="14" selection-start-line="763" selection-start-column="14" selection-end-line="763" selection-end-column="14" />
           <folding />
         </state>
       </provider>
