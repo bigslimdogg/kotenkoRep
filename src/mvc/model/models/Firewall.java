@@ -8,16 +8,11 @@ package mvc.model.models;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mvc.model.elModel.ActiveElement;
-import mvc.model.myExceptions.AccessException;
-import mvc.model.myExceptions.AlreadyExcistException;
+import mvc.model.abstract_model.ActiveElement;
 import mvc.model.network.Network;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
  *
@@ -49,7 +44,7 @@ public class Firewall extends ActiveElement{
 
     @Override
     public boolean checkCon(PathElement parent) {
-        if(isAddressCorrect(parent.getIP().toString()) == false)
+        if(!isAddressCorrect(parent.getIP().toString()))
             return false;
         else
             return true;
@@ -68,38 +63,11 @@ public class Firewall extends ActiveElement{
         net.addElements(this);   
     }
 
-  
-    
-        public void connect(PathElement elToConnect)throws Exception{
-        
-        if(elToConnect == null){
-            throw new NullPointerException();
-        }
-        
-        for(PathElement elem : connections)
-            if(elem == elToConnect)
-            {
-                throw new AlreadyExcistException();
-            }
 
-
-        if(elToConnect instanceof Switch){
-            Switch el = (Switch) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
-
-
-        
-        if(elToConnect instanceof Hub){
-            Hub el = (Hub) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
-        connections.add(elToConnect);
-        elToConnect.getConnections().add(this);
+    @Override
+    public void connect(PathElement elToConnect) throws Exception {
+        super.connect(elToConnect);
     }
-
 
     public boolean isAddressCorrect(String address){
         if(address == null)
@@ -173,9 +141,16 @@ public class Firewall extends ActiveElement{
     public ArrayList<PathElement> getConnections(){
         return connections;
     }
-    
 
-        
-        
-    
+    @Override
+    public String toString() {
+        return "Firewall{" +
+                "notAllowedIP=" + notAllowedIP +
+                ", price=" + price +
+                ", info='" + info + '\'' +
+                ", ip=" + ip +
+                ", id=" + id +
+                ", delay=" + delay +
+                '}';
+    }
 }

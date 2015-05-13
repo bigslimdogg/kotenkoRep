@@ -7,14 +7,14 @@ package mvc.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import mvc.controller.connectionController.ConnectionController;
-import mvc.controller.creationController.CreatePathElementController;
-import mvc.controller.peController.PEController;
-import mvc.controller.routeAndInfoController.InfoController;
-import mvc.controller.routeAndInfoController.RouteController;
-import mvc.model.elModel.ActiveElement;
+import mvc.controller.connection_controller.ConnectionController;
+import mvc.controller.creation_controller.CreatePathElementController;
+import mvc.controller.pe_controller.PEController;
+import mvc.controller.route_info_controller.InfoController;
+import mvc.controller.route_info_controller.RouteController;
+import mvc.model.abstract_model.ActiveElement;
 import mvc.model.network.Network;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
  *

@@ -5,21 +5,11 @@
  */
 package mvc.model.network;
 
-import java.net.InetAddress;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.stream.Collectors;
-import mvc.model.elModel.ActiveElement;
-import mvc.model.myExceptions.AlreadyExcistException;
-import mvc.model.peModel.PathElement;
-import mvc.model.routeProviders.RouteProvider;
-import mvc.model.routeProviders.RouteProviderWithLessPrice;
+
+
+import mvc.model.pe_model.PathElement;
 
 /**
  *

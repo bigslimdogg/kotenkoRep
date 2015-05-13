@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.controller.connectionController;
+package mvc.controller.connection_controller;
 
 
-import mvc.controller.peController.PEController;
-import mvc.model.elModel.ActiveElement;
-import mvc.model.myExceptions.AlreadyExcistException;
-import mvc.model.peModel.PathElement;
+import mvc.model.abstract_model.ActiveElement;
+
+import mvc.model.my_exceptions.AlreadyExistException;
+import mvc.model.pe_model.PathElement;
 
 /**
  *
@@ -18,12 +18,12 @@ import mvc.model.peModel.PathElement;
  * @param <El2>
  */
 public class ConnectionController {
-    
+
     public void connectElements(ActiveElement el1, PathElement el2) throws Exception{
-        if(el1 == el2){
-            throw new AlreadyExcistException();
+        if(el1.getID() == el2.getID()){
+            throw new AlreadyExistException();
         }
         el1.connect(el2);
     }
-    
+
 }

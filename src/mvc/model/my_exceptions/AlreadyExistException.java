@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.model.myExceptions;
+package mvc.model.my_exceptions;
 
 /**
  *
  * @author Nick
  */
-public class AlreadyExcistException extends Exception {
+public class AlreadyExistException extends Exception {
 
     /**
      * Creates a new instance of <code>AlreadyExcistException</code> without
      * detail message.
      */
-    public AlreadyExcistException() {
+    public AlreadyExistException() {
     }
 
     /**
@@ -24,7 +24,8 @@ public class AlreadyExcistException extends Exception {
      *
      * @param msg the detail message.
      */
-    public AlreadyExcistException(String msg) {
+    public AlreadyExistException(String msg) {
         msg = "This connection is already excist";
     }
 }
+

@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.model.elModel;
+package mvc.model.abstract_model;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import mvc.model.peModel.PathElement;
+
+import mvc.model.models.Hub;
+import mvc.model.models.Switch;
+import mvc.model.my_exceptions.AccessException;
+import mvc.model.my_exceptions.AlreadyExistException;
+import mvc.model.pe_model.PathElement;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import mvc.model.network.Network;
 
 /**
  *
@@ -25,13 +28,16 @@ public abstract class ActiveElement implements PathElement{
     protected InetAddress ip;
     protected String info;
     protected double price;
+    protected ArrayList<PathElement> connections = new ArrayList<PathElement>();
     
     public ActiveElement() {
     }
   
     
     
-
+    public ArrayList<PathElement> getConnections(){
+        return connections;
+    }
    
 
     @Override
@@ -94,7 +100,32 @@ public abstract class ActiveElement implements PathElement{
     
     
     public void connect(PathElement elToConnect)throws Exception{
-        
+
+        if(elToConnect == null){
+            throw new NullPointerException();
+        }
+
+        for(PathElement elem : connections)
+            if(elem == elToConnect)
+            {
+                throw new AlreadyExistException();
+            }
+
+
+        if(elToConnect instanceof Switch){
+            Switch el = (Switch) elToConnect;
+            if(el.getUnitAmount() < 1)
+                throw new AccessException();
+        }
+
+        if(elToConnect instanceof Hub){
+            Hub el = (Hub) elToConnect;
+            if(el.getUnitAmount() < 1)
+                throw new AccessException();
+        }
+        this.getConnections().add(elToConnect);
+        elToConnect.getConnections().add(this);
+
     }
 
     

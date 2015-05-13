@@ -1,5 +1,5 @@
 
-package mvc.model.myExceptions;
+package mvc.model.my_exceptions;
 
 public class AccessException extends Exception {
 

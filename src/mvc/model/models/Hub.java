@@ -8,12 +8,11 @@ package mvc.model.models;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mvc.model.elModel.PassiveElement;
+import mvc.model.abstract_model.PassiveElement;
 import mvc.model.network.Network;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
  *
@@ -102,6 +101,17 @@ public class Hub extends PassiveElement{
      @Override
     public ArrayList<PathElement> getConnections(){
         return connections;
-    }   
-    
+    }
+
+    @Override
+    public String toString() {
+        return "Hub{" +
+                "delay=" + delay +
+                ", id=" + id +
+                ", price=" + price +
+                ", info='" + info + '\'' +
+                ", ip=" + ip +
+                ", unitAmount=" + unitAmount +
+                '}';
+    }
 }

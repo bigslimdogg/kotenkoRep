@@ -1,7 +1,5 @@
 
-package mvc.model.peModel;
-
-import mvc.model.elModel.PassiveElement;
+package mvc.model.pe_model;
 
 import java.net.InetAddress;
 import java.util.*;

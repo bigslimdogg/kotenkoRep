@@ -1,8 +1,8 @@
 
-package mvc.model.elModel;
+package mvc.model.abstract_model;
 
 import java.net.InetAddress;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 import java.util.*;
 
 

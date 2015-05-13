@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.controller.creationController;
+package mvc.controller.creation_controller;
 
 import mvc.model.models.Cable;
 import mvc.model.models.Firewall;
@@ -11,8 +11,7 @@ import mvc.model.models.Hub;
 import mvc.model.models.PC;
 import mvc.model.models.Route;
 import mvc.model.models.Switch;
-import mvc.model.network.Network;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
  *

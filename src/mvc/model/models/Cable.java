@@ -6,12 +6,10 @@
 package mvc.model.models;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Set;
 
-import mvc.model.elModel.PassiveElement;
+import mvc.model.abstract_model.PassiveElement;
 import mvc.model.network.Network;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
  *
@@ -90,6 +88,15 @@ public class Cable extends PassiveElement{
     public ArrayList<PathElement> getConnections(){
         return connections;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Cable{" +
+                "delay=" + delay +
+                ", id=" + id +
+                ", price=" + price +
+                ", info='" + info + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

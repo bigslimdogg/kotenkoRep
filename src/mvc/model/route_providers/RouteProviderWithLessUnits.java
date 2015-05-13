@@ -3,25 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.model.routeProviders;
+package mvc.model.route_providers;
 
 import mvc.model.network.Network;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-import mvc.model.models.Cable;
-import mvc.model.models.Firewall;
-import mvc.model.models.Hub;
-import mvc.model.models.Route;
-import mvc.model.models.Switch;
-import mvc.model.myExceptions.AccessException;
-import mvc.model.myExceptions.AlreadyExcistException;
-import mvc.model.myExceptions.ElementNotFoundException;
-import mvc.model.peModel.PathElement;
-import mvc.model.peModel.PathElement;
+
+import mvc.model.my_exceptions.AccessException;
+import mvc.model.my_exceptions.ElementNotFoundException;
+import mvc.model.pe_model.PathElement;
 
 /**
  *
@@ -31,32 +22,7 @@ public class RouteProviderWithLessUnits implements RouteProvider{
 
     @Override
     public void getDescription(PathElement el) {
-        System.out.println( "name:" + el.getInfo() + " " +
-                            "id:" + el.getID() + " " + 
-                            "ip:" + el.getIP() + " " +
-                            "price:" + el.getPrice() + " " +
-                            "delay:" + el.getDelay() + " " );
-        
-        if(el instanceof Cable){
-            Cable e = (Cable)el;
-            System.out.println("Type of cable :" + e.getType());
-        }
-        if(el instanceof Firewall){
-            Firewall e = (Firewall)el;
-            System.out.println("Not allowed IP's :" + e.getNotAllowedIP());
-        }
-        if(el instanceof Route){
-            Route e = (Route)el;
-            System.out.println("Is turned on :" + e.isTurnedOn());
-        } 
-        if(el instanceof Hub){
-            Hub e = (Hub)el;
-            System.out.println("Units amount :" + e.getUnitAmount());
-        }     
-        if(el instanceof Switch){
-            Switch e = (Switch)el;
-            System.out.println("Units amount :" + e.getUnitAmount());
-        }  
+        System.out.println(el.toString());
     }
     
     public class Root{

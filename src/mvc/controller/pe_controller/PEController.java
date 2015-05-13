@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.controller.peController;
+package mvc.controller.pe_controller;
 
 
 
@@ -12,9 +12,7 @@ import mvc.model.models.Firewall;
 import mvc.model.models.Hub;
 import mvc.model.models.Route;
 import mvc.model.models.Switch;
-import mvc.model.models.TypeOfCable;
-import mvc.model.myExceptions.NotAllowedException;
-import mvc.model.peModel.PathElement;
+import mvc.model.pe_model.PathElement;
 
 /**
 

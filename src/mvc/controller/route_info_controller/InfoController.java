@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc.controller.routeAndInfoController;
+package mvc.controller.route_info_controller;
 
-import mvc.model.peModel.PathElement;
-import mvc.model.routeProviders.RouteProvider;
-import mvc.model.routeProviders.RouteProviderWithLessPrice;
+import mvc.model.pe_model.PathElement;
+import mvc.model.route_providers.RouteProviderWithLessPrice;
 
 /**
  *

@@ -10,12 +10,9 @@ import java.net.UnknownHostException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mvc.model.elModel.ActiveElement;
-import mvc.model.elModel.PassiveElement;
-import mvc.model.peModel.PathElement;
-import mvc.model.*;
-import mvc.model.myExceptions.AccessException;
-import mvc.model.myExceptions.AlreadyExcistException;
+import mvc.model.abstract_model.ActiveElement;
+import mvc.model.pe_model.PathElement;
+
 import mvc.model.network.*;
 
 
@@ -46,34 +43,10 @@ public class PC extends ActiveElement {
         return true;
     }
 
+
     @Override
-    public void connect(PathElement elToConnect)throws Exception{
-        
-        if(elToConnect == null){
-            throw new NullPointerException();
-        }
-        
-        for(PathElement elem : connections)
-            if(elem == elToConnect)
-            {
-                throw new AlreadyExcistException();
-            }
-        
-
-        if(elToConnect instanceof Switch){
-            Switch el = (Switch) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
-
-        if(elToConnect instanceof Hub){
-            Hub el = (Hub) elToConnect;
-            if(el.getUnitAmount() < 1)
-                throw new AccessException();
-        }
-        connections.add(elToConnect);
-        elToConnect.getConnections().add(this);
-        
+    public void connect(PathElement elToConnect) throws Exception {
+        super.connect(elToConnect);
     }
 
     @Override
@@ -137,7 +110,15 @@ public class PC extends ActiveElement {
         
     return connections;
     }
-    
-        
-            
+
+    @Override
+    public String toString() {
+        return "PC{" +
+                "delay=" + delay +
+                ", id=" + id +
+                ", ip=" + ip +
+                ", info='" + info + '\'' +
+                ", price=" + price +
+                '}';
     }
+}
