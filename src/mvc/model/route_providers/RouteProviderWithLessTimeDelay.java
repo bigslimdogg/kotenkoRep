@@ -134,10 +134,9 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
-                
-                    if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
-                        roots.get(elem).parentPE = connectedWithElem;
-                    }
+                if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
+                    roots.get(elem).parentPE = connectedWithElem;
+                }
                 
             }
         }

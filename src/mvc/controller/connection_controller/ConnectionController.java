@@ -11,12 +11,7 @@ import mvc.model.abstract_model.ActiveElement;
 import mvc.model.my_exceptions.AlreadyExistException;
 import mvc.model.pe_model.PathElement;
 
-/**
- *
- * @author Nick
- * @param <El1>
- * @param <El2>
- */
+
 public class ConnectionController {
 
     public void connectElements(ActiveElement el1, PathElement el2) throws Exception{

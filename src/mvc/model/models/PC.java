@@ -44,72 +44,8 @@ public class PC extends ActiveElement {
     }
 
 
-    @Override
-    public void connect(PathElement elToConnect) throws Exception {
-        super.connect(elToConnect);
-    }
 
-    @Override
-    public void setPrice(double newPrice) {
-        this.price = newPrice;
-    }
 
-  
-    @Override
-    public void setInfo(String newInfo) {
-        this.info = newInfo;
-    }
-
-    @Override
-    public void setIP(String ip) {
-        try {
-            this.ip = InetAddress.getByName(ip);
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(Firewall.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    @Override
-    public InetAddress getIP() {
-        return ip;
-    }
-
-    @Override
-    public void setID(int newID) {
-        this.id = newID;
-    }
-
-    @Override
-    public void setDelay(double newDelay) {
-        this.delay = newDelay;
-    }
-
-    @Override
-    public double getPrice() {
-        return price; //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    @Override
-    public String getInfo() {
-        return info; //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getID() {
-        return id; //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double getDelay() {
-        return delay; //To change body of generated methods, choose Tools | Templates.
-    }
-    
- 
-    @Override
-    public ArrayList<PathElement> getConnections(){
-        
-    return connections;
-    }
 
     @Override
     public String toString() {

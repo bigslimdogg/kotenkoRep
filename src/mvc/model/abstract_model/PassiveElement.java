@@ -13,7 +13,7 @@ public abstract class PassiveElement implements PathElement{
     protected int id;
     protected double price;
     protected String info;
-
+    private ArrayList<PathElement> connections = new ArrayList<PathElement>();
     @Override
     public int getID() {
         return id;
@@ -48,7 +48,7 @@ public abstract class PassiveElement implements PathElement{
 
     @Override
     public ArrayList<PathElement> getConnections() {
-        return null;
+        return connections;
     }
 
     @Override

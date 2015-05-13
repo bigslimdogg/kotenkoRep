@@ -53,55 +53,7 @@ public class Hub extends PassiveElement{
     }
 
     
-    @Override
-    public void setPrice(double newPrice) {
-        this.price = newPrice;
-    }
-    @Override
-    public void setIP(String ip) {
-        try {
-            this.ip = InetAddress.getByName(ip);
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(Firewall.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    @Override
-    public InetAddress getIP() {
-        return ip;
-    }
-    @Override
-    public void setInfo(String newInfo) {
-        this.info = newInfo;
-    }
 
-    @Override
-    public void setID(int newID) {
-        this.id = newID;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public String getInfo() {
-        return info;
-    }
-
-    @Override
-    public int getID() {
-        return id;
-    }
-
-    @Override
-    public double getDelay() {
-        return delay;
-    }
-     @Override
-    public ArrayList<PathElement> getConnections(){
-        return connections;
-    }
 
     @Override
     public String toString() {

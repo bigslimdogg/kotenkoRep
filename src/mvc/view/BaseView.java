@@ -7,6 +7,8 @@ package mvc.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import mvc.controller.Comands;
 import mvc.controller.connection_controller.ConnectionController;
 import mvc.controller.creation_controller.CreatePathElementController;
 import mvc.controller.pe_controller.PEController;
@@ -46,7 +48,7 @@ public class BaseView {
             do{
                 try{
                 System.out.println("введите команду");
-                String command1 = sc.next();
+                Comands command1 = Comands.valueOf(sc.next());
                 net.addElements(createCon.create(command1));
             
             
@@ -80,7 +82,7 @@ public class BaseView {
                     
                 
                 System.out.println("введите команду для работы с выбранным элементом");
-                String command2 = sc.next();
+                Comands command2 = Comands.valueOf(sc.next());
                 System.out.println("введите атрибут");
                 String attribute = sc.next();
                 peCon.execute(command2, elemToWork, attribute);
@@ -187,11 +189,11 @@ public class BaseView {
                     break;
                 }
                 System.out.println("Выберете тип поиска маршрута:" +
-                        "\n1.С наименьшим числом промежуточных узлов" +
-                        "\n2.С наименьшей ценой маршрута" +
-                        "\n3.С наименьшей задержкой по времени" );
-                int typeOfSearch = sc.nextInt();
-                routeCon.execute(elemToWork1, elemToWork2, net, typeOfSearch);
+                        "\nС наименьшим числом промежуточных узлов route_less_units" +
+                        "\nС наименьшей ценой маршрута route_less_price" +
+                        "\nС наименьшей задержкой по времени route_less_delay");
+                Comands command3 = Comands.valueOf(sc.next());
+                routeCon.execute(elemToWork1, elemToWork2, net, command3);
                 System.out.println("Вернуться в главное меню(1/0)?");
                 isEnd = sc.nextInt();
                 }catch(Exception e){System.out.println(e+ "\n"); break;}

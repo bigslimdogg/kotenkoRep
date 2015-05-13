@@ -149,10 +149,9 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
-                
-                    if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
-                        roots.get(elem).parentPE = connectedWithElem;
-                    }
+                if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
+                    roots.get(elem).parentPE = connectedWithElem;
+                }
                 
             }
         }

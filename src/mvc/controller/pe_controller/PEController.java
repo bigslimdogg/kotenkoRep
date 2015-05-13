@@ -7,6 +7,7 @@ package mvc.controller.pe_controller;
 
 
 
+import mvc.controller.Comands;
 import mvc.model.models.Cable;
 import mvc.model.models.Firewall;
 import mvc.model.models.Hub;
@@ -19,23 +20,13 @@ import mvc.model.pe_model.PathElement;
  */
 public class PEController{
     
-    /*public enum O {
-        SET_ID
-        ,SET_IP
-        ,SET_PRICE
-        ,SET_DELAY
-        ,SET_INFO
-        ,SET_TYPEODCABLE
-        ,SET_UNITAMOUNT
-        ,SET_NOTALLOWEDIP
-        ,SET_TURNON
-    } */  
+
     
     
     
 
-    
-    public void execute(String operation, PathElement model, String attribute) {
+
+    public void execute(Comands operation, PathElement model, String attribute) {
 	if (operation == null)
             throw new NullPointerException("Пустой параметр operation");
 	if (model == null)
@@ -43,25 +34,25 @@ public class PEController{
 	if (attribute == null)
             throw new NullPointerException("Пустой параметр attribute");
         switch (operation){
-            case "set_id":
+            case set_id:
                 Integer id = Integer.valueOf(attribute);
 		model.setID(id);
 		break;
-            case "set_ip":
+            case set_ip:
                 model.setIP(attribute);
                 break;
-            case "set_price":
+            case set_price:
                 double price = Double.valueOf(attribute);
                 model.setPrice(price);
                 break;
-            case "set_delay":
+            case set_delay:
                 double delay = Double.valueOf(attribute);
                 model.setDelay(delay);
                 break;
-            case "set_info":
+            case set_info:
                 model.setInfo(attribute);
                 break;
-            case "set_typeOfCable":
+            case set_typeOfCable:
                 if(model instanceof Cable){
                     Cable el = (Cable)model;
                     
@@ -71,7 +62,7 @@ public class PEController{
                     throw new IllegalArgumentException("Неизвестная операция: " +
 					operation); 
                 break;
-            case "set_notAllowedIp":
+            case set_notAllowedIp:
                 if(model instanceof Firewall){
                    Firewall el = (Firewall)model;
                    el.setNotAllowedIP(attribute.toString());
@@ -80,7 +71,7 @@ public class PEController{
                     throw new IllegalArgumentException("Неизвестная операция: " +
 					operation); 
                 break; 
-            case "set_unitAmount":
+            case set_unitAmount:
                 if(model instanceof Hub){
                    int units = Integer.valueOf(attribute);
                    Hub el = (Hub)model;
@@ -95,7 +86,7 @@ public class PEController{
                     throw new IllegalArgumentException("Неизвестная операция: " +
 					operation); 
                 break;                 
-            case "set_turnOn":
+            case set_turnOn:
                 if(model instanceof Route){
                     Route el = (Route)model;
                     boolean isTurn = Boolean.valueOf(attribute);
