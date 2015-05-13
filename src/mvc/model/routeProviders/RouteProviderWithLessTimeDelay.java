@@ -59,45 +59,49 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
         }
         
     }
-    public PathElement getElemWithMinDelay(PathElement parent, PathElement child){
-        double min = child.getDelay();
-        PathElement minChild = child;
-        for(PathElement elem :parent.getConnections()){
-            if(elem.checkCon(parent) == true){  
-                if(elem.getDelay() < min){
+    public PathElement getElemWithMinDelay(PathElement parent, ArrayList<PathElement> arr){
+        
+        if(!arr.isEmpty()){
+            double min = arr.get(0).getDelay();
+            PathElement minChild = arr.get(0);
+            for(PathElement elem : arr){
+                if(elem.checkCon(parent) == true){
+                    if(elem.getDelay() < min){
                     minChild = elem;
+                    }
                 }
             }
-        }  
-        return minChild;
+            return minChild;
+        }
+        else
+            return null;
     }
     
     
-    @Override
+@Override
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-        
-        
-        
+
+
+
                 
-        HashMap<PathElement,RouteProviderWithLessTimeDelay.Root> roots = new HashMap<PathElement,RouteProviderWithLessTimeDelay.Root>();
-        ArrayList<PathElement> treatedRoots = new ArrayList<>();
+        HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
         PathElement start = null;
         PathElement next = null;
         PathElement end = null;
         
         for(PathElement elem : net.getPathElements().keySet()){//заносим элементы из сети в roots и помечаем стартовый и конечный узел
             if(elem.getID() == id1){
-                roots.put(elem, new RouteProviderWithLessTimeDelay.Root(0.0));
+                roots.put(elem, new Root(0.0));
                 start = elem;
             }
             else{
                 if(elem.getID() == id2){
                     end = elem;
-                    roots.put(elem, new RouteProviderWithLessTimeDelay.Root());
+                    roots.put(elem, new Root());
                 }
                 else
-                    roots.put(elem, new RouteProviderWithLessTimeDelay.Root());
+                    roots.put(elem, new Root());
                 
             }
         }
@@ -105,30 +109,51 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
             throw new ElementNotFoundException();
         }
   
+
         
-        
-        while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
+        for(;;){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
-                //когда соседи стартового узла просмотрены
-               for(PathElement elem :start.getConnections()){
-                   if(elem.checkCon(start) == true){
-                       next = elem;
-                       break;
+               ArrayList<PathElement> arrOfUnusedNeighb = new ArrayList<>();
+              
+               
+               for(PathElement elem : start.getConnections()){
+                   if(roots.get(elem).isUsed == false){
+                        arrOfUnusedNeighb.add(elem);
                    }
+
                }
-                start = getElemWithMinDelay(start, next);//берем следующего как соседа start с минимальной ценой             
+               start = getElemWithMinDelay(start, arrOfUnusedNeighb);
+               if(start == null){
+                   ArrayList<PathElement> arrOfUnused = new ArrayList<>();
+                   for(PathElement elem : roots.keySet()){
+                       if(roots.get(elem).isUsed == false)
+                           arrOfUnused.add(elem);
+                   }
+                   if(arrOfUnused.isEmpty())
+                       break;
+                   else
+                       start = arrOfUnused.get(0);
+               }
+                   
             }
             for(PathElement elem : start.getConnections()){
                 if(elem.checkCon(start) == true){
-                    next = getElemWithMinDelay(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
-                    if(roots.get(next).price > roots.get(start).price + next.getDelay()){
-                        roots.get(next).price = roots.get(start).price + next.getDelay();
-                    }
+                        next = elem;
+                        if(roots.get(next).price > roots.get(start).price + next.getDelay()){
+                            roots.get(next).price = roots.get(start).price + next.getDelay();
+                        }
                 }
             }
-            treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
+           
+            
             roots.get(start).isUsed = true;//помечаем его как посещенную
         }
+        
+        
+        
+        
+        
+        
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
@@ -136,8 +161,8 @@ public class RouteProviderWithLessTimeDelay implements RouteProvider{
                     if(roots.get(elem).price == elem.getDelay() + roots.get(connectedWithElem).price){
                         roots.get(elem).parentPE = connectedWithElem;
                     }
-                }    
-            }   
+                }
+            }
         }
         
         

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mvc.model.elModel.ActiveElement;
 import mvc.model.myExceptions.AccessException;
 import mvc.model.myExceptions.AlreadyExcistException;
@@ -97,27 +99,23 @@ public class Route extends ActiveElement{
 
     @Override
     public void setPrice(double newPrice) {
-        super.setPrice(newPrice); //To change body of generated methods, choose Tools | Templates.
+        this.price = newPrice;
     }
 
-    @Override
-    public void setIP(String newIP)  {
-        super.setIP(newIP); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void setInfo(String newInfo) {
-        super.setInfo(newInfo); //To change body of generated methods, choose Tools | Templates.
+        this.info = newInfo;
     }
 
     @Override
     public void setID(int newID) {
-        super.setID(newID); //To change body of generated methods, choose Tools | Templates.
+        this.id = newID;
     }
 
     @Override
     public void setDelay(double newDelay) {
-        super.setDelay(newDelay); //To change body of generated methods, choose Tools | Templates.
+        this.delay = newDelay;
     }
 
     @Override
@@ -126,8 +124,16 @@ public class Route extends ActiveElement{
     }
 
     @Override
+    public void setIP(String ip) {
+        try {
+            this.ip = InetAddress.getByName(ip);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Firewall.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @Override
     public InetAddress getIP() {
-        return ip; //To change body of generated methods, choose Tools | Templates.
+        return ip;
     }
 
     @Override

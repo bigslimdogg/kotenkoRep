@@ -5,8 +5,12 @@
  */
 package mvc.model.models;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mvc.model.elModel.PassiveElement;
 import mvc.model.network.Network;
 import mvc.model.peModel.PathElement;
@@ -21,6 +25,7 @@ public class Hub extends PassiveElement{
     private int id;
     private double price;
     private String info;
+    private InetAddress ip;
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
     
@@ -51,37 +56,48 @@ public class Hub extends PassiveElement{
     
     @Override
     public void setPrice(double newPrice) {
-        super.setPrice(newPrice); //To change body of generated methods, choose Tools | Templates.
+        this.price = newPrice;
     }
-
+    @Override
+    public void setIP(String ip) {
+        try {
+            this.ip = InetAddress.getByName(ip);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Firewall.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @Override
+    public InetAddress getIP() {
+        return ip;
+    }
     @Override
     public void setInfo(String newInfo) {
-        super.setInfo(newInfo); //To change body of generated methods, choose Tools | Templates.
+        this.info = newInfo;
     }
 
     @Override
     public void setID(int newID) {
-        super.setID(newID); //To change body of generated methods, choose Tools | Templates.
+        this.id = newID;
     }
 
     @Override
     public double getPrice() {
-        return super.getPrice(); //To change body of generated methods, choose Tools | Templates.
+        return price;
     }
 
     @Override
     public String getInfo() {
-        return super.getInfo(); //To change body of generated methods, choose Tools | Templates.
+        return info;
     }
 
     @Override
     public int getID() {
-        return super.getID(); //To change body of generated methods, choose Tools | Templates.
+        return id;
     }
 
     @Override
     public double getDelay() {
-        return super.getDelay(); //To change body of generated methods, choose Tools | Templates.
+        return delay;
     }
      @Override
     public ArrayList<PathElement> getConnections(){

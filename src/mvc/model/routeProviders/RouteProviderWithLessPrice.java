@@ -77,19 +77,22 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         
     }
 
-    public PathElement getElemWithMinPrice(PathElement parent, PathElement child){
+    public PathElement getElemWithMinPrice(PathElement parent, ArrayList<PathElement> arr){
         
-        
-        double min = child.getPrice();
-        PathElement minChild = child;
-        for(PathElement elem :parent.getConnections()){
-            if(elem.checkCon(parent) == true){
-                if(elem.getPrice() < min){
-                 minChild = elem;
+        if(!arr.isEmpty()){
+            double min = arr.get(0).getPrice();
+            PathElement minChild = arr.get(0);
+            for(PathElement elem : arr){
+                if(elem.checkCon(parent) == true){
+                    if(elem.getPrice() < min){
+                    minChild = elem;
+                    }
                 }
             }
+            return minChild;
         }
-        return minChild;
+        else
+            return null;
     }
     
 
@@ -102,7 +105,6 @@ public class RouteProviderWithLessPrice implements RouteProvider{
 
                 
         HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
-        ArrayList<PathElement> treatedRoots = new ArrayList<>();
         PathElement start = null;
         PathElement next = null;
         PathElement end = null;
@@ -128,29 +130,49 @@ public class RouteProviderWithLessPrice implements RouteProvider{
   
 
         
-        while(treatedRoots.size() != roots.keySet().size()){//цикл работает пока остались необработанные вершины
+        for(;;){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
-                //когда соседи стартового узла просмотрены
-               for(PathElement elem :start.getConnections()){
-                   if(elem.checkCon(start) == true){
-                       next = elem;
-                       break;
+               ArrayList<PathElement> arrOfUnusedNeighb = new ArrayList<>();
+              
+               
+               for(PathElement elem : start.getConnections()){
+                   if(roots.get(elem).isUsed == false){
+                        arrOfUnusedNeighb.add(elem);
                    }
+
                }
-                start = getElemWithMinPrice(start, next);//берем следующего как соседа start с минимальной ценой
+               start = getElemWithMinPrice(start, arrOfUnusedNeighb);
+               if(start == null){
+                   ArrayList<PathElement> arrOfUnused = new ArrayList<>();
+                   for(PathElement elem : roots.keySet()){
+                       if(roots.get(elem).isUsed == false)
+                           arrOfUnused.add(elem);
+                   }
+                   if(arrOfUnused.isEmpty())
+                       break;
+                   else
+                       start = arrOfUnused.get(0);
+               }
+                   
             }
             for(PathElement elem : start.getConnections()){
                 if(elem.checkCon(start) == true){
-                    next = getElemWithMinPrice(start, elem);//получили соседа узла с минимальной стоимостью теперь работаем с ним
-                    if(roots.get(next).price > roots.get(start).price + next.getPrice()){
-                        roots.get(next).price = roots.get(start).price + next.getPrice();
-                    }
+                        next = elem;
+                        if(roots.get(next).price > roots.get(start).price + next.getPrice()){
+                            roots.get(next).price = roots.get(start).price + next.getPrice();
+                        }
                 }
             }
            
-            treatedRoots.add(start);//после просмотра всех соседей добавляем в список обработанных уздлв
+            
             roots.get(start).isUsed = true;//помечаем его как посещенную
         }
+        
+        
+        
+        
+        
+        
         
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){

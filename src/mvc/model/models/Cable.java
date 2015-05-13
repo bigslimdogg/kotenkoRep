@@ -53,17 +53,17 @@ public class Cable extends PassiveElement{
 
     @Override
     public void setPrice(double newPrice) {
-        super.setPrice(newPrice); //To change body of generated methods, choose Tools | Templates.
+        this.price = newPrice;
     }
 
     @Override
     public void setInfo(String newInfo) {
-        super.setInfo(newInfo); //To change body of generated methods, choose Tools | Templates.
+        this.info = newInfo;
     }
 
     @Override
     public void setID(int newID) {
-        super.setID(newID); //To change body of generated methods, choose Tools | Templates.
+        this.id = newID;
     }
 
     @Override
