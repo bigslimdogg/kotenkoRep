@@ -30,9 +30,9 @@ public class KotenkoProject {
 
     public static void main(String[] args) throws UnknownHostException, Exception  {
         
-      //BaseView console = new BaseView();
-      //console.show();
-      //Проверка алгоритмов поиска!!
+      BaseView console = new BaseView();
+      console.show();
+      /*//Проверка алгоритмов поиска!!
       Network net = new Network();
       PC p1 = new PC(25, 1,"85.174.76.160" , "PC1", 25, net);System.out.println(p1);
       Route r = new Route(1, 2, "85.174.76.160", "sdf", 1, net);
@@ -57,7 +57,7 @@ public class KotenkoProject {
       //System.out.println(r1.getRouteID(1, 5, net));
       System.out.println(r2.getRouteID(1, 5, net));
      // System.out.println(r3.getRouteID(1, 5, net));
-              
+     */         
     }
     
 }
