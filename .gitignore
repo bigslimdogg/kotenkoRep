@@ -1,0 +1,9 @@
+/build/
+/nbproject/
+.gitattributes
+build.xml
+manifest.mf
+/.idea/
+
+/dist/
+/out/
