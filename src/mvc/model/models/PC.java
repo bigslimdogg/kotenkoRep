@@ -44,17 +44,15 @@ public class PC extends ActiveElement {
     }
 
 
-
-
-
     @Override
     public String toString() {
-        return "PC{" +
-                "delay=" + delay +
-                ", id=" + id +
-                ", ip=" + ip +
-                ", info='" + info + '\'' +
-                ", price=" + price +
-                '}';
+        final StringBuilder sb = new StringBuilder("PC{");
+        sb.append("delay=").append(delay);
+        sb.append(", id=").append(id);
+        sb.append(", ip=").append(ip);
+        sb.append(", info='").append(info).append('\'');
+        sb.append(", price=").append(price);
+        sb.append('}');
+        return sb.toString();
     }
 }

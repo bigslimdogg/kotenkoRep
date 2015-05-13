@@ -77,18 +77,18 @@ public class Firewall extends ActiveElement{
         }
         return true;
     }
-    
 
 
     @Override
     public String toString() {
-        return "Firewall{" +
-                "notAllowedIP=" + notAllowedIP +
-                ", price=" + price +
-                ", info='" + info + '\'' +
-                ", ip=" + ip +
-                ", id=" + id +
-                ", delay=" + delay +
-                '}';
+        final StringBuilder sb = new StringBuilder("Firewall{");
+        sb.append("delay=").append(delay);
+        sb.append(", id=").append(id);
+        sb.append(", ip=").append(ip);
+        sb.append(", info='").append(info).append('\'');
+        sb.append(", price=").append(price);
+        sb.append(", notAllowedIP=").append(notAllowedIP);
+        sb.append('}');
+        return sb.toString();
     }
 }

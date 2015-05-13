@@ -66,16 +66,16 @@ public class Route extends ActiveElement{
     }
 
 
-
     @Override
     public String toString() {
-        return "Route{" +
-                "delay=" + delay +
-                ", id=" + id +
-                ", ip=" + ip +
-                ", info='" + info + '\'' +
-                ", price=" + price +
-                ", turnedOn=" + turnedOn +
-                '}';
+        final StringBuilder sb = new StringBuilder("Route{");
+        sb.append("delay=").append(delay);
+        sb.append(", id=").append(id);
+        sb.append(", ip=").append(ip);
+        sb.append(", info='").append(info).append('\'');
+        sb.append(", price=").append(price);
+        sb.append(", turnedOn=").append(turnedOn);
+        sb.append('}');
+        return sb.toString();
     }
 }

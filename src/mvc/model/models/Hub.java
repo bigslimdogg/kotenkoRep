@@ -52,18 +52,17 @@ public class Hub extends PassiveElement{
         this.unitAmount = unitAmount;
     }
 
-    
-
 
     @Override
     public String toString() {
-        return "Hub{" +
-                "delay=" + delay +
-                ", id=" + id +
-                ", price=" + price +
-                ", info='" + info + '\'' +
-                ", ip=" + ip +
-                ", unitAmount=" + unitAmount +
-                '}';
+        final StringBuilder sb = new StringBuilder("Hub{");
+        sb.append("delay=").append(delay);
+        sb.append(", id=").append(id);
+        sb.append(", price=").append(price);
+        sb.append(", info='").append(info).append('\'');
+        sb.append(", ip=").append(ip);
+        sb.append(", unitAmount=").append(unitAmount);
+        sb.append('}');
+        return sb.toString();
     }
 }

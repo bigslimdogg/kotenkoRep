@@ -50,15 +50,15 @@ public class Cable extends PassiveElement{
     }
 
 
-
     @Override
     public String toString() {
-        return "Cable{" +
-                "delay=" + delay +
-                ", id=" + id +
-                ", price=" + price +
-                ", info='" + info + '\'' +
-                ", type=" + type +
-                '}';
+        final StringBuilder sb = new StringBuilder("Cable{");
+        sb.append("delay=").append(delay);
+        sb.append(", id=").append(id);
+        sb.append(", price=").append(price);
+        sb.append(", info='").append(info).append('\'');
+        sb.append(", type=").append(type);
+        sb.append('}');
+        return sb.toString();
     }
 }

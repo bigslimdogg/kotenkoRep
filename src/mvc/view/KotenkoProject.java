@@ -13,8 +13,8 @@ public class KotenkoProject {
 
     public static void main(String[] args) throws UnknownHostException, Exception  {
         
-      BaseView console = new BaseView();
-      console.show();
+      //BaseView console = new BaseView();
+      //console.show();
       /*//Проверка алгоритмов поиска!!
       Network net = new Network();
       PC p1 = new PC(25, 1,"85.174.76.160" , "PC1", 25, net);System.out.println(p1);
@@ -41,13 +41,13 @@ public class KotenkoProject {
       System.out.println(r2.getRouteID(1, 5, net));
       System.out.println(r3.getRouteID(1, 5, net));
      */
-      /*Network net = new Network();
+      Network net = new Network();
       PC p1 = new PC(25, 1,"85.174.76.160" , "PC1", 25, net);System.out.println(p1);
       PC p2 = new PC(1, 2, "85.174.76.160", "PC2", 1, net);System.out.println(p2);
-      p1.connect(p2);
-      System.out.println(p1.getConnections());
-      System.out.println(p2.getConnections());
-    */
+
+      System.out.println(p1.toString());
+      System.out.println(p2.toString());
+
     }
     
 }
