@@ -65,6 +65,62 @@ public class Route extends ActiveElement{
         
     }
 
+    @Override
+    public ArrayList<PathElement> getConnections() {
+        return connections;
+    }
+
+
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String getInfo() {
+        return info;
+    }
+
+    @Override
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public InetAddress getIP() {
+        return ip;
+    }
+
+    public void setIP(String ip) {
+        try {
+            this.ip = InetAddress.getByName(ip);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public double getDelay() {
+        return delay;
+    }
+
+    @Override
+    public void setDelay(double delay) {
+        this.delay = delay;
+    }
 
     @Override
     public String toString() {

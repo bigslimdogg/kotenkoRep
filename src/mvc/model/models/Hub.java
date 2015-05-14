@@ -10,6 +10,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import mvc.model.abstract_model.ActiveElement;
 import mvc.model.abstract_model.PassiveElement;
 import mvc.model.network.Network;
 import mvc.model.pe_model.PathElement;
@@ -24,7 +26,6 @@ public class Hub extends PassiveElement{
     private int id;
     private double price;
     private String info;
-    private InetAddress ip;
     private int unitAmount;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
     
@@ -52,6 +53,47 @@ public class Hub extends PassiveElement{
         this.unitAmount = unitAmount;
     }
 
+    @Override
+    public double getDelay() {
+        return delay;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String getInfo() {
+        return info;
+    }
+
+    @Override
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+
+
+    @Override
+    public ArrayList<PathElement> getConnections() {
+        return connections;
+    }
+
+
 
     @Override
     public String toString() {
@@ -60,7 +102,6 @@ public class Hub extends PassiveElement{
         sb.append(", id=").append(id);
         sb.append(", price=").append(price);
         sb.append(", info='").append(info).append('\'');
-        sb.append(", ip=").append(ip);
         sb.append(", unitAmount=").append(unitAmount);
         sb.append('}');
         return sb.toString();

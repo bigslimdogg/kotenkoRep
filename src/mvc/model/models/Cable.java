@@ -49,6 +49,45 @@ public class Cable extends PassiveElement{
         return true;
     }
 
+    @Override
+    public double getDelay() {
+        return delay;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String getInfo() {
+        return info;
+    }
+
+    @Override
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    @Override
+    public ArrayList<PathElement> getConnections() {
+        return connections;
+    }
+
+
 
     @Override
     public String toString() {
