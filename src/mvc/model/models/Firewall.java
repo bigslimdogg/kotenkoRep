@@ -20,13 +20,7 @@ import mvc.model.pe_model.PathElement;
  */
 public class Firewall extends ActiveElement{
     
-    private double delay;
-    private int id;
-    private InetAddress ip;
-    private String info;
-    private double price;
-    private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
-   
+
     private ArrayList<String> notAllowedIP = new ArrayList<String>(){{
                                             add("85.174.76.160");
                                             add("5.139.12.193");
@@ -77,62 +71,6 @@ public class Firewall extends ActiveElement{
         }
         return true;
     }
-
-    @Override
-    public double getDelay() {
-        return delay;
-    }
-
-    @Override
-    public void setDelay(double delay) {
-        this.delay = delay;
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    public InetAddress getIP() {
-        return ip;
-    }
-
-    public void setIP(String ip) {
-        try {
-            this.ip = InetAddress.getByName(ip);
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public String getInfo() {
-        return info;
-    }
-
-    @Override
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public ArrayList<PathElement> getConnections() {
-        return connections;
-    }
-
 
 
     @Override

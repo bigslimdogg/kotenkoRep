@@ -10,8 +10,6 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import mvc.model.abstract_model.ActiveElement;
 import mvc.model.abstract_model.PassiveElement;
 import mvc.model.network.Network;
 import mvc.model.pe_model.PathElement;
@@ -22,12 +20,9 @@ import mvc.model.pe_model.PathElement;
  */
 public class Hub extends PassiveElement{
     
-    private final double delay = 0;
-    private int id;
-    private double price;
-    private String info;
+
     private int unitAmount;
-    private ArrayList<PathElement> connections = new ArrayList<PathElement>();
+
     
     public Hub(int id, double price, String info, int unitAmount, Network net) {
         this.id = id;
@@ -52,47 +47,6 @@ public class Hub extends PassiveElement{
     public void setUnitAmount(int unitAmount) {
         this.unitAmount = unitAmount;
     }
-
-    @Override
-    public double getDelay() {
-        return delay;
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String getInfo() {
-        return info;
-    }
-
-    @Override
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-
-
-    @Override
-    public ArrayList<PathElement> getConnections() {
-        return connections;
-    }
-
 
 
     @Override

@@ -46,7 +46,7 @@ public class KotenkoProject {
       PC p2 = new PC(1, 2, "85.174.76.160", "PC2", 1, net);System.out.println(p2);
 
       System.out.println(p1.toString());
-      System.out.println(p1.getId());
+      System.out.println(p1.getID());
 
     }
     

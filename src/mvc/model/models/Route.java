@@ -20,13 +20,9 @@ import mvc.model.pe_model.PathElement;
  */
 public class Route extends ActiveElement{
     
-    private double delay;
-    private int id;
-    private InetAddress ip;
-    private String info;
-    private double price;
+
     private boolean turnedOn;
-    private ArrayList<PathElement> connections = new ArrayList<PathElement>();;
+
 
     public Route(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
@@ -65,62 +61,6 @@ public class Route extends ActiveElement{
         
     }
 
-    @Override
-    public ArrayList<PathElement> getConnections() {
-        return connections;
-    }
-
-
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String getInfo() {
-        return info;
-    }
-
-    @Override
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-    public InetAddress getIP() {
-        return ip;
-    }
-
-    public void setIP(String ip) {
-        try {
-            this.ip = InetAddress.getByName(ip);
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public double getDelay() {
-        return delay;
-    }
-
-    @Override
-    public void setDelay(double delay) {
-        this.delay = delay;
-    }
 
     @Override
     public String toString() {
