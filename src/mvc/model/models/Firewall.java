@@ -21,10 +21,7 @@ import mvc.model.pe_model.PathElement;
 public class Firewall extends ActiveElement{
 
     private ArrayList<String> notAllowedIP = new ArrayList<String>(){{
-                                            add("85.174.76.160");
-                                            add("5.139.12.193");
-                                            add("176.212.68.19");
-                                            add("176.212.64.6");
+
                                             }};
 
     public ArrayList<String> getNotAllowedIP() {
