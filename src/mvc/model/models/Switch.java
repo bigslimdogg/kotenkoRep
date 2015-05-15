@@ -19,10 +19,8 @@ import mvc.model.pe_model.PathElement;
  * @author Nick
  */
 public class Switch extends ActiveElement{
-    
 
     private int unitAmount;
-
 
     public Switch(double delay, int id, String ip, String info, double price, int unitAmount, Network net) throws UnknownHostException {
         this.delay = delay;
@@ -42,8 +40,6 @@ public class Switch extends ActiveElement{
         return true;
     }
 
-
-
     public int getUnitAmount() {
         return unitAmount;
     }
@@ -51,7 +47,6 @@ public class Switch extends ActiveElement{
     public void setUnitAmount(int unitAmount) {
         this.unitAmount = unitAmount;
     }
-
 
     @Override
     public String toString() {

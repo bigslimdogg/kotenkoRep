@@ -34,34 +34,21 @@ public class RouteProviderWithLessUnits implements RouteProvider{
         }
         
     }
-    
-  
-        
-
-        
-   
-    
-
-
     @Override
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-         for(PathElement par : net.getPathElements().keySet()){
+        for(PathElement par : net.getPathElements().keySet()){
             for(PathElement elem : par.getConnections()){
                 if(elem.checkCon(par) == false){
                     throw new AccessException();
                 }
             }
-        }       
-        
-        
-                
+        }
         HashMap<PathElement,RouteProviderWithLessUnits.Root> roots = new HashMap<PathElement,RouteProviderWithLessUnits.Root>();
         ArrayList<PathElement> treatedRoots = new ArrayList<>();
         PathElement start = null;
         PathElement next = null;
         PathElement end = null;
-        
         for(PathElement elem : net.getPathElements().keySet()){//заносим элементы из сети в roots и помечаем стартовый и конечный узел
             if(elem.getID() == id1){
                 roots.put(elem, new RouteProviderWithLessUnits.Root());
@@ -74,18 +61,15 @@ public class RouteProviderWithLessUnits implements RouteProvider{
                 }
                 else
                     roots.put(elem, new RouteProviderWithLessUnits.Root());
-                
             }
         }
         if(start == null || end == null || start == end){//если их нет то бросаем исключение или они равны
             throw new ElementNotFoundException();
         }
-  
         LinkedList<PathElement> q = new LinkedList<PathElement>();
         q.addFirst(start);
         roots.get(start).destination = 0;
         roots.get(start).isUsed = true;
-        
         while(!q.isEmpty()){
             next = q.peekFirst();
             q.pollFirst();
@@ -101,7 +85,6 @@ public class RouteProviderWithLessUnits implements RouteProvider{
                 }
             }
         }
-       
         for(PathElement child : roots.keySet()){//выясняем родителей каждого узла
             PathElement parent = null;
             for(PathElement elem : child.getConnections()){
@@ -119,16 +102,13 @@ public class RouteProviderWithLessUnits implements RouteProvider{
             }
             roots.get(child).parentPE = parent;
         }
-        
-        
         next = end;
         path.add(end);
-        
         while(next.getID() != id1){
             path.add(roots.get(next).parentPE);
             next = roots.get(next).parentPE;
         }
         return path; 
         }
-    }
+}
 

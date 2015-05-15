@@ -20,7 +20,6 @@ public class Cable extends PassiveElement{
 
     private TypeOfCable type;
 
-    
     public TypeOfCable getType() {
         return type;
     }
@@ -40,12 +39,10 @@ public class Cable extends PassiveElement{
         net.addElements(this);
     }
 
-
     @Override
     public boolean checkCon(PathElement parent) {
         return true;
     }
-
 
     @Override
     public String toString() {

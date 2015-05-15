@@ -1,7 +1,6 @@
 <component name="libraryTable">
   <library name="KotenkoProject">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/KotenkoProject.jar!/" />
       <root url="file://C:/Program Files/apache_maven_3.3.3" />
     </CLASSES>
     <JAVADOC />

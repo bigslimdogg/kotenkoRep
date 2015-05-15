@@ -32,20 +32,16 @@ public abstract class ActiveElement implements PathElement{
     
     public ActiveElement() {
     }
-  
-    
-    
+
     public ArrayList<PathElement> getConnections(){
         return connections;
     }
-   
 
     @Override
     public double getDelay() {
         return delay;
     }
 
-  
     @Override
     public void setDelay(double delay) {
         this.delay = delay;
@@ -74,7 +70,6 @@ public abstract class ActiveElement implements PathElement{
             Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     @Override
     public String getInfo() {
         return this.info;
@@ -95,29 +90,21 @@ public abstract class ActiveElement implements PathElement{
         this.price = price;
     }
 
-  
-
-    
-    
     public void connect(PathElement elToConnect)throws Exception{
 
         if(elToConnect == null){
             throw new NullPointerException();
         }
-
         for(PathElement elem : connections)
             if(elem == elToConnect)
             {
                 throw new AlreadyExistException();
             }
-
-
         if(elToConnect instanceof Switch){
             Switch el = (Switch) elToConnect;
             if(el.getUnitAmount() < 1)
                 throw new AccessException();
         }
-
         if(elToConnect instanceof Hub){
             Hub el = (Hub) elToConnect;
             if(el.getUnitAmount() < 1)
@@ -125,8 +112,5 @@ public abstract class ActiveElement implements PathElement{
         }
         this.getConnections().add(elToConnect);
         elToConnect.getConnections().add(this);
-
     }
-
-    
 }

@@ -19,7 +19,6 @@ import mvc.model.pe_model.PathElement;
  * @author Nick
  */
 public class Firewall extends ActiveElement{
-    
 
     private ArrayList<String> notAllowedIP = new ArrayList<String>(){{
                                             add("85.174.76.160");
@@ -38,10 +37,7 @@ public class Firewall extends ActiveElement{
 
     @Override
     public boolean checkCon(PathElement parent) {
-        if(!isAddressCorrect(parent.getIP().toString()))
-            return false;
-        else
-            return true;
+       return isAddressCorrect(parent.getIP().toString());
     }
 
     public Firewall() {
@@ -57,10 +53,7 @@ public class Firewall extends ActiveElement{
         net.addElements(this);   
     }
 
-
-
-
-    public boolean isAddressCorrect(String address){
+    private boolean isAddressCorrect(String address){
         if(address == null)
             return false;
         for(String ip : this.notAllowedIP){
@@ -71,7 +64,6 @@ public class Firewall extends ActiveElement{
         }
         return true;
     }
-
 
     @Override
     public String toString() {

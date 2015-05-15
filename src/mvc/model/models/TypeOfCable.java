@@ -11,16 +11,14 @@ package mvc.model.models;
  */
 public enum TypeOfCable {
     
-    UTP//{void option(){};}
-    ,FTP//{void option(){};}
-    ,STP//{void option(){};}
-    ,S_FTP//{void option(){};}
-    ,U_STP//{void option(){};}
-    ,SF_UTP//{void option(){};}
-    ,COAXIAL//{void option(){};}
-    ,OPTICAL//{void option(){};};
-    
-    //abstract void option();
+    UTP
+    ,FTP
+    ,STP
+    ,S_FTP
+    ,U_STP
+    ,SF_UTP
+    ,COAXIAL
+    ,OPTICAL
     
     
     

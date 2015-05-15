@@ -19,11 +19,9 @@ import mvc.model.pe_model.PathElement;
  * @author Nick
  */
 public class Hub extends PassiveElement{
-    
 
     private int unitAmount;
 
-    
     public Hub(int id, double price, String info, int unitAmount, Network net) {
         this.id = id;
         this.price = price;
@@ -47,7 +45,6 @@ public class Hub extends PassiveElement{
     public void setUnitAmount(int unitAmount) {
         this.unitAmount = unitAmount;
     }
-
 
     @Override
     public String toString() {

@@ -3,8 +3,11 @@ package mvc.model.abstract_model;
 
 import java.net.InetAddress;
 import mvc.model.pe_model.PathElement;
-import java.util.*;
 
+import java.net.UnknownHostException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public abstract class PassiveElement implements PathElement{
@@ -12,6 +15,7 @@ public abstract class PassiveElement implements PathElement{
     protected final double delay = 0;
     protected int id;
     protected double price;
+    protected InetAddress ip;
     protected String info;
     private ArrayList<PathElement> connections = new ArrayList<PathElement>();
     @Override
@@ -44,8 +48,6 @@ public abstract class PassiveElement implements PathElement{
         this.info = info;
     }
 
-    
-
     @Override
     public ArrayList<PathElement> getConnections() {
         return connections;
@@ -58,7 +60,7 @@ public abstract class PassiveElement implements PathElement{
 
     @Override
     public InetAddress getIP() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return ip;
     }
 
     @Override
@@ -68,11 +70,10 @@ public abstract class PassiveElement implements PathElement{
 
     @Override
     public void setIP(String ip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.ip = InetAddress.getByName(ip);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(ActiveElement.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    
-    
-    
-    
 }

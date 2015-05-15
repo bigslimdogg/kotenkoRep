@@ -17,10 +17,8 @@ import mvc.model.pe_model.PathElement;
  */
 public class Network {
     
-
     private HashMap<PathElement,ArrayList<PathElement>> elements = new HashMap<PathElement,ArrayList<PathElement>>();
 
-    
     public Network() {
     }
 
@@ -32,17 +30,10 @@ public class Network {
 
             elements.remove(elToDel);
     }
- 
-    
-    
 
-
-    
     public HashMap<PathElement,ArrayList<PathElement>>  getPathElements(){
         
         return elements;
     }
-    
 
-    
 }

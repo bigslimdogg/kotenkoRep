@@ -38,10 +38,8 @@ public class Route extends ActiveElement{
     
     @Override
     public boolean checkCon(PathElement parent) {
-        if(this.isTurnedOn() == false)
-            return false;
-        else
-            return true;
+        return this.isTurnedOn();
+
     }
 
     public boolean isTurnedOn() {

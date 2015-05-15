@@ -7,7 +7,7 @@ package mvc.controller.pe_controller;
 
 
 
-import mvc.controller.Comands;
+import mvc.Comands;
 import mvc.model.models.Cable;
 import mvc.model.models.Firewall;
 import mvc.model.models.Hub;

@@ -37,7 +37,6 @@ public class PC extends ActiveElement {
         return true;
     }
 
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("PC{");

@@ -23,12 +23,10 @@ import mvc.model.my_exceptions.AccessException;
  */
 public class RouteProviderWithLessPrice implements RouteProvider{
 
- 
     @Override
     public void getDescription(PathElement el) {
         System.out.println(el.toString());
     }
-
 
     public class Root{
         double price = Double.POSITIVE_INFINITY;
@@ -61,13 +59,10 @@ public class RouteProviderWithLessPrice implements RouteProvider{
         else
             return null;
     }
-    
 
- 
     @Override
     public ArrayList<PathElement> getRouteID(int id1, int id2, Network net) throws Exception {
         ArrayList<PathElement> path = new ArrayList<PathElement>();//нужный маршрут от id1 до id2
-
         for(PathElement par : net.getPathElements().keySet()){
             for(PathElement elem : par.getConnections()){
                 if(elem.checkCon(par) == false){
@@ -75,13 +70,10 @@ public class RouteProviderWithLessPrice implements RouteProvider{
                 }
             }
         }
-
-                
         HashMap<PathElement,Root> roots = new HashMap<PathElement,Root>();
         PathElement start = null;
         PathElement next = null;
         PathElement end = null;
-        
         for(PathElement elem : net.getPathElements().keySet()){//заносим элементы из сети в roots и помечаем стартовый и конечный узел
             if(elem.getID() == id1){
                 roots.put(elem, new Root(0.0));
@@ -94,20 +86,14 @@ public class RouteProviderWithLessPrice implements RouteProvider{
                 }
                 else
                     roots.put(elem, new Root());
-                
             }
         }
         if(start == null || end == null || start == end){//если их нет то бросаем исключение или они равны
             throw new ElementNotFoundException();
         }
-  
-
-        
         for(;;){//цикл работает пока остались необработанные вершины
             if(roots.get(start).isUsed == true){
                ArrayList<PathElement> arrOfUnusedNeighb = new ArrayList<>();
-              
-               
                for(PathElement elem : start.getConnections()){
                    if(roots.get(elem).isUsed == false){
                         arrOfUnusedNeighb.add(elem);
@@ -126,27 +112,15 @@ public class RouteProviderWithLessPrice implements RouteProvider{
                    else
                        start = arrOfUnused.get(0);
                }
-                   
             }
             for(PathElement elem : start.getConnections()){
-                
-                        next = elem;
-                        if(roots.get(next).price > roots.get(start).price + next.getPrice()){
-                            roots.get(next).price = roots.get(start).price + next.getPrice();
-                        }
-                
+                next = elem;
+                if(roots.get(next).price > roots.get(start).price + next.getPrice()){
+                    roots.get(next).price = roots.get(start).price + next.getPrice();
+                }
             }
-           
-            
             roots.get(start).isUsed = true;//помечаем его как посещенную
         }
-        
-        
-        
-        
-        
-        
-        
         for(PathElement elem : roots.keySet()){//выясняем родителей каждого узла
             for(PathElement connectedWithElem : elem.getConnections()){
                 if(roots.get(elem).price == elem.getPrice() + roots.get(connectedWithElem).price){
@@ -155,17 +129,12 @@ public class RouteProviderWithLessPrice implements RouteProvider{
                 
             }
         }
-        
-        
         next = end;
         path.add(end);
-        
         while(next.getID() != id1){
             path.add(roots.get(next).parentPE);
             next = roots.get(next).parentPE;
         }
-        
-        
         return path; 
         }
 }

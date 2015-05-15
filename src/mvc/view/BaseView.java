@@ -8,7 +8,7 @@ package mvc.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import mvc.controller.Comands;
+import mvc.Comands;
 import mvc.controller.connection_controller.ConnectionController;
 import mvc.controller.creation_controller.CreatePathElementController;
 import mvc.controller.pe_controller.PEController;
