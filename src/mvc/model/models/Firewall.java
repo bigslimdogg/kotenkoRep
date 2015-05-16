@@ -40,7 +40,7 @@ public class Firewall extends ActiveElement{
     public Firewall() {
     }
     
-    public Firewall(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
+    public Firewall( int id, double delay, String ip, String info, double price, Network net) throws UnknownHostException {
     
         this.delay = delay;
         this.id = id;

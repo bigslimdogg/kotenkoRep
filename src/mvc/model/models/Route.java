@@ -24,7 +24,7 @@ public class Route extends ActiveElement{
     private boolean turnedOn;
 
 
-    public Route(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
+    public Route(int id, double delay,  String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);

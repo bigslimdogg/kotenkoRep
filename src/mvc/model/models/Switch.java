@@ -22,7 +22,7 @@ public class Switch extends ActiveElement{
 
     private int unitAmount;
 
-    public Switch(double delay, int id, String ip, String info, double price, int unitAmount, Network net) throws UnknownHostException {
+    public Switch(int id, double delay,  String ip, String info, double price, int unitAmount, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip.getByName(ip);

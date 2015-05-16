@@ -20,7 +20,7 @@ import mvc.model.network.*;
 public class PC extends ActiveElement {
 
 
-    public PC(double delay, int id, String ip, String info, double price, Network net) throws UnknownHostException {
+    public PC( int id, double delay, String ip, String info, double price, Network net) throws UnknownHostException {
         this.delay = delay;
         this.id = id;
         this.ip = InetAddress.getByName(ip);
