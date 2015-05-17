@@ -22,18 +22,24 @@ public class ConnectionDao {
     }
 
     public void createConnection(PathElement el1, PathElement el2) throws SQLException {
+        if(el1 == null || el2 == null)
+            throw new NullPointerException();
         preparedStatement = connection.prepareStatement("INSERT INTO connections(first_elem, second_elem) VALUES (?,?)");
         preparedStatement.setInt(1, el1.getID());
         preparedStatement.setInt(2, el2.getID());
         preparedStatement.execute();
     }
     public void deleteConections(PathElement el1, PathElement el2) throws SQLException {
+        if(el1 == null || el2 == null)
+            throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM connections WHERE first_elem = ? AND second_elem =?");
         preparedStatement.setInt(1,el1.getID());
         preparedStatement.setInt(2, el2.getID());
         preparedStatement.execute();
     }
     public void readConnections(ActiveElement model, Network net) throws Exception {
+        if(model == null || net == null)
+            throw new NullPointerException();
         preparedStatement = connection.prepareStatement("SELECT second_elem FROM connections WHERE first_elem = ?");
         preparedStatement.setInt(1, model.getID());
         ResultSet rs = preparedStatement.executeQuery();
