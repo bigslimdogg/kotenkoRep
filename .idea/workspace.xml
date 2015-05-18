@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c9dd2ea-72b1-4e4a-8547-91852753dcd4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/mvc/view/DaoView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Cable.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Cable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall$1.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Firewall.class" />
@@ -11,17 +10,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/PC.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/PC.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Route.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Route.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Switch.class" afterPath="$PROJECT_DIR$/out/production/KotenkoProject/mvc/model/models/Switch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/model/abstract_model/ActiveElement.java" afterPath="$PROJECT_DIR$/src/mvc/model/abstract_model/ActiveElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/view/BaseView.java" afterPath="$PROJECT_DIR$/src/mvc/view/BaseView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/Comands.java" afterPath="$PROJECT_DIR$/src/mvc/Comands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/ConnectionDao.java" afterPath="$PROJECT_DIR$/src/mvc/ConnectionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/DaoFactory.java" afterPath="$PROJECT_DIR$/src/mvc/DaoFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/DataDao.java" afterPath="$PROJECT_DIR$/src/mvc/DataDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/view/KotenkoProject.java" afterPath="$PROJECT_DIR$/src/mvc/view/KotenkoProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/ModelDao.java" afterPath="$PROJECT_DIR$/src/mvc/ModelDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Documents\NetBeansProjects\kotenkoRep\src\mvc\DBController.java" afterPath="$PROJECT_DIR$/src/mvc/DaoController.java" />
-      <change type="MOVED" beforePath="D:\Documents\NetBeansProjects\kotenkoRep\src\mvc\DaoException.java" afterPath="$PROJECT_DIR$/src/mvc/model/my_exceptions/DaoException.java" />
     </list>
     <ignored path="KotenkoProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -970,7 +959,7 @@
       <workItem from="1431784909418" duration="62000" />
       <workItem from="1431785003692" duration="13922000" />
       <workItem from="1431947174521" duration="3045000" />
-      <workItem from="1431965371418" duration="14112000" />
+      <workItem from="1431965371418" duration="14126000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1430872491171</created>
@@ -1068,11 +1057,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431824878910</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="6">
+      <created>1431982328826</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1431982328826</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88099000" />
+    <option name="totallyTimeSpent" value="88113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1123,7 +1118,8 @@
     <MESSAGE value="3" />
     <MESSAGE value="4" />
     <MESSAGE value="5" />
-    <option name="LAST_COMMIT_MESSAGE" value="5" />
+    <MESSAGE value="6" />
+    <option name="LAST_COMMIT_MESSAGE" value="6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
