@@ -346,7 +346,7 @@ public class ModelDao {
         }
     }
 
-    public void readAll(Network net) throws SQLException, UnknownHostException {
+    public void readAllModels(Network net) throws SQLException, UnknownHostException {
         ResultSet rs = statement.executeQuery("SELECT id_cable FROM cable");
         while(rs.next()){
             readCable(rs.getInt("id_cable"),net);

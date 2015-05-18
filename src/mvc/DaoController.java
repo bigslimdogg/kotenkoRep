@@ -240,9 +240,10 @@ public class DaoController {
 
     }
 
-    public void readAll(Network net) throws SQLException, UnknownHostException {
+    public void readAll(Network net) throws Exception {
         ModelDao modelDao = factory.getModelDao(factory.getConnection());
-        modelDao.readAll(net);
+        ConnectionDao connectionDao= factory.getConnectionDao(factory.getConnection());
+        modelDao.readAllModels(net);
+        connectionDao.readAllConnections(net);
     }
-
 }

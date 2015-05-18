@@ -13,8 +13,8 @@ public class KotenkoProject {
 
     public static void main(String[] args) throws UnknownHostException, Exception  {
         
-      //DaoView view = new DaoView();
-      //view.show();
+      DaoView view = new DaoView();
+      view.show();
       //Network net = new Network();
       //PC p1 = new PC(25, 1,null , "PC1", 25, net);System.out.println(p1);
       /*//Проверка алгоритмов поиска!!
