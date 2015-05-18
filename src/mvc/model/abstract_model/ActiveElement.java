@@ -113,4 +113,8 @@ public abstract class ActiveElement implements PathElement{
         this.getConnections().add(elToConnect);
         elToConnect.getConnections().add(this);
     }
+    public void disConnect(PathElement elTodisconnect){
+        this.connections.remove(elTodisconnect);
+        elTodisconnect.getConnections().remove(this);
+    }
 }

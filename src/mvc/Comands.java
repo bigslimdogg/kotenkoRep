@@ -27,9 +27,6 @@ public enum Comands {
     ,add_cable_type
     ,add_ips
     ,add_wrong_ips
-    ,update_cable_type
-    ,update_ips
-    ,update_wrong_ips
     ,delete_cable
     ,delete_pc
     ,delete_firewall

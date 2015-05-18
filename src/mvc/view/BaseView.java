@@ -50,8 +50,6 @@ public class BaseView {
                 System.out.println("введите команду");
                 Comands command1 = Comands.valueOf(sc.next());
                 net.addElements(createCon.create(command1));
-            
-            
                 System.out.println("Вернуться в главное меню(1/0)?");
                 isEnd = sc.nextInt();
                 }catch(Exception e){System.out.println(e + "\n"); break;}

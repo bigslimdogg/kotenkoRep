@@ -4,15 +4,19 @@ package mvc.view;
 import java.net.*;
 
 import mvc.Comands;
-import mvc.DBController;
+import mvc.DaoController;
+import mvc.model.models.PC;
+import mvc.model.network.Network;
 
 
 public class KotenkoProject {
 
     public static void main(String[] args) throws UnknownHostException, Exception  {
         
-      //BaseView console = new BaseView();
-      //console.show();
+      //DaoView view = new DaoView();
+      //view.show();
+      //Network net = new Network();
+      //PC p1 = new PC(25, 1,null , "PC1", 25, net);System.out.println(p1);
       /*//Проверка алгоритмов поиска!!
       Network net = new Network();
       PC p1 = new PC(25, 1,"85.174.76.160" , "PC1", 25, net);System.out.println(p1);
@@ -39,8 +43,7 @@ public class KotenkoProject {
       System.out.println(r2.getRouteID(1, 5, net));
       System.out.println(r3.getRouteID(1, 5, net));
      */
-      DBController db = new DBController();
-      db.addData(Comands.add_cable_type,"sada");
+
 
     }
     

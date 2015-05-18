@@ -25,7 +25,8 @@ public class DaoFactory {
     ModelDao getModelDao(Connection connection){
         return new ModelDao(connection);
     }
-
+    DataDao getDataDao (Connection connection){return new DataDao(connection);}
+    ConnectionDao getConnectionDao (Connection connection){return new ConnectionDao(connection);}
 
     public DaoFactory() {
         try {
