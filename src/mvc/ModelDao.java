@@ -18,18 +18,39 @@ public class ModelDao {
     private Statement statement;
     private PreparedStatement preparedStatement;
 
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public Statement getStatement() {
+        return statement;
+    }
+
+
+
+    public PreparedStatement getPreparedStatement() {
+        return preparedStatement;
+    }
+
+
+
     ModelDao(Connection connection){
         this.connection = connection;
     }
 
     public int createPc()throws SQLException {
-        statement.execute("INSERT INTO pathelement VALUE()");
+        int id = 0;
+        statement = connection.createStatement();
+        statement.execute("INSERT INTO pathelement() VALUE();");
         statement.execute("INSERT INTO pc(id_pc) VALUE(last_insert_id()); ");
-        ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
-        rs.next();
-        return rs.getInt("id_pc");
+        ResultSet rs = statement.executeQuery("SELECT last_insert_id() FROM pc");
+        while (rs.next()){
+            id = rs.getInt(1);
+        }
+        return id;
     }
     public int createCable()throws SQLException{
+        statement = connection.createStatement();
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO cable(id_cable) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
@@ -37,6 +58,7 @@ public class ModelDao {
         return rs.getInt("id_cable");
     }
     public int createHub()throws SQLException{
+        statement = connection.createStatement();
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO hub(id_hub)  VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
@@ -44,6 +66,7 @@ public class ModelDao {
         return rs.getInt("id_hub");
     }
     public int createFirewall()throws SQLException{
+        statement = connection.createStatement();
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO firewall(id_firewall) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
@@ -51,6 +74,7 @@ public class ModelDao {
         return rs.getInt("id_firewall");
     }
     public int createSwitch()throws SQLException{
+        statement = connection.createStatement();
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO switch(id_switch) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
@@ -58,6 +82,7 @@ public class ModelDao {
         return rs.getInt("id_switch");
     }
     public int createRoute()throws SQLException{
+        statement = connection.createStatement();
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO route(id_route,turned_on) VALUES(last_insert_id(),TRUE ); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
@@ -125,7 +150,7 @@ public class ModelDao {
         if(attribute == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("SELECT id_ip FROM ip WHERE ip_name = ?");
-        preparedStatement.setString(1,attribute);
+        preparedStatement.setString(1, attribute);
         ResultSet rs = preparedStatement.executeQuery();
         int ipNumber = rs.getInt("id_ip");
         if(rs.wasNull()){
@@ -219,7 +244,7 @@ public class ModelDao {
         if(attribute == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("SELECT id_cable_type FROM cable_type WHERE type_name = ?");
-        preparedStatement.setString(1,attribute);
+        preparedStatement.setString(1, attribute);
         ResultSet rs = preparedStatement.executeQuery();
         int ipNumber = rs.getInt("id_cable_type");
         if(rs.wasNull()){
@@ -280,15 +305,12 @@ public class ModelDao {
                 "JOIN ip ON pathelement.ip = ip.id_ip");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
-        try {
+        if(rs.next()) {
             PC pc = new PC(rs.getInt("id_elem"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), net);
             return pc;
-        }catch (NullPointerException e){
-            PC pc = new PC();
-            net.addElements(pc);
-            pc.setID(rs.getInt("id_elem"));
-            return pc;
         }
+        else
+            return null;
     }
     public Hub readHub(int key, Network net)throws SQLException{
         if(net == null)

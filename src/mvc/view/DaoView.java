@@ -25,7 +25,7 @@ public class DaoView {
 
         for(;;){
             try{
-                controller.readAll(net);
+                //controller.readAll(net);
                 Scanner sc = new Scanner( System.in );
                 System.out.println("Выберете каталог команд:"+
                                 "\n1.Создание элементов сети"+

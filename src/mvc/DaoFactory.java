@@ -21,6 +21,19 @@ public class DaoFactory {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
+    public void closeModelDao(ModelDao modelDao) throws SQLException {
+        modelDao.getConnection().close();
+        modelDao.getPreparedStatement().close();
+        modelDao.getStatement().close();
+    }
+    public void closeConnectionDao(ConnectionDao connectionDao) throws SQLException {
+        connectionDao.getConnection().close();
+        connectionDao.getPreparedStatement().close();
+    }
+    public void closeDataDao(DataDao dataDao) throws SQLException {
+        dataDao.getConnection().close();
+        dataDao.getPreparedStatement().close();
+    }
 
     ModelDao getModelDao(Connection connection){
         return new ModelDao(connection);

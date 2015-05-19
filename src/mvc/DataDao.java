@@ -9,9 +9,16 @@ import java.sql.SQLException;
  */
 public class DataDao {
 
-    Connection connection;
+    private Connection connection;
     private PreparedStatement preparedStatement;
 
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public PreparedStatement getPreparedStatement() {
+        return preparedStatement;
+    }
 
     DataDao(Connection connection){
         this.connection = connection;

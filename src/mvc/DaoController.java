@@ -42,6 +42,7 @@ public class DaoController {
             default :
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
+        factory.closeModelDao(modelDao);
     }
 
     public void createData(Comands comand, String attribute) throws SQLException {
@@ -65,6 +66,7 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
+        factory.closeDataDao(dataDao);
     }
 
 
@@ -155,6 +157,7 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
         }
+        factory.closeModelDao(modelDao);
     }
 
 
@@ -192,7 +195,8 @@ public class DaoController {
                 break;
             default :
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
-            }
+        }
+        factory.closeModelDao(modelDao);
     }
     public void deleteData(Comands comand, String attribute) throws SQLException {
         DataDao dataDao = factory.getDataDao(factory.getConnection());
@@ -213,6 +217,7 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
+        factory.closeDataDao(dataDao);
     }
 
     public void executeConnectionBetweenElements(Comands comand, ActiveElement model1, PathElement model2) throws Exception {
@@ -232,11 +237,12 @@ public class DaoController {
                     System.out.printf("Соединения не существует");
                     break;
                 }
-                connectionDao.deleteConections(model1, model2);
+                connectionDao.deleteConnections(model1, model2);
                 break;
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
         }
+        factory.closeConnectionDao(connectionDao);
 
     }
 
@@ -245,5 +251,7 @@ public class DaoController {
         ConnectionDao connectionDao= factory.getConnectionDao(factory.getConnection());
         modelDao.readAllModels(net);
         connectionDao.readAllConnections(net);
+        factory.closeConnectionDao(connectionDao);
+        factory.closeModelDao(modelDao);
     }
 }

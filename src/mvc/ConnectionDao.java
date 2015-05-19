@@ -17,7 +17,14 @@ public class ConnectionDao {
 
     private Connection connection;
     private PreparedStatement preparedStatement;
-    private Statement statement;
+
+    public PreparedStatement getPreparedStatement() {
+        return preparedStatement;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
 
     ConnectionDao(Connection connection){
         this.connection = connection;
@@ -32,7 +39,7 @@ public class ConnectionDao {
         preparedStatement.execute();
         el1.connect(el2);
     }
-    public void deleteConections(ActiveElement el1, PathElement el2) throws SQLException {
+    public void deleteConnections(ActiveElement el1, PathElement el2) throws SQLException {
         if(el2 == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM connections WHERE second_elem =?");
