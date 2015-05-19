@@ -352,30 +352,48 @@ public class ModelDao {
     }
 
     public void readAllModels(Network net) throws SQLException, UnknownHostException {
+        statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT id_cable FROM cable");
         while(rs.next()){
             readCable(rs.getInt("id_cable"),net);
         }
+        rs.close();
+        statement.close();
+        statement = connection.createStatement();
         rs = statement.executeQuery("SELECT id_firewall FROM firewall");
         while(rs.next()){
             readFirewall(rs.getInt("id_firewall"), net);
         }
+        rs.close();
+        statement.close();
+        statement = connection.createStatement();
         rs = statement.executeQuery("SELECT id_pc FROM pc");
         while(rs.next()){
             readPc(rs.getInt("id_pc"), net);
         }
+        rs.close();
+        statement.close();
+        statement = connection.createStatement();
         rs = statement.executeQuery("SELECT id_hub FROM hub");
         while(rs.next()){
             readHub(rs.getInt("id_hub"),net);
         }
+        rs.close();
+        statement.close();
+        statement = connection.createStatement();
         rs = statement.executeQuery("SELECT id_route FROM route");
         while(rs.next()){
             readRoute(rs.getInt("id_route"),net);
         }
+        rs.close();
+        statement.close();
+        statement = connection.createStatement();
         rs = statement.executeQuery("SELECT id_switch FROM switch");
         while(rs.next()){
             readSwitch(rs.getInt("id_switch"),net);
         }
+        rs.close();
+        statement.close();
     }
 
 
