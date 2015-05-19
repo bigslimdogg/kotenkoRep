@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c9dd2ea-72b1-4e4a-8547-91852753dcd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/ConnectionDao.java" afterPath="$PROJECT_DIR$/src/mvc/ConnectionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/DaoController.java" afterPath="$PROJECT_DIR$/src/mvc/DaoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/DaoFactory.java" afterPath="$PROJECT_DIR$/src/mvc/DaoFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/view/DaoView.java" afterPath="$PROJECT_DIR$/src/mvc/view/DaoView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/DataDao.java" afterPath="$PROJECT_DIR$/src/mvc/DataDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/ModelDao.java" afterPath="$PROJECT_DIR$/src/mvc/ModelDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -66,74 +62,130 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModelDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModelDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mvc/ModelDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9336493">
-              <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="350" column="24" selection-start-line="350" selection-start-column="24" selection-end-line="350" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ModelDao#0" expanded="false" />
-                <marker date="1432046546489" expanded="true" signature="901:934" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="966:1011" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="1064:1087" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="1064:1095" placeholder="SELECT last_..pc..." />
-                <marker date="1432046546489" expanded="true" signature="1318:1349" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="1380:1431" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="1484:1507" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="1698:1729" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="1760:1808" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="1861:1884" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="2078:2109" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="2140:2197" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="2250:2273" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="2470:2501" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="2532:2585" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="2638:2661" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="2855:2886" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="2917:2985" placeholder="INSERT INTO ..." />
-                <marker date="1432046546489" expanded="true" signature="3038:3061" placeholder="SELECT last_..." />
-                <marker date="1432046546489" expanded="true" signature="3322:3352" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="3465:3506" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="3801:3834" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="3947:3988" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="4286:4322" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="4435:4476" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="4769:4800" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="4913:4954" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="5249:5282" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="5395:5436" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="5732:5766" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="5879:5920" placeholder="DELETE FROM ..." />
-                <marker date="1432046546489" expanded="true" signature="6322:6360" placeholder="SELECT id_ip..ip..." />
-                <marker date="1432046546489" expanded="true" signature="6665:6712" placeholder="UPDATE pathe..." />
-                <marker date="1432046546489" expanded="true" signature="7171:7220" placeholder="UPDATE pathe..." />
-                <marker date="1432046546489" expanded="true" signature="7588:7638" placeholder="UPDATE pathe..." />
-                <marker date="1432046546489" expanded="true" signature="8023:8073" placeholder="UPDATE pathe..." />
-                <marker date="1432046546489" expanded="true" signature="8554:8604" placeholder="SELECT id FR..ip..." />
-                <marker date="1432046546489" expanded="true" signature="8915:8969" placeholder="UPDATE firew..." />
-                <marker date="1432046546489" expanded="true" signature="9428:9477" placeholder="UPDATE route..." />
-                <marker date="1432046546489" expanded="true" signature="9899:9942" placeholder="UPDATE hub S..." />
-                <marker date="1432046546489" expanded="true" signature="10220:10266" placeholder="UPDATE Switc..." />
-                <marker date="1432046546489" expanded="true" signature="10764:10820" placeholder="SELECT id_wr..wrong_ip..." />
-                <marker date="1432046546489" expanded="true" signature="11132:11182" placeholder="UPDATE firew..." />
-                <marker date="1432046546489" expanded="true" signature="11545:11682" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="12432:12587" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="12951:12994" placeholder="SELECT wrong..wrong_ip..." />
-                <marker date="1432046546489" expanded="true" signature="12951:13019" placeholder="SELECT wrong..wrong_ip..." />
-                <marker date="1432046546489" expanded="true" signature="13700:13842" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="14386:14463" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="15160:15326" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="16157:16321" placeholder="select id_el..pathelement..." />
-                <marker date="1432046546489" expanded="true" signature="16987:17013" placeholder="SELECT id_ca..cable..." />
-                <marker date="1432046546489" expanded="true" signature="17140:17172" placeholder="SELECT id_fi..firewall..." />
-                <marker date="1432046546489" expanded="true" signature="17306:17326" placeholder="SELECT id_pc..pc..." />
-                <marker date="1432046546489" expanded="true" signature="17448:17467" placeholder="SELECT id_fi..firewall..." />
-                <marker date="1432046546489" expanded="true" signature="17448:17470" placeholder="SELECT id_hu..hub..." />
-                <marker date="1432046546489" expanded="true" signature="17593:17619" placeholder="SELECT id_ro..route..." />
-                <marker date="1432046546489" expanded="true" signature="17746:17768" placeholder="SELECT id_fi..firewall..." />
-                <marker date="1432046546489" expanded="true" signature="17746:17774" placeholder="SELECT id_sw..switch..." />
+                <marker date="1432062501576" expanded="true" signature="901:934" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="966:1011" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="1064:1087" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="1064:1095" placeholder="SELECT last_..pc..." />
+                <marker date="1432062501576" expanded="true" signature="1318:1349" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="1380:1431" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="1484:1507" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="1698:1729" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="1760:1808" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="1861:1884" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="2078:2109" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="2140:2197" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="2250:2273" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="2470:2501" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="2532:2585" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="2638:2661" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="2855:2886" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="2917:2985" placeholder="INSERT INTO ..." />
+                <marker date="1432062501576" expanded="true" signature="3038:3061" placeholder="SELECT last_..." />
+                <marker date="1432062501576" expanded="true" signature="3322:3352" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="3465:3506" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="3801:3834" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="3947:3988" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="4286:4322" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="4435:4476" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="4769:4800" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="4913:4954" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="5249:5282" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="5395:5436" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="5732:5766" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="5879:5920" placeholder="DELETE FROM ..." />
+                <marker date="1432062501576" expanded="true" signature="6322:6360" placeholder="SELECT id_ip..ip..." />
+                <marker date="1432062501576" expanded="true" signature="6665:6712" placeholder="UPDATE pathe..." />
+                <marker date="1432062501576" expanded="true" signature="7171:7220" placeholder="UPDATE pathe..." />
+                <marker date="1432062501576" expanded="true" signature="7588:7638" placeholder="UPDATE pathe..." />
+                <marker date="1432062501576" expanded="true" signature="8023:8073" placeholder="UPDATE pathe..." />
+                <marker date="1432062501576" expanded="true" signature="8554:8604" placeholder="SELECT id FR..ip..." />
+                <marker date="1432062501576" expanded="true" signature="8915:8969" placeholder="UPDATE firew..." />
+                <marker date="1432062501576" expanded="true" signature="9428:9477" placeholder="UPDATE route..." />
+                <marker date="1432062501576" expanded="true" signature="9899:9942" placeholder="UPDATE hub S..." />
+                <marker date="1432062501576" expanded="true" signature="10220:10266" placeholder="UPDATE Switc..." />
+                <marker date="1432062501576" expanded="true" signature="10764:10820" placeholder="SELECT id_wr..wrong_ip..." />
+                <marker date="1432062501576" expanded="true" signature="11132:11182" placeholder="UPDATE firew..." />
+                <marker date="1432062501576" expanded="true" signature="11545:11779" placeholder="select pc.id..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="11545:11780" placeholder="select cable..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="12391:12495" placeholder="select id_fi..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="12391:12585" placeholder="select id_fi..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="12391:12586" placeholder="select id_fi..pathelementjoin..." />
+                <marker date="1432062501576" expanded="true" signature="12964:13007" placeholder="SELECT wrong..wrong_ip..." />
+                <marker date="1432062501576" expanded="true" signature="12964:13036" placeholder="SELECT wrong..wrong_ip..." />
+                <marker date="1432062501576" expanded="true" signature="13548:13774" placeholder="select pc.id..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="14316:14459" placeholder="select id_el..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="14316:14460" placeholder="select hub.i..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="15027:15254" placeholder="select id_el..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="15027:15255" placeholder="select route..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="15967:16196" placeholder="select id_el..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="15967:16197" placeholder="select switc..pathelement..." />
+                <marker date="1432062501576" expanded="true" signature="16732:16758" placeholder="SELECT id_ca..cable..." />
+                <marker date="1432062501576" expanded="true" signature="16885:16917" placeholder="SELECT id_fi..firewall..." />
+                <marker date="1432062501576" expanded="true" signature="17051:17071" placeholder="SELECT id_pc..pc..." />
+                <marker date="1432062501576" expanded="true" signature="17193:17212" placeholder="SELECT id_fi..firewall..." />
+                <marker date="1432062501576" expanded="true" signature="17193:17215" placeholder="SELECT id_hu..hub..." />
+                <marker date="1432062501576" expanded="true" signature="17338:17364" placeholder="SELECT id_ro..route..." />
+                <marker date="1432062501576" expanded="true" signature="17491:17513" placeholder="SELECT id_fi..firewall..." />
+                <marker date="1432062501576" expanded="true" signature="17491:17519" placeholder="SELECT id_sw..switch..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PassiveElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/PassiveElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Cable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActiveElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/ActiveElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Firewall.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Firewall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mvc/view/BaseView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,109 +207,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MysqlIO.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35-sources.jar!/com/mysql/jdbc/MysqlIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2871" column="0" selection-start-line="2871" selection-start-column="0" selection-end-line="2871" selection-end-column="0" />
-              <folding>
-                <element signature="e#38354#38355#0" expanded="true" />
-                <element signature="e#38400#38401#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionPropertiesImpl.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35-sources.jar!/com/mysql/jdbc/ConnectionPropertiesImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3640" column="0" selection-start-line="3640" selection-start-column="0" selection-end-line="3640" selection-end-column="0" />
-              <folding>
-                <element signature="e#2864#2865#0" expanded="true" />
-                <element signature="e#2940#2941#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/DataDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#297#298#0" expanded="false" />
-                <element signature="e#330#331#0" expanded="false" />
-                <element signature="e#385#386#0" expanded="false" />
-                <element signature="e#425#426#0" expanded="false" />
-                <element signature="e#462#463#0" expanded="false" />
-                <element signature="e#506#507#0" expanded="false" />
-                <marker date="1432042357838" expanded="true" signature="713:756" placeholder="INSERT INTO ..." />
-                <marker date="1432042357838" expanded="true" signature="1050:1083" placeholder="INSERT INTO ..." />
-                <marker date="1432042357838" expanded="true" signature="1381:1420" placeholder="INSERT INTO ..." />
-                <marker date="1432042357838" expanded="true" signature="1722:1760" placeholder="DELETE FROM ..." />
-                <marker date="1432042357838" expanded="true" signature="2057:2089" placeholder="DELETE FROM ..." />
-                <marker date="1432042357838" expanded="true" signature="2396:2438" placeholder="DELETE FROM ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/ConnectionDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#483#484#0" expanded="false" />
-                <element signature="e#523#524#0" expanded="false" />
-                <element signature="e#564#565#0" expanded="false" />
-                <element signature="e#597#598#0" expanded="false" />
-                <element signature="e#640#641#0" expanded="false" />
-                <element signature="e#684#685#0" expanded="false" />
-                <marker date="1432044203680" expanded="true" signature="917:978" placeholder="INSERT INTO ..." />
-                <marker date="1432044203680" expanded="true" signature="1370:1414" placeholder="DELETE FROM ..." />
-                <marker date="1432044203680" expanded="true" signature="1845:1901" placeholder="SELECT secon..connections..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/view/DaoView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/DaoFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1197#1198#0" expanded="false" />
-                <element signature="e#1244#1245#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="KotenkoProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mvc/view/KotenkoProject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mvc/view/DaoView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.175768">
+              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -338,9 +305,9 @@
         <option value="$PROJECT_DIR$/src/mvc/DataDao.java" />
         <option value="$PROJECT_DIR$/src/mvc/ConnectionDao.java" />
         <option value="$PROJECT_DIR$/src/mvc/DaoFactory.java" />
-        <option value="$PROJECT_DIR$/src/mvc/view/DaoView.java" />
         <option value="$PROJECT_DIR$/src/mvc/DaoController.java" />
         <option value="$PROJECT_DIR$/src/mvc/ModelDao.java" />
+        <option value="$PROJECT_DIR$/src/mvc/view/DaoView.java" />
       </list>
     </option>
   </component>
@@ -372,7 +339,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1924" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -573,6 +540,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotenkoRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotenkoRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abstract_model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -913,6 +906,9 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Unknown" factoryName="Unknown">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -997,7 +993,7 @@
       <workItem from="1431992799760" duration="8000" />
       <workItem from="1432041852763" duration="3641000" />
       <workItem from="1432045509887" duration="1073000" />
-      <workItem from="1432046598944" duration="387000" />
+      <workItem from="1432046598944" duration="6214000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1430872491171</created>
@@ -1113,11 +1109,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431983627464</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="6">
+      <created>1432046991721</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1432046991721</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94680000" />
+    <option name="totallyTimeSpent" value="100507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1129,8 +1131,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
@@ -1140,16 +1142,16 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31625834" sideWeight="0.44444445" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31625834" sideWeight="0.44444445" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.119098715" sideWeight="0.8144654" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20095949" sideWeight="0.8144654" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49630412" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18020834" sideWeight="0.1855346" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26391983" sideWeight="0.47707888" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26391983" sideWeight="0.47707888" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1159,6 +1161,34 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.4852941" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32312927" sideWeight="0.5555556" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49630412" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26391983" sideWeight="0.47707888" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.48933902" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31625834" sideWeight="0.44444445" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.4852941" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.118336886" sideWeight="0.8144654" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18020834" sideWeight="0.1855346" order="3" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1182,14 +1212,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/mvc/ModelDao.java</url>
-          <line>300</line>
-          <properties class="mvc.ModelDao" method="readPc" />
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
@@ -1255,13 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/PassiveElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mvc/model/my_exceptions/AccessException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1294,13 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Cable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -1388,13 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/ActiveElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mvc/controller/connection_controller/ConnectionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1424,35 +1425,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Firewall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#2111#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#734#735#0" expanded="false" />
-            <element signature="e#769#770#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#876#877#0" expanded="false" />
-            <element signature="e#941#942#0" expanded="false" />
-            <element signature="e#1006#1007#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/view/BaseView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1528,12 +1505,12 @@
             <element signature="e#425#426#0" expanded="false" />
             <element signature="e#462#463#0" expanded="false" />
             <element signature="e#506#507#0" expanded="false" />
-            <marker date="1432042357838" expanded="true" signature="713:756" placeholder="INSERT INTO ..." />
-            <marker date="1432042357838" expanded="true" signature="1050:1083" placeholder="INSERT INTO ..." />
-            <marker date="1432042357838" expanded="true" signature="1381:1420" placeholder="INSERT INTO ..." />
-            <marker date="1432042357838" expanded="true" signature="1722:1760" placeholder="DELETE FROM ..." />
-            <marker date="1432042357838" expanded="true" signature="2057:2089" placeholder="DELETE FROM ..." />
-            <marker date="1432042357838" expanded="true" signature="2396:2438" placeholder="DELETE FROM ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432042357838" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -1550,35 +1527,9 @@
             <element signature="e#597#598#0" expanded="false" />
             <element signature="e#640#641#0" expanded="false" />
             <element signature="e#684#685#0" expanded="false" />
-            <marker date="1432044203680" expanded="true" signature="917:978" placeholder="INSERT INTO ..." />
-            <marker date="1432044203680" expanded="true" signature="1370:1414" placeholder="DELETE FROM ..." />
-            <marker date="1432044203680" expanded="true" signature="1845:1901" placeholder="SELECT secon..connections..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/view/KotenkoProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/DaoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/view/DaoView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1432044203680" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432044203680" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432044203680" expanded="true" signature="-1:-1" placeholder="SELECT secon..connections..." />
           </folding>
         </state>
       </provider>
@@ -1620,72 +1571,144 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/view/BaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/DaoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/ActiveElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Firewall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/model/models/Cable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/model/abstract_model/PassiveElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mvc/ModelDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9336493">
-          <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="350" column="24" selection-start-line="350" selection-start-column="24" selection-end-line="350" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#ModelDao#0" expanded="false" />
-            <marker date="1432046546489" expanded="true" signature="901:934" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="966:1011" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="1064:1087" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="1064:1095" placeholder="SELECT last_..pc..." />
-            <marker date="1432046546489" expanded="true" signature="1318:1349" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="1380:1431" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="1484:1507" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="1698:1729" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="1760:1808" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="1861:1884" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="2078:2109" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="2140:2197" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="2250:2273" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="2470:2501" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="2532:2585" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="2638:2661" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="2855:2886" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="2917:2985" placeholder="INSERT INTO ..." />
-            <marker date="1432046546489" expanded="true" signature="3038:3061" placeholder="SELECT last_..." />
-            <marker date="1432046546489" expanded="true" signature="3322:3352" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="3465:3506" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="3801:3834" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="3947:3988" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="4286:4322" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="4435:4476" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="4769:4800" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="4913:4954" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="5249:5282" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="5395:5436" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="5732:5766" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="5879:5920" placeholder="DELETE FROM ..." />
-            <marker date="1432046546489" expanded="true" signature="6322:6360" placeholder="SELECT id_ip..ip..." />
-            <marker date="1432046546489" expanded="true" signature="6665:6712" placeholder="UPDATE pathe..." />
-            <marker date="1432046546489" expanded="true" signature="7171:7220" placeholder="UPDATE pathe..." />
-            <marker date="1432046546489" expanded="true" signature="7588:7638" placeholder="UPDATE pathe..." />
-            <marker date="1432046546489" expanded="true" signature="8023:8073" placeholder="UPDATE pathe..." />
-            <marker date="1432046546489" expanded="true" signature="8554:8604" placeholder="SELECT id FR..ip..." />
-            <marker date="1432046546489" expanded="true" signature="8915:8969" placeholder="UPDATE firew..." />
-            <marker date="1432046546489" expanded="true" signature="9428:9477" placeholder="UPDATE route..." />
-            <marker date="1432046546489" expanded="true" signature="9899:9942" placeholder="UPDATE hub S..." />
-            <marker date="1432046546489" expanded="true" signature="10220:10266" placeholder="UPDATE Switc..." />
-            <marker date="1432046546489" expanded="true" signature="10764:10820" placeholder="SELECT id_wr..wrong_ip..." />
-            <marker date="1432046546489" expanded="true" signature="11132:11182" placeholder="UPDATE firew..." />
-            <marker date="1432046546489" expanded="true" signature="11545:11682" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="12432:12587" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="12951:12994" placeholder="SELECT wrong..wrong_ip..." />
-            <marker date="1432046546489" expanded="true" signature="12951:13019" placeholder="SELECT wrong..wrong_ip..." />
-            <marker date="1432046546489" expanded="true" signature="13700:13842" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="14386:14463" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="15160:15326" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="16157:16321" placeholder="select id_el..pathelement..." />
-            <marker date="1432046546489" expanded="true" signature="16987:17013" placeholder="SELECT id_ca..cable..." />
-            <marker date="1432046546489" expanded="true" signature="17140:17172" placeholder="SELECT id_fi..firewall..." />
-            <marker date="1432046546489" expanded="true" signature="17306:17326" placeholder="SELECT id_pc..pc..." />
-            <marker date="1432046546489" expanded="true" signature="17448:17467" placeholder="SELECT id_fi..firewall..." />
-            <marker date="1432046546489" expanded="true" signature="17448:17470" placeholder="SELECT id_hu..hub..." />
-            <marker date="1432046546489" expanded="true" signature="17593:17619" placeholder="SELECT id_ro..route..." />
-            <marker date="1432046546489" expanded="true" signature="17746:17768" placeholder="SELECT id_fi..firewall..." />
-            <marker date="1432046546489" expanded="true" signature="17746:17774" placeholder="SELECT id_sw..switch..." />
+            <marker date="1432062501576" expanded="true" signature="901:934" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="966:1011" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="1064:1087" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="1064:1095" placeholder="SELECT last_..pc..." />
+            <marker date="1432062501576" expanded="true" signature="1318:1349" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="1380:1431" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="1484:1507" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="1698:1729" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="1760:1808" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="1861:1884" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="2078:2109" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="2140:2197" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="2250:2273" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="2470:2501" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="2532:2585" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="2638:2661" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="2855:2886" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="2917:2985" placeholder="INSERT INTO ..." />
+            <marker date="1432062501576" expanded="true" signature="3038:3061" placeholder="SELECT last_..." />
+            <marker date="1432062501576" expanded="true" signature="3322:3352" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="3465:3506" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="3801:3834" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="3947:3988" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="4286:4322" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="4435:4476" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="4769:4800" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="4913:4954" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="5249:5282" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="5395:5436" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="5732:5766" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="5879:5920" placeholder="DELETE FROM ..." />
+            <marker date="1432062501576" expanded="true" signature="6322:6360" placeholder="SELECT id_ip..ip..." />
+            <marker date="1432062501576" expanded="true" signature="6665:6712" placeholder="UPDATE pathe..." />
+            <marker date="1432062501576" expanded="true" signature="7171:7220" placeholder="UPDATE pathe..." />
+            <marker date="1432062501576" expanded="true" signature="7588:7638" placeholder="UPDATE pathe..." />
+            <marker date="1432062501576" expanded="true" signature="8023:8073" placeholder="UPDATE pathe..." />
+            <marker date="1432062501576" expanded="true" signature="8554:8604" placeholder="SELECT id FR..ip..." />
+            <marker date="1432062501576" expanded="true" signature="8915:8969" placeholder="UPDATE firew..." />
+            <marker date="1432062501576" expanded="true" signature="9428:9477" placeholder="UPDATE route..." />
+            <marker date="1432062501576" expanded="true" signature="9899:9942" placeholder="UPDATE hub S..." />
+            <marker date="1432062501576" expanded="true" signature="10220:10266" placeholder="UPDATE Switc..." />
+            <marker date="1432062501576" expanded="true" signature="10764:10820" placeholder="SELECT id_wr..wrong_ip..." />
+            <marker date="1432062501576" expanded="true" signature="11132:11182" placeholder="UPDATE firew..." />
+            <marker date="1432062501576" expanded="true" signature="11545:11779" placeholder="select pc.id..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="11545:11780" placeholder="select cable..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="12391:12495" placeholder="select id_fi..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="12391:12585" placeholder="select id_fi..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="12391:12586" placeholder="select id_fi..pathelementjoin..." />
+            <marker date="1432062501576" expanded="true" signature="12964:13007" placeholder="SELECT wrong..wrong_ip..." />
+            <marker date="1432062501576" expanded="true" signature="12964:13036" placeholder="SELECT wrong..wrong_ip..." />
+            <marker date="1432062501576" expanded="true" signature="13548:13774" placeholder="select pc.id..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="14316:14459" placeholder="select id_el..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="14316:14460" placeholder="select hub.i..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="15027:15254" placeholder="select id_el..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="15027:15255" placeholder="select route..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="15967:16196" placeholder="select id_el..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="15967:16197" placeholder="select switc..pathelement..." />
+            <marker date="1432062501576" expanded="true" signature="16732:16758" placeholder="SELECT id_ca..cable..." />
+            <marker date="1432062501576" expanded="true" signature="16885:16917" placeholder="SELECT id_fi..firewall..." />
+            <marker date="1432062501576" expanded="true" signature="17051:17071" placeholder="SELECT id_pc..pc..." />
+            <marker date="1432062501576" expanded="true" signature="17193:17212" placeholder="SELECT id_fi..firewall..." />
+            <marker date="1432062501576" expanded="true" signature="17193:17215" placeholder="SELECT id_hu..hub..." />
+            <marker date="1432062501576" expanded="true" signature="17338:17364" placeholder="SELECT id_ro..route..." />
+            <marker date="1432062501576" expanded="true" signature="17491:17513" placeholder="SELECT id_fi..firewall..." />
+            <marker date="1432062501576" expanded="true" signature="17491:17519" placeholder="SELECT id_sw..switch..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/view/KotenkoProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/view/DaoView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.175768">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

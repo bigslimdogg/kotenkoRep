@@ -260,53 +260,47 @@ public class ModelDao {
     public Cable readCable(int key, Network net)throws SQLException{
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, cable_type.type_name  from pathelement join cable on id_cable = ? join cable_type on id_cable = id_cable_type");
+        preparedStatement = connection.prepareStatement("select cable.id_cable, pathelement.price,pathelement.info, cable_type.type_name from pathelement join cable on cable.id_cable = pathelement.id_elem join cable_type on cable.cable_type = cable_type.id_cable_type where cable.id_cable = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        try {
-            Cable cable = new Cable(rs.getInt("id_elem"), rs.getDouble("price"), rs.getString("info"), TypeOfCable.valueOf(rs.getString("type_name")), net);
-            return cable;
-        }catch (NullPointerException e){
-            Cable cable = new Cable();
-            net.addElements(cable);
-            cable.setID(rs.getInt("id_elem"));
+        if(rs.next()) {
+            Cable cable = new Cable(rs.getInt("id_cable"), rs.getDouble("price"), rs.getString("info"), TypeOfCable.valueOf(rs.getString("type_name")), net);
             return cable;
         }
+        else
+            return null;
     }
     public Firewall readFirewall(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, ip.ip_name, delay " +
-                "  from pathelement join firewall on id_firewall = ? JOIN ip ON pathelement.ip = ip.id_ip;");
+        preparedStatement = connection.prepareStatement("select id_firewall, delay, ip.ip_name, info, price from pathelement join ip on pathelement.ip = ip.id_ip join firewall on firewall.id_firewall = pathelement.id_elem where firewall.id_firewall = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        try {
-            Firewall firewall = new Firewall(rs.getInt("id_elem"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("Info"), rs.getDouble("price"), net);
-            preparedStatement = connection.prepareStatement("SELECT wrong_ip.ip_name FROM wrong_ip WHERE wrong_ip.id_wrong_ip = ?");
+        if(rs.next()) {
+            Firewall firewall = new Firewall(rs.getInt("id_firewall"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("Info"), rs.getDouble("price"), net);
+            preparedStatement = connection.prepareStatement("SELECT wrong_ip.ip_name FROM wrong_ip WHERE wrong_ip.id_for_firewall = ?");
             preparedStatement.setInt(1, key);
             rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 firewall.setNotAllowedIP(rs.getString("wrong_ip"));
             }
             return firewall;
-        }catch (NullPointerException e){
-            Firewall firewall = new Firewall();
-            net.addElements(firewall);
-            firewall.setID(rs.getInt("id_elem"));
-            return firewall;
         }
+        else
+            return null;
     }
     public PC readPc(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, ip.ip_name, delay  from pathelement join pc on id_pc = ? " +
-                "JOIN ip ON pathelement.ip = ip.id_ip");
+        preparedStatement = connection.prepareStatement("select pc.id_pc, pathelement.delay, ip.ip_name,pathelement.info, pathelement.price  from pathelement" +
+                " join pc on pc.id_pc = pathelement.id_elem = ? " +
+                " join ip on pathelement.ip = ip.id_ip");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         if(rs.next()) {
-            PC pc = new PC(rs.getInt("id_elem"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), net);
+            PC pc = new PC(rs.getInt("id_pc"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), net);
             return pc;
         }
         else
@@ -315,57 +309,46 @@ public class ModelDao {
     public Hub readHub(int key, Network net)throws SQLException{
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, hub.units from pathelement join hub on id_hub = ?;");
+        preparedStatement = connection.prepareStatement("select hub.id_hub, pathelement.price,pathelement.info, hub.units from pathelement join hub on hub.id_hub = pathelement.id_elem where id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        try {
-            Hub hub = new Hub(rs.getInt("id_elem"), rs.getDouble("price"), rs.getString("info"), rs.getInt("units"), net);
-            return hub;
-        }catch (NullPointerException e){
-            Hub hub = new Hub();
-            net.addElements(hub);
-            hub.setID(rs.getInt("id_elem"));
+        if(rs.next()) {
+            Hub hub = new Hub(rs.getInt("id_hub"), rs.getDouble("price"), rs.getString("info"), rs.getInt("units"), net);
             return hub;
         }
+        else
+            return null;
     }
     public Route readRoute(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, ip.ip_name, delay, route.turned_on " +
-                "  from pathelement join route on id_route = ? JOIN ip ON pathelement.ip = ip.id_ip;");
+        preparedStatement = connection.prepareStatement("select route.id_route, pathelement.delay,ip.ip_name,pathelement.info, pathelement.price,  route.turned_on from pathelement join ip on pathelement.ip = ip.id_ip join route on route.id_route = pathelement.id_elem where id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        try {
-            Route route = new Route(rs.getInt("id_elem"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), net);
-            if (rs.getBoolean("turned_on") == true)
-                route.turnON();
-            return route;
-        }catch (NullPointerException e){
-            Route route = new Route();
-            net.addElements(route);
-            route.setID(rs.getInt("id_elem"));
+        if(rs.next()) {
+            Route route = new Route(rs.getInt("id_route"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), net);
+            if (rs.getBoolean("turned_on") == true) {route.turnON();}
+            else{route.turnOFF();}
             return route;
         }
+        else
+            return null;
     }
     public Switch readSwitch(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_elem, price,info, ip.ip_name, delay, switch.units" +
-                "  from pathelement join switch on id_switch = ? JOIN ip ON pathelement.ip = ip.id_ip;");
+        preparedStatement = connection.prepareStatement("select switch.id_switch, pathelement.delay,ip.ip_name, pathelement.info, pathelement.price, switch.units from pathelement join ip on pathelement.ip = ip.id_ip join switch on switch.id_switch = pathelement.id_elem where id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        try {
+        if(rs.next()) {
             Switch sw = new Switch(rs.getInt("id_elem"), rs.getDouble("delay"), rs.getString("ip_name"), rs.getString("info"), rs.getDouble("price"), rs.getInt("units"), net);
             return sw;
-        }catch (NullPointerException e){
-            Switch sw = new Switch();
-            net.addElements(sw);
-            sw.setID(rs.getInt("id_elem"));
-            return sw;
         }
+        else
+            return null;
     }
 
     public void readAllModels(Network net) throws SQLException, UnknownHostException {
