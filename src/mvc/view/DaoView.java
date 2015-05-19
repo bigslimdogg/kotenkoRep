@@ -27,16 +27,16 @@ public class DaoView {
             try{
                 controller.readAll(net);
                 Scanner sc = new Scanner( System.in );
-                System.out.println("Выберете каталог команд:"+
-                                "\n1.Создание элементов сети"+
-                                "\n2.Удаление элементов сети"+
-                                "\n3.Добавление данных"+
-                                "\n4.Установка/удаление подключений между элементами"+
-                                "\n5.Редактирование элементов"+
-                                "\n6.Просмотр информации об элементах сети и их соединениях"+
-                                "\n7.Поиск маршрутов"+
-                                "\n8.Справка"+
-                                "\n9.Выйти"
+                System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚Р°Р»РѕРі РґРµР№СЃС‚РІРёР№:"+
+                                "\n1.РЎРѕР·РґР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃРµС‚Рё"+
+                                "\n2.РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃРµС‚Рё"+
+                                "\n3.Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С…"+
+                                "\n4.РЎРѕР·РґР°РЅРёРµ/СѓРґР°Р»РµРЅРёРµ СЃРѕРµРґРёРЅРµРЅРёР№ РјРµР¶РґСѓ СЌР»РµРјРµРЅС‚Р°РјРё"+
+                                "\n5.Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃРµС‚Рё"+
+                                "\n6.РџСЂРѕСЃРјРѕС‚СЂ РёРЅС„РѕСЂРјР°С†РёРё РѕР± СЌР»РµРјРµРЅС‚Р°С… СЃРµС‚Рё Рё РёС… СЃРѕРµРґРёРЅРµРЅРёСЏ"+
+                                "\n7.РџРѕРёСЃРє РјР°СЂС€СЂСѓС‚Р°"+
+                                "\n8.РЎРїСЂР°РІРєР°"+
+                                "\n9.Р’С‹С…РѕРґ"
                 );
                 int catalogNumber = sc.nextInt();
 
@@ -44,10 +44,10 @@ public class DaoView {
                     int isEnd = 0;
                     do{
                         try{
-                            System.out.println("введите команду");
+                            System.out.println("РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ");
                             Comands command = Comands.valueOf(sc.next());
                             controller.createElem(command, net);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e + "\n"); break;}
 
@@ -59,7 +59,7 @@ public class DaoView {
                     PathElement elemToWork = null;
                     do{
                         try{
-                            System.out.printf("введите номер элемента для удаления");
+                            System.out.printf("Р’С‹Р±РµСЂРµС‚Рµ СЌР»РµРјРµРЅС‚ РґР»СЏ РµРіРѕ СѓРґР°Р»РµРЅРёСЏ РёР· СЃРµС‚Рё");
                             ArrayList<PathElement> arr = new ArrayList();
                             int i = 0;
                             for(PathElement elem : net.getPathElements().keySet()){
@@ -71,13 +71,13 @@ public class DaoView {
                             if(elementNumber >= 0 && !arr.isEmpty())
                                 elemToWork = arr.get(elementNumber-1);
                             else{
-                                System.out.println("Такого элемента не существует\n");
+                                System.out.println("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n");
                                 break;
                             }
-                            System.out.println("введите команду для работы с выбранным элементом");
+                            System.out.println("РІРІРµРґРёС‚Рµ СЃРѕРѕС‚РІРµС‚СЃРІСѓСЋС‰СѓСЋ РєРѕРјР°РЅРґСѓ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ");
                             Comands command = Comands.valueOf(sc.next());
                             controller.deleteElement(command, elemToWork, net);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e + "\n"); break;}
 
@@ -88,12 +88,12 @@ public class DaoView {
                     int isEnd = 0;
                     do{
                         try{
-                            System.out.println("введите команду");
+                            System.out.println("РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ");
                             Comands command = Comands.valueOf(sc.next());
-                            System.out.printf("введите данные");
+                            System.out.printf("РІРІРµРґРёС‚Рµ Р°С‚СЂРёР±СѓС‚");
                             String attribute = String.valueOf(sc.next());
                             controller.createData(command, attribute);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e + "\n"); break;}
 
@@ -106,7 +106,8 @@ public class DaoView {
                         try {
                             PathElement elemToWork1 = null;
                             PathElement elemToWork2 = null;
-                            System.out.println("выберете элементы из сети для установки или удаления их соединения");
+                            System.out.println("РІС‹Р±РµСЂРµС‚Рµ СЌР»РµРјРµРЅС‚С‹ РёР· СЃРµС‚Рё РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё" +
+                                    " РёР»Рё СѓРґР°Р»РµРЅРёСЏ СЃРѕРµРґРёРЅРµРЅРёСЏ РјРµР¶РґСѓ РЅРёРјРё");
                             ArrayList<PathElement> arr = new ArrayList<PathElement>();
                             int i = 0;
                             for (PathElement elem : net.getPathElements().keySet()) {
@@ -120,28 +121,28 @@ public class DaoView {
                                 elemToWork1 = arr.get(elementNumber1 - 1);
                                 elemToWork2 = arr.get(elementNumber2 - 1);
                             } else {
-                                System.out.println("Такого элемента не существует\n");
+                                System.out.println("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n");
                                 break;
                             }
-                            System.out.println("введите команду");
+                            System.out.println("РІРІРµРґРёС‚Рµ РєР°РјР°РЅРґСѓ");
                             Comands command = Comands.valueOf(sc.next());
                             ActiveElement elemToWork = null;
                             if (elemToWork1 instanceof ActiveElement) {
                                 elemToWork = (ActiveElement) elemToWork1;
                             }
                             controller.executeConnectionBetweenElements(command, elemToWork, elemToWork2);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e+ "\n"); break;}
                     }while(isEnd != 1);
                 }
 
-                if(catalogNumber == 5){//здесь когда передаешь элементу параметр он не хочет преобразовывать из string в числовой или какой либо другой!!!!!
+                if(catalogNumber == 5){
                     int isEnd = 0;
                     do{
                         try{
                             PathElement elemToWork = null;
-                            System.out.println("выберете элемент из сети для работы с ним");
+                            System.out.println("РІС‹Р±РµСЂРµС‚Рµ СЌР»РµРјРµРЅС‚ РёР· СЃРµС‚Рё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РЅРёРј");
                             ArrayList<PathElement> arr = new ArrayList();
                             int i = 0;
                             for(PathElement elem : net.getPathElements().keySet()){
@@ -153,16 +154,16 @@ public class DaoView {
                             if(elementNumber >= 0 && !arr.isEmpty())
                                 elemToWork = arr.get(elementNumber-1);
                             else{
-                                System.out.println("Такого элемента не существует\n");
+                                System.out.println("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n");
                                 break;
                             }
 
-                            System.out.println("введите команду для работы с выбранным элементом");
+                            System.out.println("РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІС‹Р±СЂР°РЅРЅС‹Рј СЌР»РµРјРµРЅС‚РѕРј");
                             Comands command = Comands.valueOf(sc.next());
-                            System.out.println("введите атрибут");
+                            System.out.println("РІРІРµРґРёС‚Рµ Р°С‚СЂРёР±СѓС‚");
                             String attribute = sc.next();
                             controller.executeElem(command, elemToWork, attribute);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e+ "\n"); break;}
                     }while(isEnd != 1);
@@ -178,7 +179,7 @@ public class DaoView {
                             }
 
                             PathElement elemToWork = null;
-                            System.out.println("выберете элемент из сети для получения информации о нем");
+                            System.out.println("РІС‹Р±РµСЂРµС‚Рµ СЌР»РµРјРµРЅС‚ РёР· СЃРµС‚Рё РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РЅРµРј");
                             ArrayList<PathElement> arr = new ArrayList();
                             int i = 0;
                             for(PathElement elem : net.getPathElements().keySet()){
@@ -190,12 +191,12 @@ public class DaoView {
                             if(elementNumber >= 0 && !arr.isEmpty())
                                 elemToWork = arr.get(elementNumber-1);
                             else{
-                                System.out.println("Такого элемента не существует\n");
+                                System.out.println("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n");
                                 break;
                             }
                             iCon.execute(elemToWork);
 
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e+ "\n"); break;}
                     }while(isEnd != 1);
@@ -208,7 +209,7 @@ public class DaoView {
                         try{
                             PathElement elemToWork1 = null;
                             PathElement elemToWork2 = null;
-                            System.out.println("выберете элементы из сети для поиска маршрута между ними");
+                            System.out.println("РІС‹Р±РµСЂРµС‚Рµ СЌР»РµРјРµРЅС‚С‹ РёР· СЃРµС‚Рё РґР»СЏ РїРѕРёСЃРєР° РјР°СЂС€СЂСѓС‚Р° РјРµР¶РґСѓ РЅРёРјРё");
                             ArrayList<PathElement> arr = new ArrayList<PathElement>();
                             int i = 0;
                             for(PathElement elem : net.getPathElements().keySet()){
@@ -223,16 +224,16 @@ public class DaoView {
                                 elemToWork2 = arr.get(elementNumber2-1);
                             }
                             else{
-                                System.out.println("Такого элемента не существует\n");
+                                System.out.println("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n");
                                 break;
                             }
-                            System.out.println("Выберете тип поиска маршрута:" +
-                                    "\nС наименьшим числом промежуточных узлов route_less_units" +
-                                    "\nС наименьшей ценой маршрута route_less_price" +
-                                    "\nС наименьшей задержкой по времени route_less_delay");
+                            System.out.println("Р’С‹Р±РµСЂРµС‚Рµ С‚РёРї РїРѕРёСЃРєР° РјР°СЂС€СЂСѓС‚Р°:" +
+                                    "\nРЎ РЅР°РёРјРµРЅСЊС€РёРј С‡РёСЃР»РѕРј РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… СѓР·Р»РѕРІ route_less_units" +
+                                    "\nРЎ РЅР°РёРјРµРЅСЊС€РµР№ С†РµРЅРѕР№ РјР°СЂС€СЂСѓС‚Р° route_less_price" +
+                                    "\nРЎ РЅР°РёРјРµРЅСЊС€РµР№ Р·Р°РґРµСЂР¶РєРѕР№ РїРѕ РІСЂРµРјРµРЅРё route_less_delay");
                             Comands command3 = Comands.valueOf(sc.next());
                             routeCon.execute(elemToWork1, elemToWork2, net, command3);
-                            System.out.println("Вернуться в главное меню(1/0)?");
+                            System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                             isEnd = sc.nextInt();
                         }catch(Exception e){System.out.println(e+ "\n"); break;}
                     }while(isEnd != 1);
@@ -241,21 +242,21 @@ public class DaoView {
                 }
 
 
-                if(catalogNumber == 8){
+                if(catalogNumber == 8){//СЃРїСЂР°РІРєР° СЃС‚Р°СЂР°СЏ - Р·Р°РјРµРЅРёС‚СЊ!
                     int isEnd = 0;
                     do{
-                        System.out.println("\n1.Создание элементов сети(создание элемента сети без параметров, для их установки перейдите в пункт 2 меню). Команды:" +
+                        System.out.println("\n1.РЎРѕР·РґР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃРµС‚Рё(СЃРѕР·РґР°РЅРёРµ СЌР»РµРјРµРЅС‚Р° СЃРµС‚Рё Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ, РґР»СЏ РёС… СѓСЃС‚Р°РЅРѕРІРєРё РїРµСЂРµР№РґРёС‚Рµ РІ РїСѓРЅРєС‚ 2 РјРµРЅСЋ). РљРѕРјР°РЅРґС‹:" +
                                 " create_cable, create_pc, create_firewall, create_hub, create_route, create_switch." +
-                                "\n2.Управление элементами(выбрав номер элемента, введите команду для установки соотвествующего атрибута, а затем введите атрибут). Команды:" +
+                                "\n2.РЈРїСЂР°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°РјРё(РІС‹Р±СЂР°РІ РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р°, РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё СЃРѕРѕС‚РІРµСЃС‚РІСѓСЋС‰РµРіРѕ Р°С‚СЂРёР±СѓС‚Р°, Р° Р·Р°С‚РµРј РІРІРµРґРёС‚Рµ Р°С‚СЂРёР±СѓС‚). РљРѕРјР°РЅРґС‹:" +
                                 "set_id, set_ip, set_price, set_delay, set_info, set_typeOfCable, set_notAllowedIp, set_unitAmount, set_turnOn." +
-                                "\n3.Установка подключений между элементами(выберете два элемента из списка для установки между ними соединения)." +
-                                "\n4.Просмотр информации об элементах сети и их соединениях(Вам представлен список всех элементов с их соединениями." +
-                                "Выберете номер элемента, развернутую информацию о котором вы хотите узнать)." +
-                                "\n5.Поиск маршрутов" +
-                                "\n6.Справка(Инструкция по работе с приложением)." +
-                                "\n7.Выйти(Выход из программы)."+
+                                "\n3.РЈСЃС‚Р°РЅРѕРІРєР° РїРѕРґРєР»СЋС‡РµРЅРёР№ РјРµР¶РґСѓ СЌР»РµРјРµРЅС‚Р°РјРё(РІС‹Р±РµСЂРµС‚Рµ РґРІР° СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР° РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё РјРµР¶РґСѓ РЅРёРјРё СЃРѕРµРґРёРЅРµРЅРёСЏ)." +
+                                "\n4.РџСЂРѕСЃРјРѕС‚СЂ РёРЅС„РѕСЂРјР°С†РёРё РѕР± СЌР»РµРјРµРЅС‚Р°С… СЃРµС‚Рё Рё РёС… СЃРѕРµРґРёРЅРµРЅРёСЏС…(Р’Р°Рј РїСЂРµРґСЃС‚Р°РІР»РµРЅ СЃРїРёСЃРѕРє РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ СЃ РёС… СЃРѕРµРґРёРЅРµРЅРёСЏРјРё." +
+                                "Р’С‹Р±РµСЂРµС‚Рµ РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р°, СЂР°Р·РІРµСЂРЅСѓС‚СѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РєРѕС‚РѕСЂРѕРј РІС‹ С…РѕС‚РёС‚Рµ СѓР·РЅР°С‚СЊ)." +
+                                "\n5.РџРѕРёСЃРє РјР°СЂС€СЂСѓС‚РѕРІ" +
+                                "\n6.РЎРїСЂР°РІРєР°(РРЅСЃС‚СЂСѓРєС†РёСЏ РїРѕ СЂР°Р±РѕС‚Рµ СЃ РїСЂРёР»РѕР¶РµРЅРёРµРј)." +
+                                "\n7.Р’С‹Р№С‚Рё(Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹)."+
                                 "\n");
-                        System.out.println("Вернуться в главное меню(1/0)?");
+                        System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ(1/0)?");
                         isEnd = sc.nextInt();
                     }while(isEnd != 1);
                 }
