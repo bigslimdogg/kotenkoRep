@@ -1,4 +1,4 @@
-package mvc;
+package mvc.model.dao;
 
 import mvc.model.abstract_model.ActiveElement;
 import mvc.model.network.Network;

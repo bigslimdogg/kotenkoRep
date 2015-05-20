@@ -1,15 +1,13 @@
 package mvc.view;
 
-import mvc.Comands;
-import mvc.DaoController;
+import mvc.controller.Comands;
+import mvc.controller.dao.DaoController;
 import mvc.controller.route_info_controller.InfoController;
 import mvc.controller.route_info_controller.RouteController;
 import mvc.model.abstract_model.ActiveElement;
 import mvc.model.network.Network;
 import mvc.model.pe_model.PathElement;
 
-import java.net.UnknownHostException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 

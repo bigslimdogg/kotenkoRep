@@ -1,5 +1,10 @@
-package mvc;
+package mvc.controller.dao;
 
+import mvc.model.dao.ConnectionDao;
+import mvc.model.dao.DaoFactory;
+import mvc.model.dao.DataDao;
+import mvc.model.dao.ModelDao;
+import mvc.controller.Comands;
 import mvc.model.abstract_model.ActiveElement;
 import mvc.model.models.*;
 import mvc.model.my_exceptions.DaoException;
@@ -14,10 +19,10 @@ import java.sql.*;
  */
 public class DaoController {
 
-    DaoFactory factory = new DaoFactory();
+
 
     public void createElem(Comands comand, Network net) throws SQLException, UnknownHostException {
-        ModelDao modelDao = factory.getModelDao(factory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         switch (comand){
@@ -42,11 +47,10 @@ public class DaoController {
             default :
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
-        factory.closeModelDao(modelDao);
     }
 
     public void createData(Comands comand, String attribute) throws SQLException {
-        DataDao dataDao = factory.getDataDao(factory.getConnection());
+        DataDao dataDao = DaoFactory.getDataDao(DaoFactory.getConnection());
         if(comand == null) {
             System.out.println("Пустая команда");
         }
@@ -66,12 +70,11 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
-        factory.closeDataDao(dataDao);
     }
 
 
     public void executeElem(Comands comand, PathElement model, String attribute) throws SQLException {
-        ModelDao modelDao = factory.getModelDao(factory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(attribute == null)
@@ -157,13 +160,12 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
         }
-        factory.closeModelDao(modelDao);
     }
 
 
 
     public void deleteElement(Comands comand, PathElement model, Network net) throws SQLException {
-        ModelDao modelDao = factory.getModelDao(factory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(model == null)
@@ -196,10 +198,9 @@ public class DaoController {
             default :
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
         }
-        factory.closeModelDao(modelDao);
     }
     public void deleteData(Comands comand, String attribute) throws SQLException {
-        DataDao dataDao = factory.getDataDao(factory.getConnection());
+        DataDao dataDao = DaoFactory.getDataDao(DaoFactory.getConnection());
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(attribute == null)
@@ -217,11 +218,10 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
             }
-        factory.closeDataDao(dataDao);
     }
 
     public void executeConnectionBetweenElements(Comands comand, ActiveElement model1, PathElement model2) throws Exception {
-        ConnectionDao connectionDao= factory.getConnectionDao(factory.getConnection());
+        ConnectionDao connectionDao= DaoFactory.getConnectionDao(DaoFactory.getConnection());
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(model1 == null)
@@ -242,16 +242,13 @@ public class DaoController {
             default:
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
         }
-        factory.closeConnectionDao(connectionDao);
-
     }
 
     public void readAll(Network net) throws Exception {
-        ModelDao modelDao = factory.getModelDao(factory.getConnection());
-        ConnectionDao connectionDao= factory.getConnectionDao(factory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
+        ConnectionDao connectionDao= DaoFactory.getConnectionDao(DaoFactory.getConnection());
         modelDao.readAllModels(net);
         connectionDao.readAllConnections(net);
-        factory.closeConnectionDao(connectionDao);
-        factory.closeModelDao(modelDao);
+
     }
 }

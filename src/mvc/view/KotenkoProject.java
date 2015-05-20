@@ -3,11 +3,6 @@ package mvc.view;
 
 import java.net.*;
 
-import mvc.Comands;
-import mvc.DaoController;
-import mvc.model.models.PC;
-import mvc.model.network.Network;
-
 
 public class KotenkoProject {
 

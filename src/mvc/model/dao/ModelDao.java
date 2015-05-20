@@ -1,4 +1,4 @@
-package mvc;
+package mvc.model.dao;
 
 import mvc.model.models.*;
 import mvc.model.my_exceptions.DaoException;
@@ -54,8 +54,9 @@ public class ModelDao {
         statement.execute("INSERT INTO pathelement VALUE()");
         statement.execute("INSERT INTO cable(id_cable) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
-        rs.next();
-        return rs.getInt("id_cable");
+        if(rs.next())
+            return rs.getInt(1);
+        else return 0;
     }
     public int createHub()throws SQLException{
         statement = connection.createStatement();
@@ -63,7 +64,7 @@ public class ModelDao {
         statement.execute("INSERT INTO hub(id_hub)  VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
-        return rs.getInt("id_hub");
+        return rs.getInt(1);
     }
     public int createFirewall()throws SQLException{
         statement = connection.createStatement();
@@ -71,7 +72,7 @@ public class ModelDao {
         statement.execute("INSERT INTO firewall(id_firewall) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
-        return rs.getInt("id_firewall");
+        return rs.getInt(1);
     }
     public int createSwitch()throws SQLException{
         statement = connection.createStatement();
@@ -79,7 +80,7 @@ public class ModelDao {
         statement.execute("INSERT INTO switch(id_switch) VALUE(last_insert_id()); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
-        return rs.getInt("id_switch");
+        return rs.getInt(1);
     }
     public int createRoute()throws SQLException{
         statement = connection.createStatement();
@@ -87,7 +88,7 @@ public class ModelDao {
         statement.execute("INSERT INTO route(id_route,turned_on) VALUES(last_insert_id(),TRUE ); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
-        return rs.getInt("id_route");
+        return rs.getInt(1);
     }
 
     public void deletePc(PathElement model)throws SQLException{

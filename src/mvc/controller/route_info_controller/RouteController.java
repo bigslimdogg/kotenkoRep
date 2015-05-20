@@ -7,7 +7,7 @@ package mvc.controller.route_info_controller;
 
 import java.util.ArrayList;
 
-import mvc.Comands;
+import mvc.controller.Comands;
 import mvc.model.network.Network;
 import mvc.model.pe_model.PathElement;
 import mvc.model.route_providers.RouteProviderWithLessPrice;
