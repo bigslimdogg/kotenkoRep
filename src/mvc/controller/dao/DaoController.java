@@ -173,27 +173,33 @@ public class DaoController {
         switch (comand){
             case delete_cable:
                 modelDao.deleteCable(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             case delete_firewall:
                 modelDao.deleteFirewall(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             case delete_hub:
                 modelDao.deleteHub(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             case delete_pc:
                 modelDao.deletePc(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             case delete_route:
                 modelDao.deleteRoute(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             case delete_switch:
                 modelDao.deleteSwitch(model);
-                net.deleteElements(model);
+                if(net.getPathElements().containsKey(model))
+                    net.deleteElements(model);
                 break;
             default :
                 throw new IllegalArgumentException("Неизвестная операция: " + comand);
