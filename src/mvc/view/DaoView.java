@@ -23,7 +23,7 @@ public class DaoView {
 
         for(;;){
             try{
-                controller.readAll(net);
+
                 Scanner sc = new Scanner( System.in );
                 System.out.println("Выберите каталог действий:"+
                                 "\n1.Создание элементов сети"+
@@ -136,6 +136,7 @@ public class DaoView {
                 }
 
                 if(catalogNumber == 5){
+                    controller.readAll(net);
                     int isEnd = 0;
                     do{
                         try{
@@ -168,6 +169,7 @@ public class DaoView {
                 }
 
                 if(catalogNumber == 6){
+                    controller.readAll(net);
                     int isEnd = 0;
                     InfoController iCon = new InfoController();
                     do{
@@ -201,6 +203,7 @@ public class DaoView {
                 }
 
                 if(catalogNumber == 7){
+                    controller.readAll(net);
                     int isEnd = 0;
                     RouteController routeCon = new RouteController();
                     do{

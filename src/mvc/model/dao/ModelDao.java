@@ -41,9 +41,8 @@ public class ModelDao {
     public int createPc()throws SQLException {
         int id = 0;
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement() VALUE();");
-        statement.execute("INSERT INTO pc(id_pc) VALUE(last_insert_id()); ");
-        ResultSet rs = statement.executeQuery("SELECT last_insert_id() FROM pc");
+        statement.execute("INSERT INTO pc() VALUE(); ");
+        ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         while (rs.next()){
             id = rs.getInt(1);
         }
@@ -51,8 +50,7 @@ public class ModelDao {
     }
     public int createCable()throws SQLException{
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement VALUE()");
-        statement.execute("INSERT INTO cable(id_cable) VALUE(last_insert_id()); ");
+        statement.execute("INSERT INTO cable() VALUE(); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         if(rs.next())
             return rs.getInt(1);
@@ -60,32 +58,28 @@ public class ModelDao {
     }
     public int createHub()throws SQLException{
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement VALUE()");
-        statement.execute("INSERT INTO hub(id_hub)  VALUE(last_insert_id()); ");
+        statement.execute("INSERT INTO hub()  VALUE(); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
         return rs.getInt(1);
     }
     public int createFirewall()throws SQLException{
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement VALUE()");
-        statement.execute("INSERT INTO firewall(id_firewall) VALUE(last_insert_id()); ");
+        statement.execute("INSERT INTO firewall() VALUE(); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
         return rs.getInt(1);
     }
     public int createSwitch()throws SQLException{
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement VALUE()");
-        statement.execute("INSERT INTO switch(id_switch) VALUE(last_insert_id()); ");
+        statement.execute("INSERT INTO switch() VALUE(); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
         return rs.getInt(1);
     }
     public int createRoute()throws SQLException{
         statement = connection.createStatement();
-        statement.execute("INSERT INTO pathelement VALUE()");
-        statement.execute("INSERT INTO route(id_route,turned_on) VALUES(last_insert_id(),TRUE ); ");
+        statement.execute("INSERT INTO route(turned_on) VALUES(TRUE ); ");
         ResultSet rs = statement.executeQuery("SELECT last_insert_id()");
         rs.next();
         return rs.getInt(1);
@@ -96,16 +90,12 @@ public class ModelDao {
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM pc WHERE id_pc = ?");
         preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
-        preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
     public void deleteCable(PathElement model)throws SQLException{
         if(model == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM cable WHERE id_pc = ?");
-        preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
         preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
@@ -114,16 +104,12 @@ public class ModelDao {
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM firewall WHERE id_pc = ?");
         preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
-        preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
     public void deleteHub(PathElement model)throws SQLException{
         if(model == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM hub WHERE id_pc = ?");
-        preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
         preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
@@ -132,16 +118,12 @@ public class ModelDao {
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM route WHERE id_pc = ?");
         preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
-        preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
     public void deleteSwitch(PathElement model)throws SQLException{
         if(model == null)
             throw new NullPointerException();
         preparedStatement = connection.prepareStatement("DELETE FROM switch WHERE id_pc = ?");
-        preparedStatement.setInt(1, model.getID());
-        preparedStatement = connection.prepareStatement("DELETE FROM pathelement WHERE id_elem = ?");
         preparedStatement.setInt(1, model.getID());
         preparedStatement.execute();
     }
@@ -158,37 +140,66 @@ public class ModelDao {
             throw new DaoException();
         }
         else {
-            preparedStatement = connection.prepareStatement("UPDATE pathelement SET ip = ? WHERE id_elem = ?");
+            String s = null;
+            if(model instanceof Hub){s ="UPDATE hub SET ip = ? WHERE id_elem = ?";}
+            if(model instanceof Firewall){s ="UPDATE firewall SET ip = ? WHERE id_elem = ?";}
+            if(model instanceof PC){s ="UPDATE pc SET ip = ? WHERE id_elem = ?";}
+            if(model instanceof Switch){s ="UPDATE switch SET ip = ? WHERE id_elem = ?";}
+            if(model instanceof Route){s ="UPDATE route SET ip = ? WHERE id_elem = ?";}
+            else {throw new DaoException();}
+            preparedStatement = connection.prepareStatement(s);
             preparedStatement.setInt(1, ipNumber);
             preparedStatement.setInt(2, model.getID());
             preparedStatement.execute();
         }
     }
 
-    public void updateInfo(PathElement model, String attribute)throws SQLException {
+    public void updateInfo(PathElement model, String attribute) throws SQLException, DaoException {
         if(model == null)
             throw new NullPointerException();
         if(attribute == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("UPDATE pathelement SET info = ? WHERE id_elem = ? ;");
+        String s = null;
+        if(model instanceof Cable){s ="UPDATE cable SET info = ? WHERE id_elem = ?";}
+        if(model instanceof Hub){s ="UPDATE hub SET info = ? WHERE id_elem = ?";}
+        if(model instanceof Firewall){s ="UPDATE firewall SET info = ? WHERE id_elem = ?";}
+        if(model instanceof PC){s ="UPDATE pc SET info = ? WHERE id_elem = ?";}
+        if(model instanceof Switch){s ="UPDATE switch SET info = ? WHERE id_elem = ?";}
+        if(model instanceof Route){s ="UPDATE route SET info = ? WHERE id_elem = ?";}
+        else {throw new DaoException();}
+        preparedStatement = connection.prepareStatement(s);
         preparedStatement.setString(1, attribute);
         preparedStatement.setInt(2, model.getID());
         preparedStatement.execute();
     }
 
-    public void updateDelay(PathElement model, double attribute)throws SQLException {
+    public void updateDelay(PathElement model, double attribute) throws SQLException, DaoException {
         if(model == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("UPDATE pathelement SET delay = ? WHERE id_elem = ? ;");
+        String s = null;
+        if(model instanceof Firewall){s ="UPDATE firewall SET delay = ? WHERE id_elem = ?";}
+        if(model instanceof PC){s ="UPDATE pc SET delay = ? WHERE id_elem = ?";}
+        if(model instanceof Switch){s ="UPDATE switch SET delay = ? WHERE id_elem = ?";}
+        if(model instanceof Route){s ="UPDATE route SET delay = ? WHERE id_elem = ?";}
+        else {throw new DaoException();}
+        preparedStatement = connection.prepareStatement(s);
         preparedStatement.setDouble(1, Double.valueOf(attribute));
         preparedStatement.setInt(2, model.getID());
         preparedStatement.execute();
     }
 
-    public void updatePrice(PathElement model , double attribute)throws SQLException {
+    public void updatePrice(PathElement model , double attribute) throws SQLException, DaoException {
         if(model == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("UPDATE pathelement SET delay = ? WHERE id_elem = ? ;");
+        String s = null;
+        if(model instanceof Cable){s ="UPDATE cable SET price = ? WHERE id_elem = ?";}
+        if(model instanceof Hub){s ="UPDATE hub SET price = ? WHERE id_elem = ?";}
+        if(model instanceof Firewall){s ="UPDATE price SET info = ? WHERE id_elem = ?";}
+        if(model instanceof PC){s ="UPDATE pc SET price = ? WHERE id_elem = ?";}
+        if(model instanceof Switch){s ="UPDATE switch SET price = ? WHERE id_elem = ?";}
+        if(model instanceof Route){s ="UPDATE route SET price = ? WHERE id_elem = ?";}
+        else {throw new DaoException();}
+        preparedStatement = connection.prepareStatement(s);
         preparedStatement.setDouble(1, Double.valueOf(attribute));
         preparedStatement.setInt(2,model.getID());
         preparedStatement.execute();
@@ -218,10 +229,12 @@ public class ModelDao {
             throw new NullPointerException();
         if(attribute == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("UPDATE route SET turned_on = ? WHERE id_route = ?");
-        preparedStatement.setBoolean(1, Boolean.valueOf(attribute));
-        preparedStatement.setInt(2, model.getID());
-        preparedStatement.execute();
+        if(model instanceof Cable) {
+            preparedStatement = connection.prepareStatement("UPDATE route SET turned_on = ? WHERE id_route = ?");
+            preparedStatement.setBoolean(1, Boolean.valueOf(attribute));
+            preparedStatement.setInt(2, model.getID());
+            preparedStatement.execute();
+        }
     }
     public void updateUnitAmount(PathElement model, int attribute)throws SQLException{
         if(model == null)
@@ -261,7 +274,7 @@ public class ModelDao {
     public Cable readCable(int key, Network net)throws SQLException{
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select cable.id_cable, pathelement.price,pathelement.info, cable_type.type_name from pathelement join cable on cable.id_cable = pathelement.id_elem join cable_type on cable.cable_type = cable_type.id_cable_type where cable.id_cable = ?;");
+        preparedStatement = connection.prepareStatement("select cable.id_elem, cable.price,cable.info, cable_type.type_name from cable join cable_type on cable.cable_type = cable_type.id_cable_type where cable.id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
@@ -275,7 +288,7 @@ public class ModelDao {
     public Firewall readFirewall(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select id_firewall, delay, ip.ip_name, info, price from pathelement join ip on pathelement.ip = ip.id_ip join firewall on firewall.id_firewall = pathelement.id_elem where firewall.id_firewall = ?;");
+        preparedStatement = connection.prepareStatement("select firewall.id_elem, firewall.delay, ip.ip_name, firewall.info, firewall.price from firewall join ip on firewall.ip = ip.id_ip where firewall.id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
@@ -295,9 +308,8 @@ public class ModelDao {
     public PC readPc(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select pc.id_pc, pathelement.delay, ip.ip_name,pathelement.info, pathelement.price  from pathelement" +
-                " join pc on pc.id_pc = pathelement.id_elem = ? " +
-                " join ip on pathelement.ip = ip.id_ip");
+        preparedStatement = connection.prepareStatement("select pc.id_elem, pc.delay, ip.ip_name, pc.info, pc.price  from pc"+
+                " join ip on pathelement.ip = ip.id_ip WHERE pc.id_elem = ?");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         if(rs.next()) {
@@ -310,7 +322,7 @@ public class ModelDao {
     public Hub readHub(int key, Network net)throws SQLException{
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select hub.id_hub, pathelement.price,pathelement.info, hub.units from pathelement join hub on hub.id_hub = pathelement.id_elem where id_elem = ?;");
+        preparedStatement = connection.prepareStatement("select hub.id_elem, hub.price,hub.info, hub.units from hub where hub.id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
@@ -324,7 +336,7 @@ public class ModelDao {
     public Route readRoute(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select route.id_route, pathelement.delay,ip.ip_name,pathelement.info, pathelement.price,  route.turned_on from pathelement join ip on pathelement.ip = ip.id_ip join route on route.id_route = pathelement.id_elem where id_elem = ?;");
+        preparedStatement = connection.prepareStatement("select route.id_elem, route.delay,ip.ip_name,route.info, route.price,  route.turned_on from route join ip on route.ip = ip.id_ip where route.id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
@@ -340,7 +352,7 @@ public class ModelDao {
     public Switch readSwitch(int key, Network net) throws SQLException, UnknownHostException {
         if(net == null)
             throw new NullPointerException();
-        preparedStatement = connection.prepareStatement("select switch.id_switch, pathelement.delay,ip.ip_name, pathelement.info, pathelement.price, switch.units from pathelement join ip on pathelement.ip = ip.id_ip join switch on switch.id_switch = pathelement.id_elem where id_elem = ?;");
+        preparedStatement = connection.prepareStatement("select switch.id_elem, switch.delay,ip.ip_name, switch.info, switch.price, switch.units from switch join ip on switch.ip = ip.id_ip where switch.id_elem = ?;");
         preparedStatement.setInt(1, key);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();

@@ -22,7 +22,7 @@ public class DaoController {
 
 
     public void createElem(Comands comand, Network net) throws SQLException, UnknownHostException {
-        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao();
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         switch (comand){
@@ -50,7 +50,7 @@ public class DaoController {
     }
 
     public void createData(Comands comand, String attribute) throws SQLException {
-        DataDao dataDao = DaoFactory.getDataDao(DaoFactory.getConnection());
+        DataDao dataDao = DaoFactory.getDataDao();
         if(comand == null) {
             System.out.println("Пустая команда");
         }
@@ -73,8 +73,8 @@ public class DaoController {
     }
 
 
-    public void executeElem(Comands comand, PathElement model, String attribute) throws SQLException {
-        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
+    public void executeElem(Comands comand, PathElement model, String attribute) throws SQLException, DaoException {
+        ModelDao modelDao = DaoFactory.getModelDao();
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(attribute == null)
@@ -165,7 +165,7 @@ public class DaoController {
 
 
     public void deleteElement(Comands comand, PathElement model, Network net) throws SQLException {
-        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao();
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(model == null)
@@ -200,7 +200,7 @@ public class DaoController {
         }
     }
     public void deleteData(Comands comand, String attribute) throws SQLException {
-        DataDao dataDao = DaoFactory.getDataDao(DaoFactory.getConnection());
+        DataDao dataDao = DaoFactory.getDataDao();
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(attribute == null)
@@ -221,7 +221,7 @@ public class DaoController {
     }
 
     public void executeConnectionBetweenElements(Comands comand, ActiveElement model1, PathElement model2) throws Exception {
-        ConnectionDao connectionDao= DaoFactory.getConnectionDao(DaoFactory.getConnection());
+        ConnectionDao connectionDao= DaoFactory.getConnectionDao();
         if(comand == null)
             throw new NullPointerException("Пустая команда");
         if(model1 == null)
@@ -245,8 +245,8 @@ public class DaoController {
     }
 
     public void readAll(Network net) throws Exception {
-        ModelDao modelDao = DaoFactory.getModelDao(DaoFactory.getConnection());
-        ConnectionDao connectionDao= DaoFactory.getConnectionDao(DaoFactory.getConnection());
+        ModelDao modelDao = DaoFactory.getModelDao();
+        ConnectionDao connectionDao= DaoFactory.getConnectionDao();
         modelDao.readAllModels(net);
         connectionDao.readAllConnections(net);
 
